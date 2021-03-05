@@ -1,0 +1,168 @@
+$animation_time: 500ms;
+
+#left{
+    display: flex;
+    flex-direction: column;
+    grid-area: left;
+    background-color: #10002b;
+    font-family: 'Roboto', sans-serif;
+    border: 10%;
+    align-items: center;
+
+    ul{
+        list-style: none;
+        margin: 0;
+        width: 100%;
+        padding: 0;
+        li{
+            height: 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:#e0aaff;
+            margin-bottom: 1.5rem;
+            .entry_item{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background-color: #240046;
+                width: 95%;
+                align-items: center;
+                padding: 5px 0;
+                font-size: 1.3rem;
+                margin-top: 10px;
+                text-align: center;
+                transition: all ease-in-out 200ms;
+                a{
+                    color:#e0aaff;
+                }
+                a:visited{
+                    color:#e0aaff;
+                }
+
+                #date_label{
+                    color:#adb5bd;
+                    font-size: 1.2rem;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                }
+                &:hover{
+                    box-shadow: 0 0 5px 1px #c77dff;
+                }
+                &.selected{
+                    background-color: #3c096c;
+                }
+                &.chosen{
+                    transform: scale(0.9);
+                    box-shadow: 0 0 5px 2px #f72585;
+                    &:hover{
+                        box-shadow: 0 0 5px 2px #f72585;
+                    }
+                }
+            }
+            .deleted{
+                display: none;
+            }
+        }
+    }
+    .top_left{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &_text{
+            text-align: center;
+            font-size: 2rem;
+            margin:10px 0;
+            color:#f8f9fa;
+        }
+    }
+    #new_entry{
+        height: 2.5rem;
+        display: flex;
+        width: 95%;
+        margin-top: 25px;
+        justify-content: center;
+        align-items: center;
+        background-color: #240046;
+        transition: box-shadow ease-in-out 200ms;
+        h1{
+            font-size: 1.5rem;
+            color:#caf0f8;
+            font-family: 'Roboto', sans-serif;
+            font-weight: normal;
+        }
+        &:hover{
+            box-shadow: 0 0 5px 1px #c77dff;
+        }
+    }
+    #delete_entry{
+        height: 0;
+        display: flex;
+        width: 95%;
+        justify-content: center;
+        align-items: center;
+        background-color: #240046;
+        transition: box-shadow ease-in-out 200ms;
+        h1{
+            font-size: 0;
+            color:#caf0f8;
+            font-family: 'Roboto', sans-serif;
+            font-weight: normal;
+        }
+        &:hover{
+            box-shadow: 0 0 5px 1px #c77dff;
+            cursor: pointer;
+        }
+        &.visible{
+            margin-top: 15px;
+            margin-bottom: 15px;
+            // display: flex;
+            h1{
+                animation-name: font_slide;
+                animation-duration: $animation_time;
+                animation-timing-function: ease;
+                animation-fill-mode: forwards;
+                @keyframes font_slide {
+                    from {font-size: 0rem;}
+                    to {font-size: 1.5rem;}
+                }
+            }
+            animation-name: slide;
+            animation-duration: $animation_time;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+            @keyframes slide {
+                from {height: 0;}
+                to {height: 2.5rem;}
+            }
+        }
+    }
+    .not_visible{
+        margin:0;
+        // display: none;
+        h1{
+            animation-name: back_font_slide;
+            animation-duration: $animation_time;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+            @keyframes back_font_slide {
+                from {font-size: 1.5rem;}
+                to {font-size: 0rem;}
+            }
+        }
+        animation-name: back_slide;
+        animation-duration: $animation_time;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+        @keyframes back_slide {
+            from {height: 2.5rem;}
+            to {height: 0;}
+        }
+    }
+
+}
+
+a{
+    text-decoration: none;
+    color: #ffcdb2;
+}
