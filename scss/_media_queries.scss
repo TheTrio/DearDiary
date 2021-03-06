@@ -1,0 +1,9 @@
+@media (max-width:1250px){
+    #left{
+        display: none;
+    }
+    body{
+        grid-template-columns: 1fr;
+        grid-template-areas: "textbox";
+    }
+}

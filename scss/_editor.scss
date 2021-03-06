@@ -3,8 +3,8 @@
     display:flex;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin:3rem 0;
+    height: 100%;
     .textbox{
         grid-area: textbox;
         background-color: #10002b;
@@ -16,7 +16,10 @@
         padding: 1em;
         border-radius: 1em;
         max-width: 800px;
-
+        #words{
+            color:#8d99ae;
+            padding-bottom: 1em;
+        }
         .top{
             display: flex;
             align-items: center;

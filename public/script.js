@@ -1,5 +1,23 @@
+Quill.register('modules/counter', function (quill, options) {
+    var container = document.querySelector(options.container);
+    quill.on('text-change', function () {
+        var text = quill.getText();
+        if (options.unit === 'word') {
+            container.innerText = text.split(/\s+/).length + ' words';
+        } else {
+            container.innerText = text.length + ' characters';
+        }
+    });
+});
+
 var quill = new Quill('#editor', {
-    modules: { toolbar: true },
+    modules: {
+        counter: {
+            container: '#words',
+            unit: 'word'
+        },
+        toolbar: true
+    },
     theme: 'snow',
     scrollingContainer: '#textbox',
     placeholder: 'Your Entry goes here'
