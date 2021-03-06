@@ -6,8 +6,27 @@
         grid-template-columns: 1fr;
         grid-template-areas: "textbox";
     }
+}
+@media (max-width:700px){
     .top{
         flex-direction: column;
         justify-content: space-between;
+        gap: 15px;
+    }
+    #content .textbox .top .title{
+        width: 100%;
+        text-align: center;
+    }
+    #content .textbox .top .saveNow{
+        margin-left: 0;
+    }
+    .ql-toolbar{
+        display: none;
+    }
+    #content .textbox .top #date{
+        margin-left: 0;
+    }
+    #words{
+        text-align: center;
     }
 }
