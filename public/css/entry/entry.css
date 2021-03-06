@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-evenly;
+  align-items: flex-start;
+  height: 100vh;
+}
+
+.card {
+  height: 500px;
+  width: 500px;
+  background-color: black;
+  font-size: 3rem;
+  color: white;
+}
+
+/*# sourceMappingURL=entry.css.map */

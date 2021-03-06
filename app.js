@@ -65,6 +65,10 @@ app.delete('/entry/:id', wrapAsync(async (req, res) => {
     res.send('Deleted')
 }))
 
+app.get('/entry', wrapAsync(async (req, res) => {
+    res.render('entries')
+}))
+
 app.use((err, req, res, next) => {
     const { status = 500, message = 'Something went wrong' } = err
     console.log('OOPS')

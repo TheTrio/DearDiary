@@ -1,13 +1,13 @@
+@use 'variables' as *;
 .btn{
-    background: #240046;
+    background: $dark-primary-color;
     padding: 5px;
     border-radius: 0.5rem;
-    border:2px solid #c77dff;
+    border:2px solid $hover-color;
     outline:none;
-    color:#e0aaff;
+    color:$link-color;
     transition: all 0.1s ease-in-out;
     &:active{
-        background-color: #10002b;
-        // transform: scale(0.99);
+        background-color: $btn-active-color;
     }
 }

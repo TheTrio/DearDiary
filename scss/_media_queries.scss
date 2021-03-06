@@ -1,3 +1,9 @@
+@media(min-width:1250px){
+    .menu-wrap{
+        display: none;
+    }
+}
+
 @media (max-width:1250px){
     #left{
         display: none;
@@ -5,6 +11,9 @@
     body{
         grid-template-columns: 1fr;
         grid-template-areas: "textbox";
+    }
+    .menu-wrap{
+        display: block;
     }
 }
 @media (max-width:700px){

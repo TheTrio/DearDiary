@@ -1,10 +1,11 @@
+@use 'variables' as *;
 $animation_time: 500ms;
 
 #left{
     display: flex;
     flex-direction: column;
     grid-area: left;
-    background-color: #10002b;
+    background-color: $secondary-color;
     font-family: 'Roboto', sans-serif;
     border: 10%;
     align-items: center;
@@ -19,13 +20,13 @@ $animation_time: 500ms;
             display: flex;
             justify-content: center;
             align-items: center;
-            color:#e0aaff;
+            color:$link-color;
             margin-bottom: 1.5rem;
             .entry_item{
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                background-color: #240046;
+                background-color: $dark-primary-color;
                 width: 95%;
                 align-items: center;
                 padding: 5px 0;
@@ -33,35 +34,29 @@ $animation_time: 500ms;
                 margin-top: 10px;
                 text-align: center;
                 transition: all ease-in-out 200ms;
-                a{
-                    color:#e0aaff;
-                }
-                a:visited{
-                    color:#e0aaff;
+                a, a:visited{
+                    color:$link-color;
                 }
 
                 #date_label{
-                    color:#adb5bd;
+                    color:$muted-color;
                     font-size: 1.2rem;
                     padding-top: 5px;
                     padding-bottom: 5px;
                 }
                 &:hover{
-                    box-shadow: 0 0 5px 1px #c77dff;
+                    box-shadow: 0 0 5px 1px $hover-color;
                 }
                 &.selected{
-                    background-color: #3c096c;
+                    background-color: $active-color;
                 }
                 &.chosen{
                     transform: scale(0.9);
-                    box-shadow: 0 0 5px 2px #f72585;
+                    box-shadow: 0 0 5px 2px $selected-color;
                     &:hover{
-                        box-shadow: 0 0 5px 2px #f72585;
+                        box-shadow: 0 0 5px 2px $selected-color;
                     }
                 }
-            }
-            .deleted{
-                display: none;
             }
         }
     }
@@ -73,7 +68,7 @@ $animation_time: 500ms;
             text-align: center;
             font-size: 2rem;
             margin:10px 0;
-            color:#f8f9fa;
+            color:$white-shade;
         }
     }
     #new_entry{
@@ -83,16 +78,16 @@ $animation_time: 500ms;
         margin-top: 25px;
         justify-content: center;
         align-items: center;
-        background-color: #240046;
+        background-color: $dark-primary-color;
         transition: box-shadow ease-in-out 200ms;
         h1{
             font-size: 1.5rem;
-            color:#caf0f8;
+            color:$heading-color;
             font-family: 'Roboto', sans-serif;
             font-weight: normal;
         }
         &:hover{
-            box-shadow: 0 0 5px 1px #c77dff;
+            box-shadow: 0 0 5px 1px $hover-color;
         }
     }
     #delete_entry{
@@ -101,16 +96,16 @@ $animation_time: 500ms;
         width: 95%;
         justify-content: center;
         align-items: center;
-        background-color: #240046;
+        background-color: $dark-primary-color;
         transition: box-shadow ease-in-out 200ms;
         h1{
             font-size: 0;
-            color:#caf0f8;
+            color:$heading-color;
             font-family: 'Roboto', sans-serif;
             font-weight: normal;
         }
         &:hover{
-            box-shadow: 0 0 5px 1px #c77dff;
+            box-shadow: 0 0 5px 1px $hover-color;
             cursor: pointer;
         }
         &.visible{
@@ -164,5 +159,8 @@ $animation_time: 500ms;
 
 a{
     text-decoration: none;
-    color: #ffcdb2;
+}
+
+.deleted{
+    display: none;
 }

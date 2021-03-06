@@ -3,7 +3,7 @@ Quill.register('modules/counter', function (quill, options) {
     quill.on('text-change', function () {
         var text = quill.getText();
         if (options.unit === 'word') {
-            container.innerText = text.split(/\s+/).length + ' words';
+            container.innerText = text.split(/\s+/).length - 2 + ' words';
         } else {
             container.innerText = text.length + ' characters';
         }
@@ -56,9 +56,12 @@ delete_entry.addEventListener('click', (e) => {
             .then((data) => {
                 console.log(data)
             })
-        chosen_item.classList.add('deleted')
+        console.log(chosen_item.parentElement)
+        chosen_item.parentElement.remove()
         delete_entry.classList.remove('visible')
         delete_entry.classList.add('not_visible')
+        selectedItems = 0;
+        window.location = "/";
     }
 
 })
