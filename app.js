@@ -24,10 +24,22 @@ app.engine('ejs', ejsEngine)
 
 app.get('/', wrapAsync(async (req, res) => {
     const { id } = req.query
-    console.log(id)
+    let entry = -1
+    if (id != undefined) {
+        entry = await Entry.findById(id)
+        if (entry == null) {
+            throw new AppError('No such Entry found', 404)
+        }
+    }
     Entry.find({}).sort({ date: -1 }).exec((err, docs) => {
-        console.log(typeof docs[0])
-        res.render('home', { entries: docs.slice(0, 5), id })
+        let out = []
+        docs = docs.slice(0, 5)
+        for (let entry of docs) {
+            out.push(JSON.stringify(entry))
+        }
+        let included = out.includes(JSON.stringify(entry))
+        if (included) res.render('home', { entries: docs, id, included: true })
+        else res.render('home', { entries: docs.slice(0, 4), id, included: false })
     })
 }))
 
@@ -66,7 +78,11 @@ app.delete('/entry/:id', wrapAsync(async (req, res) => {
 }))
 
 app.get('/entry', wrapAsync(async (req, res) => {
-    res.render('entries')
+    const len = await Entry.estimatedDocumentCount()
+    console.log(len)
+    Entry.findOne().skip(Math.floor(Math.random() * len)).exec((e, d) => {
+        res.redirect(`/?id=${d._id}`)
+    })
 }))
 
 app.use((err, req, res, next) => {

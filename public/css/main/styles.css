@@ -1,6 +1,9 @@
 #left {
+  padding-top: 25px;
   display: flex;
   flex-direction: column;
+  height: 1000px;
+  gap: 25px;
   grid-area: left;
   background-color: #10002b;
   font-family: "Roboto", sans-serif;
@@ -12,6 +15,9 @@
   margin: 0;
   width: 100%;
   padding: 0;
+}
+#left ul#current_entry li {
+  margin-bottom: 0;
 }
 #left ul li {
   height: 4rem;
@@ -30,7 +36,7 @@
   align-items: center;
   padding: 5px 0;
   font-size: 1.3rem;
-  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
   transition: all ease-in-out 200ms;
 }
@@ -64,50 +70,39 @@
 #left .top_left_text {
   text-align: center;
   font-size: 2rem;
-  margin: 10px 0;
   color: #f8f9fa;
 }
-#left #new_entry {
+#left .entry_controls {
   height: 2.5rem;
   display: flex;
   width: 95%;
-  margin-top: 25px;
   justify-content: center;
   align-items: center;
   background-color: #240046;
   transition: box-shadow ease-in-out 200ms;
 }
-#left #new_entry h1 {
+#left .entry_controls h1 {
   font-size: 1.5rem;
   color: #caf0f8;
   font-family: "Roboto", sans-serif;
   font-weight: normal;
 }
-#left #new_entry:hover {
+#left .entry_controls:hover {
   box-shadow: 0 0 5px 1px #c77dff;
 }
 #left #delete_entry {
-  height: 0;
+  box-sizing: border-box;
   display: flex;
-  width: 95%;
-  justify-content: center;
-  align-items: center;
-  background-color: #240046;
-  transition: box-shadow ease-in-out 200ms;
+  height: 0;
 }
 #left #delete_entry h1 {
   font-size: 0;
-  color: #caf0f8;
-  font-family: "Roboto", sans-serif;
-  font-weight: normal;
 }
 #left #delete_entry:hover {
-  box-shadow: 0 0 5px 1px #c77dff;
   cursor: pointer;
 }
 #left #delete_entry.visible {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  display: flex;
   animation-name: slide;
   animation-duration: 500ms;
   animation-timing-function: ease;
@@ -137,6 +132,7 @@
 }
 #left .not_visible {
   margin: 0;
+  display: flex;
   animation-name: back_slide;
   animation-duration: 500ms;
   animation-timing-function: ease;
@@ -169,8 +165,8 @@ a {
   text-decoration: none;
 }
 
-.deleted {
-  display: none;
+#delete_entry.deleted {
+  display: none !important;
 }
 
 #content {

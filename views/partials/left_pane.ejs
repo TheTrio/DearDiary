@@ -1,16 +1,29 @@
 <div id="left">
-    <div id="new_entry">
+    <div id="new_entry" class="entry_controls">
         <a href="/">
             <h1>New Entry</h1>
         </a>
     </div>
+    <div id="rand_entry" class="entry_controls">
+        <a href="/entry">
+            <h1>Random Entry</h1>
+        </a>
+    </div>
+    <div id="delete_entry" class="entry_controls deleted">
+        <h1>Delete Selected Entries</h1>
+    </div>
+    <div class="top_left">
+        <span class="top_left_text">
+            Current Entry
+        </span>
+    </div>
+    <ul id="current_entry">
+
+    </ul>
     <div class="top_left">
         <span class="top_left_text">
             Recent Entries
         </span>
-    </div>
-    <div id="delete_entry">
-        <h1>Delete Selected Entries</h1>
     </div>
     <ul id="entry_list">
         <% for( let entry of entries) { %>

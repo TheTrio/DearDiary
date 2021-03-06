@@ -2,8 +2,11 @@
 $animation_time: 500ms;
 
 #left{
+    padding-top: 25px;
     display: flex;
     flex-direction: column;
+    height: 1000px;
+    gap:25px;
     grid-area: left;
     background-color: $secondary-color;
     font-family: 'Roboto', sans-serif;
@@ -15,6 +18,11 @@ $animation_time: 500ms;
         margin: 0;
         width: 100%;
         padding: 0;
+        &#current_entry{
+            li{
+                margin-bottom: 0;
+            }
+        }
         li{
             height: 4rem;
             display: flex;
@@ -31,7 +39,7 @@ $animation_time: 500ms;
                 align-items: center;
                 padding: 5px 0;
                 font-size: 1.3rem;
-                margin-top: 10px;
+                margin-bottom: 10px;
                 text-align: center;
                 transition: all ease-in-out 200ms;
                 a, a:visited{
@@ -67,15 +75,13 @@ $animation_time: 500ms;
         &_text{
             text-align: center;
             font-size: 2rem;
-            margin:10px 0;
             color:$white-shade;
         }
     }
-    #new_entry{
+    .entry_controls{
         height: 2.5rem;
         display: flex;
         width: 95%;
-        margin-top: 25px;
         justify-content: center;
         align-items: center;
         background-color: $dark-primary-color;
@@ -91,27 +97,17 @@ $animation_time: 500ms;
         }
     }
     #delete_entry{
-        height: 0;
+        box-sizing: border-box;
         display: flex;
-        width: 95%;
-        justify-content: center;
-        align-items: center;
-        background-color: $dark-primary-color;
-        transition: box-shadow ease-in-out 200ms;
+        height: 0;
         h1{
             font-size: 0;
-            color:$heading-color;
-            font-family: 'Roboto', sans-serif;
-            font-weight: normal;
         }
         &:hover{
-            box-shadow: 0 0 5px 1px $hover-color;
             cursor: pointer;
         }
         &.visible{
-            margin-top: 15px;
-            margin-bottom: 15px;
-            // display: flex;
+            display: flex;
             h1{
                 animation-name: font_slide;
                 animation-duration: $animation_time;
@@ -134,7 +130,7 @@ $animation_time: 500ms;
     }
     .not_visible{
         margin:0;
-        // display: none;
+        display: flex;
         h1{
             animation-name: back_font_slide;
             animation-duration: $animation_time;
@@ -161,6 +157,6 @@ a{
     text-decoration: none;
 }
 
-.deleted{
-    display: none;
+#delete_entry.deleted{
+    display: none !important;
 }
