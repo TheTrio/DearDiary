@@ -173,7 +173,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin: 3rem 5rem;
+  margin: 3rem 3rem;
   height: 100%;
 }
 #content .textbox {
