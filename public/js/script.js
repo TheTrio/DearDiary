@@ -38,11 +38,15 @@ const error_screen = document.getElementById('error_screen')
 const error_btn = document.getElementsByClassName('error_btn')[0]
 const error_message = document.getElementById('error_screen_text')
 const loading_screen = document.getElementById('loading_screen')
+const hamburger = document.getElementsByClassName('hamburger')[0]
 
 error_btn.addEventListener('click', (e) => {
     window.location = "/";
 })
 
+hamburger.addEventListener('click', (e) => {
+    hamburger.classList.toggle('selected')
+})
 const updateCurrentEntry = (id, title, date) => {
     console.log('runnig again')
     current_entry.innerHTML = ''

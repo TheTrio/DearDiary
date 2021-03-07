@@ -10,7 +10,9 @@
     }
     body{
         grid-template-columns: 1fr;
-        grid-template-areas: "textbox";
+        grid-template-areas: 
+        "nav_bar"
+        "textbox";
     }
     .menu-wrap{
         display: block;

@@ -1,40 +1,38 @@
 /*Code by Traversy Media*/
+@use 'nav_bar';
+
 :root {
     --primary-color: rgba(0, 0, 0, 0);
     --overlay-color: rgba(0,0,0,0.75);
     --menu-speed: 0.75s;
   }
 
-.menu-wrap {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
+// .menu-wrap {
+//     position: relative;
+//     top: 0;
+//     left: 0;
+//     z-index: 1;
+// }
   
-.menu-wrap .toggler {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-    opacity: 0;
-}
+// .menu-wrap .toggler {
+//     cursor: pointer;
+//     width: 50px;
+//     height: 50px;
+//     opacity: 0;
+//     z-index: 3;
+// }
   
 .menu-wrap .hamburger {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
     width: 25px;
     height: 25px;
-    padding: 1rem;
+    padding: 1.5rem;
     background: var(--primary-color);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 5;
+    margin-right: auto;
 }
 .menu-wrap .hamburger > div {
     position: relative;
@@ -52,7 +50,7 @@
 .menu-wrap .hamburger > div::before,
 .menu-wrap .hamburger > div::after {
     content: '';
-    position: absolute;
+    position: relative;
     z-index: 1;
     top: -10px;
     width: 100%;
@@ -66,33 +64,33 @@
 }
 
 /* Toggler Animation */
-.menu-wrap .toggler:checked + .hamburger > div {
+.hamburger.selected > div {
     transform: rotate(135deg);
 }
 
 /* Turns Lines Into X */
-.menu-wrap .toggler:checked + .hamburger > div:before,
-.menu-wrap .toggler:checked + .hamburger > div:after {
+.hamburger.selected > div:before,
+.hamburger.selected > div:after {
 top: 0;
     transform: rotate(90deg);
 }
 
 /* Rotate On Hover When Checked */
-.menu-wrap .toggler:checked:hover + .hamburger > div {
+.hamburger.selected:hover > div  {
     transform: rotate(225deg);
 }
 
 /* Show Menu */
-.menu-wrap .toggler:checked ~ .menu {
+.hamburger.selected ~ .menu {
     visibility: visible;
 }
 
-.menu-wrap .toggler:checked ~ .menu > div {
+.hamburger.selected ~ .menu > div {
     transform: scale(1);
     transition-duration: var(--menu-speed);
 }
 
-.menu-wrap .toggler:checked ~ .menu > div > div {
+.hamburger.selected ~ .menu > div > div {
     opacity: 1;
     transition:  opacity 0.4s ease 0.4s;
 }
@@ -102,6 +100,7 @@ top: 0;
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 2;
     height: 100%;
     visibility: hidden;
     overflow: hidden;
