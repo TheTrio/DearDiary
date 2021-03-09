@@ -34,5 +34,5 @@ $ node app.js
 ```
 4. Visit localhost at port 3000. That is, type `127.0.0.1:3000` in the address bar of your browser.
 
-Please note that this assumes that you already have MongoDB installed on your machine. You can read about how to install MongoDB on your machine [here](https://docs.mongodb.com/manual/installation/)
+Please note that this assumes that you already have MongoDB and NodeJS installed on your machine. You can read about how to install MongoDB and NodeJS on your machine [here](https://docs.mongodb.com/manual/installation/) and [here](https://nodejs.dev/learn/how-to-install-nodejs) respectively.
 
