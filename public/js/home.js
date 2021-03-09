@@ -23,8 +23,6 @@ var quill = new Quill('#editor', {
     placeholder: 'Your Entry goes here'
 });
 
-
-
 const saveButton = document.getElementsByClassName('saveNow')[0]
 const title = document.getElementById('title')
 const entry_list = document.getElementById('entry_list')
@@ -186,8 +184,10 @@ title.addEventListener('keyup', () => {
     }
 })
 
-if (id != -1) setEntry(id)
-else {
+if (id != -1) {
+    quill.enable(false)
+    setEntry(id)
+} else {
     current_entry.insertAdjacentHTML(`afterbegin`, `
         <li>
             <div class="entry_item">
@@ -200,6 +200,9 @@ else {
             </div>
         </li>
     `)
+    date.disabled = false
+    title.disabled = false
+    saveButton.disabled = false
     loading_screen.classList.remove('loading')
 }
 

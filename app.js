@@ -23,7 +23,7 @@ app.use(express.static('public'))
 app.engine('ejs', ejsEngine)
 
 app.get('/', wrapAsync(async (req, res) => {
-    const { id } = req.query
+    let { id } = req.query
     let entry = -1
     if (id != undefined) {
         entry = await Entry.findById(id)
@@ -38,6 +38,9 @@ app.get('/', wrapAsync(async (req, res) => {
             out.push(JSON.stringify(entry))
         }
         let included = out.includes(JSON.stringify(entry))
+        if (id === undefined) {
+            id = -1
+        }
         if (included) res.render('home', { entries: docs, id, included: true })
         else res.render('home', { entries: docs.slice(0, 4), id, included: false })
     })
@@ -59,6 +62,28 @@ app.get('/entry/:id', wrapAsync(async (req, res) => {
         throw new AppError('No such Entry found', 404)
     }
     res.send(entry)
+}))
+
+app.get('/entry/:id/edit', wrapAsync(async (req, res) => {
+    console.log('EDITING')
+    const { id } = req.params
+    let entry = -1
+    if (id != undefined) {
+        entry = await Entry.findById(id)
+        if (entry == null) {
+            throw new AppError('No such Entry found', 404)
+        }
+    }
+    Entry.find({}).sort({ date: -1 }).exec((err, docs) => {
+        let out = []
+        docs = docs.slice(0, 5)
+        for (let entry of docs) {
+            out.push(JSON.stringify(entry))
+        }
+        let included = out.includes(JSON.stringify(entry))
+        if (included) res.render('edit', { entries: docs, id, included: true })
+        else res.render('edit', { entries: docs.slice(0, 4), id, included: false })
+    })
 }))
 
 app.patch('/entry/:id', wrapAsync(async (req, res) => {
