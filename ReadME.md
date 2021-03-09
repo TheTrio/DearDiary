@@ -18,6 +18,12 @@ Currently, DearDiary is not available for public use and is still under producti
 ```
 $ git clone https://github.com/TheTrio/DearDiary.git
 ```
+
+Or if you prefer using ssh
+
+```
+$ git clone ssh://git@github.com/TheTrio/DearDiary.git
+```
 2. Open the folder, and install the node dependencies 
 ```
 $ npm install
