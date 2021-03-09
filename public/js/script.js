@@ -3,7 +3,7 @@ Quill.register('modules/counter', function (quill, options) {
     quill.on('text-change', function () {
         var text = quill.getText();
         if (options.unit === 'word') {
-            container.innerText = text.split(/\s+/).length - 2 + ' words';
+            container.innerText = text.split(/\s+/).length - 1 + ' words';
         } else {
             container.innerText = text.length + ' characters';
         }
@@ -23,8 +23,6 @@ var quill = new Quill('#editor', {
     placeholder: 'Your Entry goes here'
 });
 
-
-
 const saveButton = document.getElementsByClassName('saveNow')[0]
 const title = document.getElementById('title')
 const entry_list = document.getElementById('entry_list')
@@ -41,7 +39,7 @@ const loading_screen = document.getElementById('loading_screen')
 const hamburger = document.getElementsByClassName('hamburger')[0]
 
 error_btn.addEventListener('click', (e) => {
-    window.location = "/";
+    window.location = "/entry/new";
 })
 
 hamburger.addEventListener('click', (e) => {
@@ -54,7 +52,7 @@ const updateCurrentEntry = (id, title, date) => {
     current_entry.insertAdjacentHTML('afterbegin', `<li>
             <div class="entry_item selected" id="${id}">
                 <div>
-                    <a href="/?id=${id}">${title} </a>
+                    <a href="/entry/${id}">${title} </a>
                 </div>
                 <div id="date_label">
                     ${new Intl.DateTimeFormat('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(date)}
@@ -76,13 +74,13 @@ delete_entry.addEventListener('click', (e) => {
             .then((resp) => resp.text())
             .then((data) => {
                 console.log(data)
+                console.log(chosen_item.parentElement)
+                chosen_item.parentElement.remove()
+                delete_entry.classList.remove('visible')
+                delete_entry.classList.add('not_visible')
+                selectedItems = 0;
+                window.location = "/entry/new";
             })
-        console.log(chosen_item.parentElement)
-        chosen_item.parentElement.remove()
-        delete_entry.classList.remove('visible')
-        delete_entry.classList.add('not_visible')
-        selectedItems = 0;
-        window.location = "/";
     }
 
 })
@@ -123,58 +121,6 @@ for (let entry of entry_items) {
 }
 
 date.value = (new Date()).toISOString().slice(0, 10)
-let currentEntry = -1
-const setEntry = (id) => {
-    fetch(`/entry/${id}`)
-        .then((resp) => {
-            if (resp.status === 404) {
-                console.log(resp)
-                throw new Error('No such entry found')
-            } else {
-                return resp.json()
-            }
-        })
-        .then((data) => {
-            currentEntry = data
-            title.value = data.title
-            contents = data.Delta
-            quill.setContents(contents)
-            date.value = data.date.slice(0, 10)
-            document.title = `Diary Entry - ${data.title}`
-            if (isIncluded) {
-                const selected = document.getElementById(id)
-                selected.classList.add('selected')
-                selected_li = selected.parentElement
-                selected.parentElement.remove()
-                current_entry.insertAdjacentElement('afterbegin', selected_li)
-            } else {
-                console.log(data.date.slice(0, 10))
-                const selected = document.createElement('li')
-                selected.insertAdjacentHTML('afterbegin', `
-                <div class="entry_item" id="${id}">
-                    <div>
-                        <a href="/?id=${id} ">${data.title}</a>
-                    </div>
-                    <div id="date_label">
-                        ${new Intl.DateTimeFormat('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(data.date))} 
-                    </div>
-                </div>
-                `)
-                const c = selected.querySelector(`div[id="${id}"]`)
-                c.classList.add('selected')
-                c.addEventListener('click', (e) => selectEntry(e, c))
-                current_entry.insertAdjacentElement('afterbegin', selected)
-            }
-            setTimeout(() => {
-                loading_screen.classList.remove('loading')
-            }, 500)
-        })
-        .catch((e) => {
-            error_message.innerHTML = e.message
-            error_screen.classList.add('visible')
-            loading_screen.classList.remove('loading')
-        })
-}
 
 
 title.addEventListener('keyup', () => {
@@ -185,24 +131,6 @@ title.addEventListener('keyup', () => {
         }
     }
 })
-
-if (id != -1) setEntry(id)
-else {
-    current_entry.insertAdjacentHTML(`afterbegin`, `
-        <li>
-            <div class="entry_item">
-                <div>
-                    <a href="#">Unsaved Entry</a>
-                </div>
-            <div id="date_label">
-                ${new Intl.DateTimeFormat('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date())}
-            </div>
-            </div>
-        </li>
-    `)
-    loading_screen.classList.remove('loading')
-}
-
 
 saveButton.addEventListener('click', () => {
     const chosenDate = new Date(date.value)

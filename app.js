@@ -22,8 +22,29 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.engine('ejs', ejsEngine)
 
-app.get('/', wrapAsync(async (req, res) => {
-    const { id } = req.query
+app.get('/', (req, res) => {
+    res.redirect('/entry/new')
+})
+
+app.get('/entry/new', wrapAsync(async (req, res) => {
+    console.log('hello world')
+    Entry.find({}).sort({ date: -1 }).exec((err, docs) => {
+        docs = docs.slice(0, 4)
+        res.render('new', { entries: docs })
+    })
+}))
+
+app.get('/entry/random', wrapAsync(async (req, res) => {
+    const len = await Entry.estimatedDocumentCount()
+    console.log(len)
+    Entry.findOne().skip(Math.floor(Math.random() * len)).exec((e, d) => {
+        res.redirect(`/entry/${d._id}`)
+    })
+}))
+
+app.get('/entry/:id', wrapAsync(async (req, res) => {
+    let { id } = req.params
+    console.log(id)
     let entry = -1
     if (id != undefined) {
         entry = await Entry.findById(id)
@@ -38,6 +59,9 @@ app.get('/', wrapAsync(async (req, res) => {
             out.push(JSON.stringify(entry))
         }
         let included = out.includes(JSON.stringify(entry))
+        if (id === undefined) {
+            id = -1
+        }
         if (included) res.render('home', { entries: docs, id, included: true })
         else res.render('home', { entries: docs.slice(0, 4), id, included: false })
     })
@@ -51,7 +75,7 @@ app.post('/entry', wrapAsync(async (req, res) => {
     res.send({ entry })
 }))
 
-app.get('/entry/:id', wrapAsync(async (req, res) => {
+app.get('/api/entry/:id', wrapAsync(async (req, res) => {
     console.log('TRYING SOMETHING')
     const { id } = req.params
     const entry = await Entry.findById(id)
@@ -59,6 +83,28 @@ app.get('/entry/:id', wrapAsync(async (req, res) => {
         throw new AppError('No such Entry found', 404)
     }
     res.send(entry)
+}))
+
+app.get('/entry/:id/edit', wrapAsync(async (req, res) => {
+    console.log('EDITING')
+    const { id } = req.params
+    let entry = -1
+    if (id != undefined) {
+        entry = await Entry.findById(id)
+        if (entry == null) {
+            throw new AppError('No such Entry found', 404)
+        }
+    }
+    Entry.find({}).sort({ date: -1 }).exec((err, docs) => {
+        let out = []
+        docs = docs.slice(0, 5)
+        for (let entry of docs) {
+            out.push(JSON.stringify(entry))
+        }
+        let included = out.includes(JSON.stringify(entry))
+        if (included) res.render('edit', { entries: docs, id, included: true })
+        else res.render('edit', { entries: docs.slice(0, 4), id, included: false })
+    })
 }))
 
 app.patch('/entry/:id', wrapAsync(async (req, res) => {
@@ -71,19 +117,13 @@ app.patch('/entry/:id', wrapAsync(async (req, res) => {
 }))
 
 app.delete('/entry/:id', wrapAsync(async (req, res) => {
+    console.log('TRYING TO DELETE')
     const { id } = req.params
     await Entry.findByIdAndRemove(id)
     console.log('DELETED')
     res.send('Deleted')
 }))
 
-app.get('/entry', wrapAsync(async (req, res) => {
-    const len = await Entry.estimatedDocumentCount()
-    console.log(len)
-    Entry.findOne().skip(Math.floor(Math.random() * len)).exec((e, d) => {
-        res.redirect(`/?id=${d._id}`)
-    })
-}))
 
 app.use((err, req, res, next) => {
     const { status = 500, message = 'Something went wrong' } = err

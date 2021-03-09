@@ -1,7 +1,7 @@
 @use 'variables' as *;
 .btn{
     background: $dark-primary-color;
-    padding: 5px;
+    padding: 0.5em 1em;
     border-radius: 0.5rem;
     border:2px solid $hover-color;
     outline:none;
