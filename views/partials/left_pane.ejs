@@ -5,7 +5,7 @@
         </a>
     </div>
     <div id="rand_entry" class="entry_controls">
-        <a href="/entry">
+        <a href="/entry/random">
             <h1>Random Entry</h1>
         </a>
     </div>
@@ -30,7 +30,7 @@
             <li>
                 <div class="entry_item" id="<%= entry._id %>">
                     <div>
-                        <a href="/?id=<%= entry._id %> "><%= entry.title %></a>
+                        <a href="/entry/<%= entry._id %> "><%= entry.title %></a>
                     </div>
                     <div id="date_label">
                         <%= new Intl.DateTimeFormat('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(entry.date) %> 

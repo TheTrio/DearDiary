@@ -332,7 +332,7 @@ body #loading_screen.loading {
 
 .btn {
   background: #240046;
-  padding: 5px;
+  padding: 0.5em 1em;
   border-radius: 0.5rem;
   border: 2px solid #c77dff;
   outline: none;
@@ -545,6 +545,7 @@ body #loading_screen.loading {
 @media screen and (max-width: 1250px) {
   .menu-wrap {
     display: flex;
+    padding: 1em;
   }
   .menu-wrap #nav_links {
     display: none;
@@ -594,6 +595,22 @@ body #loading_screen.loading {
 
   #words {
     text-align: center;
+  }
+}
+@media (min-width: 1251px) {
+  .menu-wrap {
+    justify-content: flex-start;
+    padding: 1em;
+  }
+  .menu-wrap .hamburger {
+    display: none;
+  }
+  .menu-wrap #nav_links {
+    margin-left: auto;
+  }
+
+  #brand_name h1 {
+    margin-left: 0;
   }
 }
 * {
