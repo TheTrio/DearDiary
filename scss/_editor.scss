@@ -3,7 +3,9 @@
     display:flex;
     justify-content: center;
     align-items: flex-start;
-    margin:3rem 3rem;
+    position: relative;
+    top:7rem;
+    margin-bottom: 3rem;
     height: 100%;
     .textbox{
         grid-area: textbox;

@@ -12,7 +12,9 @@ $animation_time: 500ms;
     font-family: 'Roboto', sans-serif;
     border: 10%;
     align-items: center;
-
+    position: fixed;
+    top:4.5em;
+    width: 300px;
     ul{
         list-style: none;
         margin: 0;

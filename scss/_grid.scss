@@ -4,24 +4,17 @@
 body{
     background-color: $primary-color;
     width: 100%;
-    height: 100vh;
     margin: 0;
+    margin-bottom: 3rem;
     padding-bottom: 3rem;
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    // grid-template-rows: 40px 1fr;
-    grid-template-areas: 
-        "nav_bar nav_bar"
-        "left textbox"
-    ;
     position: relative;
-
     #loading_screen{
         position: absolute;
         height: 100vh;
         width: 100%;
         background-color: $primary-color;
         z-index: 2;
+        top:0;
         opacity: 0;
         display: flex;
         visibility: hidden;
@@ -38,4 +31,5 @@ body{
             visibility: visible;
         }
     }
+    height: 100%;
 }

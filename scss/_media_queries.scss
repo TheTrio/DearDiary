@@ -15,10 +15,7 @@
         display: none;
     }
     body{
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-        "nav_bar"
-        "textbox";
+        
     }
     #brand_name{
         h1{
@@ -64,4 +61,13 @@
     #brand_name h1{
         margin-left:0;
     }
+
+    #content{
+        position: relative;
+        left: 300px;
+        top:7rem;
+        width: calc(100vw - 400px);
+    }
+
+
 }
