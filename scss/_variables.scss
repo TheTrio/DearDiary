@@ -1,13 +1,27 @@
-$primary-color: #070014;
-$secondary-color: #10002b;
+$body-color: #edf2fb;
+$text-box-color: #edf2fb;
 $link-color: #e0aaff;
-$hover-color: #c77dff;
+$text-box-shadow-color: #adb5bd;
+$hover-color: $text-box-shadow-color;
+$secondary-color: $text-box-color;
 $active-color: #3c096c;
-$selected-color: #f72585;
 $muted-color:#adb5bd;
 $white-shade:#f8f9fa;
 $dark-primary-color:#240046;
 $heading-color:#caf0f8;
 $btn-active-color:#10002b;
 $neon-glow-color: #6930c3;
-$editor-text-color:#BFBFBF;
+$editor-text-color:black;
+$pane-color:#e2eafc;
+$editor-background-color:$text-box-color;
+$title-color: #3d5a80;
+$toolbar-shadow-color: #ced4da;
+
+$primary-color:$body-color;
+
+$entry-color:#c1d3fe;
+$entry-text-color:#212529;
+$entry-date-color:#495057;
+$entry-selected-color:#ced4da;
+$word-count-color:#495057;
+$input-color:#edf2f4;

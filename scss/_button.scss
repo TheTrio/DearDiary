@@ -1,13 +1,13 @@
 @use 'variables' as *;
 .btn{
-    background: $dark-primary-color;
+    background: $input-color;
     padding: 0.5em 1em;
     border-radius: 0.5rem;
-    border:2px solid $hover-color;
+    box-shadow: 0 0 5px 1px $muted-color;
     outline:none;
-    color:$link-color;
+    color:black;
     transition: all 0.1s ease-in-out;
     &:active{
-        background-color: $btn-active-color;
+        background-color: #e9ecef;
     }
 }

@@ -30,96 +30,86 @@ const current_entry = document.getElementById('current_entry')
 const editor = document.getElementById('editor')
 const date = document.getElementById('date')
 const entry_items = document.getElementsByClassName('entry_item')
-const delete_entry = document.getElementById('delete_entry')
 const a_tags = document.getElementsByTagName('a')
 const error_screen = document.getElementById('error_screen')
 const error_btn = document.getElementsByClassName('error_btn')[0]
 const error_message = document.getElementById('error_screen_text')
 const loading_screen = document.getElementById('loading_screen')
 const hamburger = document.getElementsByClassName('hamburger')[0]
+const leftPane = document.getElementById('left')
+const bar = document.getElementsByClassName('left_bar')[0]
+const content = document.getElementById('content')
 
 error_btn.addEventListener('click', (e) => {
     window.location = "/entry/new";
 })
 
 hamburger.addEventListener('click', (e) => {
-    hamburger.classList.toggle('selected')
+    leftPane.classList.toggle('moveRight')
+    bar.classList.toggle('moveRight')
+    content.classList.toggle('scrollable')
+    for (let item of entry_items) {
+        item.classList.toggle('showDustbin')
+    }
 })
+for (let entry of entry_items) {
+    entry.addEventListener('click', (e) => {
+        if (e.offsetX > entry.offsetWidth) {
+            const options = {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+            fetch(`/entry/${entry.id
+                }`, options)
+                .then((resp) => resp.text())
+                .then((data) => {
+                    entry.parentElement.remove()
+                    window.location = "/entry/new";
+                })
+        }
+    })
+}
 const updateCurrentEntry = (id, title, date) => {
     console.log('runnig again')
     current_entry.innerHTML = ''
 
-    current_entry.insertAdjacentHTML('afterbegin', `<li>
-            <div class="entry_item selected" id="${id}">
-                <div>
-                    <a href="/entry/${id}">${title} </a>
+    current_entry.insertAdjacentHTML('afterbegin', `< li >
+                <div class="entry_item selected" id="${id}">
+                    <div>
+                        <a href="/entry/${id}">${title} </a>
+                    </div>
+                    <div id="date_label">
+                        ${new Intl.DateTimeFormat('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(date)}
+                    </div>
                 </div>
-                <div id="date_label">
-                    ${new Intl.DateTimeFormat('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(date)}
-                </div>
-            </div>
-        </li>`)
+        </li > `)
 }
 
-delete_entry.addEventListener('click', (e) => {
-    const options = {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }
-    const chosen_items = document.querySelectorAll('.chosen')
-    for (let chosen_item of chosen_items) {
-        fetch(`/entry/${chosen_item.id}`, options)
-            .then((resp) => resp.text())
-            .then((data) => {
-                console.log(data)
-                console.log(chosen_item.parentElement)
-                chosen_item.parentElement.remove()
-                delete_entry.classList.remove('visible')
-                delete_entry.classList.add('not_visible')
-                selectedItems = 0;
-                window.location = "/entry/new";
-            })
-    }
+// delete_entry.addEventListener('click', (e) => {
+//     const options = {
+//         method: 'DELETE',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     }
+//     const chosen_items = document.querySelectorAll('.chosen')
+//     for (let chosen_item of chosen_items) {
+//         fetch(`/ entry / ${ chosen_item.id } `, options)
+//             .then((resp) => resp.text())
+//             .then((data) => {
+//                 console.log(data)
+//                 console.log(chosen_item.parentElement)
+//                 chosen_item.parentElement.remove()
+//                 delete_entry.classList.remove('visible')
+//                 delete_entry.classList.add('not_visible')
+//                 selectedItems = 0;
+//                 window.location = "/entry/new";
+//             })
+//     }
 
-})
-let selectedItems = 0
-function selectEntry(e, entry) {
-    if (entry === undefined) {
-        entry = e.target
-    }
-    if ((entry.querySelector('a') === e.target)) {
-        console.log('SAD STUFF')
-    } else {
-        if (entry.classList.contains('chosen')) {
-            selectedItems--;
-        } else {
-            selectedItems++;
-        }
-        entry.classList.toggle('chosen')
-        if (selectedItems >= 1) {
-            if (!delete_entry.classList.contains('visible')) {
-                delete_entry.classList.remove('deleted')
-                delete_entry.classList.toggle('not_visible')
-                delete_entry.classList.toggle('visible')
-            }
-        } else {
-            if (delete_entry.classList.contains('visible')) {
-                delete_entry.classList.remove('visible')
-                delete_entry.classList.add('not_visible')
-                setTimeout(() => {
-                    delete_entry.classList.add('deleted')
-                    console.log('ADDED DELETE')
-                }, 450)
-            }
-        }
-    }
-}
-for (let entry of entry_items) {
-    entry.addEventListener('click', (e) => selectEntry(e, entry))
-}
-
+// })
 date.value = (new Date()).toISOString().slice(0, 10)
 
 
@@ -179,12 +169,11 @@ saveButton.addEventListener('click', () => {
                     const date = new Date(json.entry.date)
                     console.log(date)
                     updateCurrentEntry(json.entry._id, json.entry.title, date)
-                    const c = current_entry.querySelector(`div[id="${json.entry._id}"]`)
-                    c.addEventListener('click', (e) => selectEntry(e, c))
+                    const c = current_entry.querySelector(`div[id = "${json.entry._id}"]`)
                     id = json.entry._id
                     console.log('SAVED ID')
                 }).catch((e) => {
-                    console.log(`Caught error ${e}`)
+                    console.log(`Caught error ${e} `)
                 })
         } else {
             console.log('running')
@@ -195,7 +184,7 @@ saveButton.addEventListener('click', () => {
                 },
                 body: JSON.stringify(Entry)
             }
-            fetch(`/entry/${id}`, options).then(resp => resp.text()).then(d => {
+            fetch(`/ entry / ${id} `, options).then(resp => resp.text()).then(d => {
                 console.log(d)
                 if (d === 'DONE!') {
                     updateCurrentEntry(id, Entry.title, Entry.date)

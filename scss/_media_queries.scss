@@ -1,27 +1,27 @@
 @media screen and (max-width:1250px){
-    .menu-wrap{
-        display: flex;
-        padding:1em;
-        #nav_links{
-            display: none;
-        }
-        .hamburger{
-            position: absolute;
-            top:7;
-            left: 0;
-        }
-    }
-    #left{
-        display: none;
-    }
+    // .menu-wrap{
+    //     display: flex;
+    //     padding:1em;
+    //     #nav_links{
+    //         display: none;
+    //     }
+    //     .hamburger{
+    //         position: absolute;
+    //         top:7;
+    //         left: 0;
+    //     }
+    // }
+    // #left{
+    //     display: none;
+    // }
     body{
         
     }
-    #brand_name{
-        h1{
-            margin:0;
-        }
-    }
+    // #brand_name{
+    //     h1{
+    //         margin:0;
+    //     }
+    // }
 }
 @media (max-width:700px){
     .top{
@@ -48,26 +48,26 @@
 }
 
 @media (min-width:1251px){
-    .menu-wrap {
-        justify-content: flex-start;
-        padding:1em;
-        .hamburger{
-            display: none;
-        }
-        #nav_links{
-            margin-left: auto;
-        }
-    }
-    #brand_name h1{
-        margin-left:0;
-    }
+    // .menu-wrap {
+    //     justify-content: flex-start;
+    //     padding:1em;
+    //     .hamburger{
+    //         display: none;
+    //     }
+    //     #nav_links{
+    //         margin-left: auto;
+    //     }
+    // }
+    // #brand_name h1{
+    //     margin-left:0;
+    // }
 
-    #content{
-        position: relative;
-        left: 300px;
-        top:7rem;
-        width: calc(100vw - 400px);
-    }
+    // #content{
+    //     position: relative;
+    //     left: 300px;
+    //     top:7rem;
+    //     width: calc(100vw - 400px);
+    // }
 
 
 }
