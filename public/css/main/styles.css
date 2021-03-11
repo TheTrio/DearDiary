@@ -1,19 +1,22 @@
 @charset "UTF-8";
 #left {
+  box-sizing: border-box;
   padding-top: 5px;
   display: flex;
   flex-direction: column;
   gap: 25px;
   grid-area: left;
-  background-color: #e2eafc;
+  background-color: rgba(237, 242, 251, 0.9);
   font-family: "Roboto", sans-serif;
   border: 10%;
   align-items: center;
+  height: 100vh;
   position: absolute;
   left: -300px;
   width: 300px;
   z-index: 3;
-  top: 50px;
+  top: 0;
+  padding-top: 50px;
   transition: all ease 500ms;
 }
 #left ul {
@@ -64,13 +67,13 @@
 }
 #left ul li .entry_item::after {
   position: absolute;
-  top: 7px;
-  right: -50px;
+  top: 20px;
+  right: -40px;
   content: "🗑";
-  font-size: 40px;
+  font-size: 30px;
   opacity: 0;
   color: #495057;
-  background-color: #e2eafc;
+  background-color: rgba(237, 242, 251, 0.9);
   transition: all ease 500ms;
 }
 #left ul li .entry_item.showDustbin::after {
@@ -120,9 +123,12 @@ a {
   margin-bottom: 20px;
   height: 100%;
 }
+#content.scrollable {
+  overflow: clip;
+}
 #content .textbox {
   grid-area: textbox;
-  background-color: #edf2fb;
+  background-color: rgba(237, 242, 251, 0.8);
   box-shadow: 0 0 5px 2px #adb5bd;
   width: 70%;
   display: flex;
@@ -131,6 +137,7 @@ a {
   padding: 1em;
   border-radius: 1em;
   min-width: 500px;
+  margin-top: 15px;
 }
 #content .textbox #words {
   color: #495057;
@@ -159,7 +166,7 @@ a {
 }
 #content .textbox .top #date {
   margin-left: 10px;
-  background-color: #edf2f4;
+  background-color: #edf2fb;
   color: black;
   outline: none;
   border-radius: 0.3rem;
@@ -171,7 +178,7 @@ a {
   border-radius: 5px;
 }
 #content .textbox #editor {
-  background-color: #edf2fb;
+  background-color: rgba(237, 242, 251, 0.8);
   transition: transform 0.5s ease-in-out;
   opacity: 0.8;
   border: none;
@@ -220,7 +227,7 @@ a {
   position: absolute;
   height: 100vh;
   width: 100%;
-  background-color: black;
+  background-color: #edf2fb;
   z-index: 2;
   opacity: 0;
   display: flex;
@@ -231,7 +238,7 @@ a {
   align-items: center;
 }
 #error_screen h1 {
-  color: white;
+  color: black;
 }
 #error_screen .error_btn {
   font-size: 2rem;
@@ -243,7 +250,10 @@ a {
 }
 
 body {
-  background-color: #edf2fb;
+  background-image: url("../../images/login.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   width: 100%;
   margin: 0;
   display: grid;
@@ -270,7 +280,7 @@ body #loading_screen {
   transition: all ease-in-out 500ms;
 }
 body #loading_screen h1 {
-  color: white;
+  color: black;
 }
 body #loading_screen.loading {
   opacity: 1;
@@ -278,7 +288,7 @@ body #loading_screen.loading {
 }
 
 .btn {
-  background: #edf2f4;
+  background: rgba(237, 242, 251, 0.8);
   padding: 0.5em 1em;
   border-radius: 0.5rem;
   box-shadow: 0 0 5px 1px #adb5bd;
@@ -287,7 +297,7 @@ body #loading_screen.loading {
   transition: all 0.1s ease-in-out;
 }
 .btn:active {
-  background-color: #e9ecef;
+  background-color: rgba(229, 236, 249, 0.8);
 }
 
 @media (max-width: 700px) {
@@ -319,10 +329,10 @@ body #loading_screen.loading {
   }
 }
 .left_bar {
-  background-color: #e2eafc;
   grid-area: left_bar;
   display: flex;
   justify-content: center;
+  height: 100vh;
   position: relative;
   left: 0;
   z-index: 3;
@@ -336,15 +346,16 @@ body #loading_screen.loading {
 }
 .left_bar.moveRight {
   left: 300px;
+  background-color: rgba(237, 242, 251, 0.9);
 }
 .left_bar.moveRight .hamburger {
   transform: rotate(90deg);
 }
 
 .top_bar {
-  background: #e2eafc;
   grid-area: top_bar;
   width: 100%;
+  z-index: -1;
   height: 50px;
 }
 

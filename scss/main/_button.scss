@@ -1,13 +1,13 @@
 @use 'variables' as *;
 .btn{
-    background: $input-color;
+    background: $editor-background-color;
     padding: 0.5em 1em;
     border-radius: 0.5rem;
-    box-shadow: 0 0 5px 1px $muted-color;
+    box-shadow: 0 0 5px 1px $text-box-shadow-color;
     outline:none;
     color:black;
     transition: all 0.1s ease-in-out;
     &:active{
-        background-color: #e9ecef;
+        background-color: darken($editor-background-color, 2);
     }
 }

@@ -1,10 +1,11 @@
 @use 'variables' as *;
 
 .left_bar{
-    background-color:$pane-color;
+    // background-color:$body-color;
     grid-area: left_bar;
     display: flex;
     justify-content: center;
+    height: 100vh;
     position: relative;
     left:0;
     z-index: 3;
@@ -19,6 +20,7 @@
 
     &.moveRight{
         left:300px;
+        background-color: $pane-color;
         .hamburger{
             transform: rotate(90deg);
         }
@@ -26,8 +28,9 @@
 }
 
 .top_bar{
-    background: $pane-color;
+    // background: $body-color;
     grid-area: top_bar;
     width: 100%;
+    z-index: -1;
     height: 50px;
 }

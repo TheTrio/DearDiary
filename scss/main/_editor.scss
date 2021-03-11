@@ -5,6 +5,9 @@
     align-items: flex-start;
     margin-bottom: 20px;
     height: 100%;
+    &.scrollable{
+        overflow: clip;
+    }
     .textbox{
         grid-area: textbox;
         background-color: $text-box-color;
@@ -16,6 +19,7 @@
         padding: 1em;
         border-radius: 1em;
         min-width: 500px;
+        margin-top: 15px;
         #words{
             color:$word-count-color;
             padding-bottom: 1em;
@@ -43,7 +47,7 @@
             }
             #date{
                 margin-left: 10px;
-                background-color: $input-color;
+                background-color: $body-color;
                 color:black;
                 outline: none;
                 border-radius: 0.3rem;

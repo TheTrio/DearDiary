@@ -1,0 +1,49 @@
+.btn {
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  background-color: #3a86ff;
+  border: none;
+  box-shadow: 0 0 7px 0 black;
+  transition: all ease-in-out 200ms;
+  color: white;
+}
+.btn:active {
+  box-shadow: 0 0 5px black;
+  background-color: #0767ff;
+}
+
+.container {
+  height: 100vh;
+  background-image: url("../../images/login.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .form_pair {
+  display: flex;
+  gap: 20px;
+  font-size: 32px;
+  margin: 1em;
+}
+.container .form_pair label {
+  width: 130px;
+  display: flex;
+  align-items: center;
+  color: #3d5a80;
+}
+.container .form_pair input {
+  font-size: 16px;
+  width: 300px;
+}
+.container .form_pair.btn_container {
+  display: flex;
+  justify-content: center;
+}
+
+* {
+  margin: 0;
+}
+
+/*# sourceMappingURL=styles.css.map */

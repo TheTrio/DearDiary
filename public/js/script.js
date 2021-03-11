@@ -52,30 +52,34 @@ hamburger.addEventListener('click', (e) => {
         item.classList.toggle('showDustbin')
     }
 })
+
+const dustbinClick = (entry, e) => {
+    if (confirm('Are you sure you want to delete this entry?')) {
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        fetch(`/entry/${entry.id
+            }`, options)
+            .then((resp) => resp.text())
+            .then((data) => {
+                entry.parentElement.remove()
+                window.location = "/entry/new";
+            })
+    }
+}
 for (let entry of entry_items) {
     entry.addEventListener('click', (e) => {
-        if (e.offsetX > entry.offsetWidth) {
-            const options = {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }
-            fetch(`/entry/${entry.id
-                }`, options)
-                .then((resp) => resp.text())
-                .then((data) => {
-                    entry.parentElement.remove()
-                    window.location = "/entry/new";
-                })
-        }
+        dustbinClick(entry, e)
     })
 }
 const updateCurrentEntry = (id, title, date) => {
     console.log('runnig again')
     current_entry.innerHTML = ''
 
-    current_entry.insertAdjacentHTML('afterbegin', `< li >
+    current_entry.insertAdjacentHTML('afterbegin', `<li>
                 <div class="entry_item selected" id="${id}">
                     <div>
                         <a href="/entry/${id}">${title} </a>
@@ -84,7 +88,8 @@ const updateCurrentEntry = (id, title, date) => {
                         ${new Intl.DateTimeFormat('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(date)}
                     </div>
                 </div>
-        </li > `)
+        </li> `)
+
 }
 
 // delete_entry.addEventListener('click', (e) => {

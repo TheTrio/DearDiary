@@ -2,7 +2,10 @@
 @use 'variables' as *;
 
 body{
-    background-color: $primary-color;
+    background-image: url('../../images/login.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     width: 100%;
     margin: 0;
     display: grid;
@@ -16,7 +19,7 @@ body{
         position: absolute;
         height: 100vh;
         width: 100%;
-        background-color: $primary-color;
+        background-color: $body-color;
         z-index: 2;
         top:0;
         opacity: 0;
@@ -28,7 +31,7 @@ body{
         align-items: center;
         transition: all ease-in-out 500ms;
         h1{
-            color:white;
+            color:black;
         }
         &.loading{
             opacity: 1;

@@ -2,6 +2,7 @@
 $animation_time: 500ms;
 
 #left{
+    box-sizing: border-box;
     padding-top: 5px;
     display: flex;
     flex-direction: column;
@@ -11,11 +12,13 @@ $animation_time: 500ms;
     font-family: 'Roboto', sans-serif;
     border: 10%;
     align-items: center;
+    height: 100vh;
     position: absolute;
     left: -300px;
     width: 300px;
     z-index: 3;
-    top:50px;
+    top:0;
+    padding-top: 50px;
     transition: all ease $animation_time;
     ul{
         list-style: none;
@@ -65,10 +68,10 @@ $animation_time: 500ms;
                 }
                 &::after{
                     position:absolute;
-                    top:7px;
-                    right: -50px;
+                    top:20px;
+                    right: -40px;
                     content: '🗑';
-                    font-size: 40px;
+                    font-size: 30px;
                     opacity: 0;
                     color: $entry-date-color;
                     background-color: $pane-color;

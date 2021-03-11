@@ -1,8 +1,9 @@
+@use 'variables' as *;
 #error_screen{
     position: absolute;
     height: 100vh;
     width: 100%;
-    background-color: black;
+    background-color: $body-color;
     z-index: 2;
     opacity: 0;
     display: flex;
@@ -12,7 +13,7 @@
     justify-content: center;
     align-items: center;
     h1{
-        color:white;
+        color:black;
     }
     .error_btn{
         font-size: 2rem;

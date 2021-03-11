@@ -26,6 +26,10 @@ app.get('/', (req, res) => {
     res.redirect('/entry/new')
 })
 
+app.get('/login', (req, res) => {
+    res.render('login')
+})
+
 app.get('/entry/new', wrapAsync(async (req, res) => {
     console.log('hello world')
     Entry.find({}).sort({ date: -1 }).exec((err, docs) => {
