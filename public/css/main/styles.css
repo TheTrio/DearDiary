@@ -128,7 +128,7 @@ a {
 }
 #content .textbox {
   grid-area: textbox;
-  background-color: rgba(237, 242, 251, 0.8);
+  background-color: #edf2fb;
   box-shadow: 0 0 5px 2px #adb5bd;
   width: 70%;
   display: flex;
@@ -178,7 +178,7 @@ a {
   border-radius: 5px;
 }
 #content .textbox #editor {
-  background-color: rgba(237, 242, 251, 0.8);
+  background-color: #edf2fb;
   transition: transform 0.5s ease-in-out;
   opacity: 0.8;
   border: none;
@@ -288,7 +288,7 @@ body #loading_screen.loading {
 }
 
 .btn {
-  background: rgba(237, 242, 251, 0.8);
+  background: #edf2fb;
   padding: 0.5em 1em;
   border-radius: 0.5rem;
   box-shadow: 0 0 5px 1px #adb5bd;
@@ -297,7 +297,7 @@ body #loading_screen.loading {
   transition: all 0.1s ease-in-out;
 }
 .btn:active {
-  background-color: rgba(229, 236, 249, 0.8);
+  background-color: #e5ecf9;
 }
 
 @media (max-width: 700px) {

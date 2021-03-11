@@ -1,5 +1,5 @@
 $body-color: #edf2fb;
-$text-box-color: rgba($body-color, 0.8);
+$text-box-color: $body-color;
 $link-color: #e0aaff;
 $text-box-shadow-color: #adb5bd;
 $hover-color: $text-box-shadow-color;
@@ -25,4 +25,4 @@ $entry-date-color:#495057;
 $entry-selected-color:#ced4da;
 $word-count-color:#495057;
 $input-color:#edf2f4;
-$login-btn-color:#asdasd;
+$login-btn-color:#3a86ff;
