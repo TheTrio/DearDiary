@@ -327,6 +327,10 @@ body #loading_screen.loading {
   #words {
     text-align: center;
   }
+
+  body {
+    background: #e2eafc;
+  }
 }
 .left_bar {
   grid-area: left_bar;
