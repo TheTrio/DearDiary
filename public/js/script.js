@@ -54,20 +54,22 @@ hamburger.addEventListener('click', (e) => {
 })
 
 const dustbinClick = (entry, e) => {
-    if (confirm('Are you sure you want to delete this entry?')) {
-        const options = {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
+    if (e.offsetX > entry.offsetWidth) {
+        if (confirm('Are you sure you want to delete this entry?')) {
+            const options = {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             }
+            fetch(`/entry/${entry.id
+                }`, options)
+                .then((resp) => resp.text())
+                .then((data) => {
+                    entry.parentElement.remove()
+                    window.location = "/entry/new";
+                })
         }
-        fetch(`/entry/${entry.id
-            }`, options)
-            .then((resp) => resp.text())
-            .then((data) => {
-                entry.parentElement.remove()
-                window.location = "/entry/new";
-            })
     }
 }
 for (let entry of entry_items) {
