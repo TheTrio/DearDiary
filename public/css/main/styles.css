@@ -328,7 +328,7 @@ body.unscroll {
 
   #left {
     width: 100vw;
-    height: 100vh;
+    height: 95vh;
     left: -100vw;
     background-color: #edf2fb;
   }
