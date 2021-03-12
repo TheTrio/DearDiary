@@ -10,7 +10,6 @@
   font-family: "Roboto", sans-serif;
   border: 10%;
   align-items: center;
-  height: 100vh;
   position: absolute;
   left: -300px;
   width: 300px;
@@ -129,14 +128,13 @@ a {
 #content .textbox {
   grid-area: textbox;
   background-color: #edf2fb;
-  box-shadow: 0 0 5px 2px #adb5bd;
+  box-shadow: 0 0 5px 0 #adb5bd;
   width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   padding: 1em;
   border-radius: 1em;
-  min-width: 500px;
   margin-top: 15px;
 }
 #content .textbox #words {
@@ -257,9 +255,9 @@ body {
   width: 100%;
   margin: 0;
   display: grid;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 50px 1fr;
-  grid-template-areas: "left_bar top_bar" "left_bar textbox";
+  grid-template-areas: "top_bar" "textbox";
   row-gap: 20px;
   height: 100vh;
 }
@@ -329,17 +327,21 @@ body #loading_screen.loading {
   }
 
   body {
-    background: #e2eafc;
+    background-image: url("../../images/mobile_login.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
   }
 }
 .left_bar {
   grid-area: left_bar;
   display: flex;
   justify-content: center;
-  height: 100vh;
-  position: relative;
+  height: 747.8px;
+  position: absolute;
   left: 0;
   z-index: 3;
+  width: 50px;
   transition: all ease 500ms;
 }
 .left_bar .hamburger {

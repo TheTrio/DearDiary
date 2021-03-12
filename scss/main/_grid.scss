@@ -9,11 +9,11 @@ body{
     width: 100%;
     margin: 0;
     display: grid;
-    grid-template-columns: 50px 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 50px 1fr;
     grid-template-areas: 
-    "left_bar top_bar"
-    "left_bar textbox";
+    "top_bar"
+    "textbox";
     row-gap: 20px;
     // backdrop-filter: blur(5px);
     #loading_screen{
