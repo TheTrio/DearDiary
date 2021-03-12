@@ -16,6 +16,7 @@
   z-index: 3;
   top: 0;
   padding-top: 50px;
+  height: 500px;
   overflow-y: auto;
   overflow-x: visible;
   transition: all ease 500ms;
