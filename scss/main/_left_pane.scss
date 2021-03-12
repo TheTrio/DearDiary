@@ -6,18 +6,21 @@ $animation_time: 500ms;
     padding-top: 5px;
     display: flex;
     flex-direction: column;
-    gap:25px;
+    gap:15px;
     grid-area: left;
     background-color: $pane-color;
     font-family: 'Roboto', sans-serif;
     border: 10%;
     align-items: center;
     position: absolute;
-    left: -300px;
-    width: 300px;
+    left: -350px;
+    width: 350px;
     z-index: 3;
     top:0;
     padding-top: 50px;
+    height: min(100vh, 748px);
+    overflow-y: auto;
+    overflow-x: visible;
     transition: all ease $animation_time;
     ul{
         list-style: none;
@@ -36,6 +39,7 @@ $animation_time: 500ms;
             align-items: center;
             color:$entry-text-color;
             margin-bottom: 1.5rem;
+            max-width: 300px;
             .entry_item{
                 display: flex;
                 flex-direction: column;
@@ -49,6 +53,7 @@ $animation_time: 500ms;
                 position: relative;
                 text-align: center;
                 transition: all ease-in-out 200ms;
+                max-width: 270px;
                 a, a:visited{
                     color:$entry-text-color;
                 }
@@ -73,7 +78,7 @@ $animation_time: 500ms;
                     font-size: 30px;
                     opacity: 0;
                     color: $entry-date-color;
-                    background-color: $pane-color;
+                    // background-color: $pane-color;
                     transition: all ease 500ms;
 
                 }
@@ -95,22 +100,10 @@ $animation_time: 500ms;
             color:$entry-text-color;
         }
     }
-    .entry_controls{
-        height: 2.5rem;
-        display: flex;
-        width: 95%;
-        justify-content: center;
-        align-items: center;
-        background-color: #abc4ff;
-        transition: box-shadow ease-in-out 200ms;
-        h1{
-            font-size: 1.5rem;
-            color:black;
-            font-family: 'Roboto', sans-serif;
-            font-weight: normal;
-        }
-        &:hover{
-            box-shadow: 0 0 5px 1px $hover-color;
+    .entry_control{
+        margin-bottom: 0 !important;
+        &::after{
+            display: none;
         }
     }
 

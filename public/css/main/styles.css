@@ -4,18 +4,21 @@
   padding-top: 5px;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 15px;
   grid-area: left;
   background-color: rgba(237, 242, 251, 0.9);
   font-family: "Roboto", sans-serif;
   border: 10%;
   align-items: center;
   position: absolute;
-  left: -300px;
-  width: 300px;
+  left: -350px;
+  width: 350px;
   z-index: 3;
   top: 0;
   padding-top: 50px;
+  height: min(100vh, 748px);
+  overflow-y: auto;
+  overflow-x: visible;
   transition: all ease 500ms;
 }
 #left ul {
@@ -34,6 +37,7 @@
   align-items: center;
   color: #212529;
   margin-bottom: 1.5rem;
+  max-width: 300px;
 }
 #left ul li .entry_item {
   display: flex;
@@ -48,6 +52,7 @@
   position: relative;
   text-align: center;
   transition: all ease-in-out 200ms;
+  max-width: 270px;
 }
 #left ul li .entry_item a, #left ul li .entry_item a:visited {
   color: #212529;
@@ -72,7 +77,6 @@
   font-size: 30px;
   opacity: 0;
   color: #495057;
-  background-color: rgba(237, 242, 251, 0.9);
   transition: all ease 500ms;
 }
 #left ul li .entry_item.showDustbin::after {
@@ -89,23 +93,11 @@
   font-size: 2rem;
   color: #212529;
 }
-#left .entry_controls {
-  height: 2.5rem;
-  display: flex;
-  width: 95%;
-  justify-content: center;
-  align-items: center;
-  background-color: #abc4ff;
-  transition: box-shadow ease-in-out 200ms;
+#left .entry_control {
+  margin-bottom: 0 !important;
 }
-#left .entry_controls h1 {
-  font-size: 1.5rem;
-  color: black;
-  font-family: "Roboto", sans-serif;
-  font-weight: normal;
-}
-#left .entry_controls:hover {
-  box-shadow: 0 0 5px 1px #adb5bd;
+#left .entry_control::after {
+  display: none;
 }
 #left.moveRight {
   left: 0;
@@ -284,6 +276,9 @@ body #loading_screen.loading {
   opacity: 1;
   visibility: visible;
 }
+body.unscroll {
+  overflow: hidden;
+}
 
 .btn {
   background: #edf2fb;
@@ -337,10 +332,9 @@ body #loading_screen.loading {
   grid-area: left_bar;
   display: flex;
   justify-content: center;
-  height: 747.8px;
   position: absolute;
   left: 0;
-  z-index: 3;
+  z-index: 5;
   width: 50px;
   transition: all ease 500ms;
 }
@@ -351,8 +345,7 @@ body #loading_screen.loading {
   height: 50px;
 }
 .left_bar.moveRight {
-  left: 300px;
-  background-color: rgba(237, 242, 251, 0.9);
+  left: 290px;
 }
 .left_bar.moveRight .hamburger {
   transform: rotate(90deg);

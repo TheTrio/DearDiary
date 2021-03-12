@@ -51,6 +51,7 @@ hamburger.addEventListener('click', (e) => {
     for (let item of entry_items) {
         item.classList.toggle('showDustbin')
     }
+    document.getElementsByTagName('body')[0].classList.toggle('unscroll')
 })
 
 const dustbinClick = (entry, e) => {

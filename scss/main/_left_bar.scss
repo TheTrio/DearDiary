@@ -5,10 +5,10 @@
     grid-area: left_bar;
     display: flex;
     justify-content: center;
-    height: 747.8px;
+    // height: min(100vh, 748px);
     position: absolute;
     left:0;
-    z-index: 3;
+    z-index: 5;
     width: 50px;
     transition: all ease 500ms;
     
@@ -20,8 +20,8 @@
     }
 
     &.moveRight{
-        left:300px;
-        background-color: $pane-color;
+        left:290px;
+        // background-color: $pane-color;
         .hamburger{
             transform: rotate(90deg);
         }
