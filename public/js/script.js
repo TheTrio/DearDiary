@@ -37,7 +37,7 @@ const error_message = document.getElementById('error_screen_text')
 const loading_screen = document.getElementById('loading_screen')
 const hamburger = document.getElementsByClassName('hamburger')[0]
 const leftPane = document.getElementById('left')
-const bar = document.getElementsByClassName('left_bar')[0]
+const bar = document.getElementsByClassName('top_bar')[0]
 const content = document.getElementById('content')
 
 error_btn.addEventListener('click', (e) => {

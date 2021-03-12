@@ -1,6 +1,4 @@
-@media screen and (max-width:1250px){
-    
-}
+@use 'variables' as *;
 @media (max-width:700px){
     .top{
         flex-direction: column;
@@ -28,29 +26,32 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
-}
-
-@media (min-width:1251px){
-    // .menu-wrap {
-    //     justify-content: flex-start;
-    //     padding:1em;
-    //     .hamburger{
-    //         display: none;
-    //     }
-    //     #nav_links{
-    //         margin-left: auto;
-    //     }
-    // }
-    // #brand_name h1{
-    //     margin-left:0;
-    // }
-
-    // #content{
-    //     position: relative;
-    //     left: 300px;
-    //     top:7rem;
-    //     width: calc(100vw - 400px);
-    // }
-
-
+    #left{
+        // top:-50px;
+        width: 100vw;
+        height: 100vh;
+        left:-100vw;
+        background-color: rgba($pane-color,1);
+        ul{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap:15px;
+            li{
+                height: 3rem;
+                width: 80%;
+                max-width: none;
+                .entry_item{
+                    max-width: none;
+                }
+            }
+        }
+    }
+    .top_bar{
+        &.moveRight{
+            .hamburger{
+                left:calc(100vw - 50px) !important;
+            }
+        }
+    }
 }

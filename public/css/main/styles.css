@@ -48,7 +48,6 @@
   align-items: center;
   padding: 5px 0;
   font-size: 1.3rem;
-  margin-bottom: 10px;
   position: relative;
   text-align: center;
   transition: all ease-in-out 200ms;
@@ -326,6 +325,31 @@ body.unscroll {
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
+
+  #left {
+    width: 100vw;
+    height: 100vh;
+    left: -100vw;
+    background-color: #edf2fb;
+  }
+  #left ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  #left ul li {
+    height: 3rem;
+    width: 80%;
+    max-width: none;
+  }
+  #left ul li .entry_item {
+    max-width: none;
+  }
+
+  .top_bar.moveRight .hamburger {
+    left: calc(100vw - 50px) !important;
+  }
 }
 .left_bar {
   grid-area: left_bar;
@@ -333,28 +357,29 @@ body.unscroll {
   justify-content: center;
   position: absolute;
   left: 0;
-  z-index: 5;
+  z-index: -1;
   width: 50px;
-  transition: all ease 500ms;
-}
-.left_bar .hamburger {
-  font-size: 2em;
-  cursor: pointer;
-  transition: all ease 500ms;
-  height: 50px;
-}
-.left_bar.moveRight {
-  left: 290px;
-}
-.left_bar.moveRight .hamburger {
-  transform: rotate(90deg);
 }
 
 .top_bar {
   grid-area: top_bar;
   width: 100%;
-  z-index: -1;
+  z-index: 5;
   height: 50px;
+}
+.top_bar .hamburger {
+  text-align: center;
+  position: absolute;
+  font-size: 2em;
+  cursor: pointer;
+  transition: all ease 500ms;
+  width: 50px;
+  height: 50px;
+  left: 0;
+}
+.top_bar.moveRight .hamburger {
+  transform: rotate(90deg);
+  left: 300px;
 }
 
 * {
