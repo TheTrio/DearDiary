@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use '../variables' as *;
 @media (max-width:700px){
     .top{
         flex-direction: column;

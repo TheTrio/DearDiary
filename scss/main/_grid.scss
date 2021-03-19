@@ -1,5 +1,5 @@
 @use 'error_screen';
-@use 'variables' as *;
+@use '../variables' as *;
 
 body{
     background-image: url('../../images/login.jpg');
