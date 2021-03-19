@@ -4,7 +4,7 @@ A free and open source website to manage your Diary Entries.
 
 ## Why
 
-While several Diary Writing services exist, they're either paid, or have a limited free tier. Since they're all close sourced, users also worry about the privacy of their entries. DearDiary aims to solve both of those problems by adopting a free and open source model. 
+While several Diary Writing services exist, they're either paid, or have a rather limited free tier. Since they're all close sourced, users also worry about the privacy of their entries. DearDiary aims to solve both of those problems by adopting a free and open source model. 
 
 ## When
 
