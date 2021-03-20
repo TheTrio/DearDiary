@@ -42,7 +42,7 @@ const setEntry = (id) => {
             }
             setTimeout(() => {
                 loading_screen.classList.remove('loading')
-            }, 500)
+            }, 1000)
         })
         .catch((e) => {
             error_message.innerHTML = e.message

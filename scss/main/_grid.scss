@@ -15,30 +15,6 @@ body{
     "top_bar"
     "textbox";
     row-gap: 20px;
-    // backdrop-filter: blur(5px);
-    #loading_screen{
-        position: absolute;
-        height: 100vh;
-        width: 100%;
-        background-color: $body-color;
-        z-index: 2;
-        top:0;
-        opacity: 0;
-        display: flex;
-        visibility: hidden;
-        flex-direction: column;
-        gap: 1rem;
-        justify-content: center;
-        align-items: center;
-        transition: all ease-in-out 500ms;
-        h1{
-            color:black;
-        }
-        &.loading{
-            opacity: 1;
-            visibility: visible;
-        }
-    }
     height: 100vh;
     &.unscroll{
         overflow: hidden;
