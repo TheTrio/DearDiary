@@ -67,4 +67,6 @@ saveButton.addEventListener('click', () => {
     }
 }
 )
-// loading_screen.classList.remove('loading')
+setTimeout(() => {
+    loading_screen.classList.remove('loading')
+}, 500)
