@@ -21,6 +21,9 @@ $animation_time: 500ms;
     overflow-y: auto;
     overflow-x: visible;
     transition: left ease $animation_time;
+    li:last-of-type{
+        margin-bottom: 1em;
+    }
     .left_container{
         display: flex;
         width: 100%;

@@ -20,6 +20,9 @@
   overflow-x: visible;
   transition: left ease 500ms;
 }
+#left li:last-of-type {
+  margin-bottom: 1em;
+}
 #left .left_container {
   display: flex;
   width: 100%;
