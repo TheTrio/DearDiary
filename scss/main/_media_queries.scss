@@ -31,6 +31,7 @@
         height: 100vh;
         left:-100vw;
         background-color: rgba($pane-color,1);
+        justify-content: center;
         ul{
             display: flex;
             flex-direction: column;
