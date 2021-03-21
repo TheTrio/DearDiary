@@ -26,17 +26,18 @@
   margin: 0;
   width: 100%;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 #left ul#current_entry li {
   margin-bottom: 0;
 }
 #left ul li {
-  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #212529;
-  margin-bottom: 1.5rem;
   max-width: 300px;
 }
 #left ul li .entry_item {
@@ -58,7 +59,7 @@
 }
 #left ul li .entry_item #date_label {
   color: #495057;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -91,9 +92,6 @@
   text-align: center;
   font-size: 2rem;
   color: #212529;
-}
-#left .entry_control {
-  margin-bottom: 0 !important;
 }
 #left .entry_control::after {
   display: none;
@@ -314,9 +312,9 @@ body.unscroll {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    margin-right: 30px;
   }
   #left ul li {
-    height: 3rem;
     width: 80%;
     max-width: none;
   }
