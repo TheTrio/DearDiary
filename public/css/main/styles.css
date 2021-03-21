@@ -25,6 +25,7 @@
   width: 100%;
   flex-direction: column;
   gap: 1rem;
+  margin-right: 0.5rem;
 }
 #left ul {
   list-style: none;
