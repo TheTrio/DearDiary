@@ -12,26 +12,34 @@
   background-color: #0767ff;
 }
 
-.container {
-  height: 100vh;
-  background-image: url("../../images/login.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+body {
+  background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ced4da;
+  flex-direction: column;
+  border-radius: 1rem;
 }
 .container .form_pair {
   display: flex;
   gap: 20px;
-  font-size: 32px;
+  font-size: 20px;
   margin: 1em;
 }
 .container .form_pair label {
   width: 130px;
   display: flex;
   align-items: center;
-  color: #3d5a80;
+  color: #000;
 }
 .container .form_pair input {
   font-size: 16px;
@@ -40,6 +48,10 @@
 .container .form_pair.btn_container {
   display: flex;
   justify-content: center;
+}
+.container .company_text {
+  font-size: 3rem;
+  font-family: "Dancing Script", cursive;
 }
 
 * {
