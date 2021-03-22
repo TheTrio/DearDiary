@@ -42,6 +42,7 @@ const setEntry = (id) => {
             }
             setTimeout(() => {
                 loading_screen.classList.remove('loading')
+                document.getElementsByTagName('body')[0].classList.remove('unscroll')
             }, 1000)
         })
         .catch((e) => {

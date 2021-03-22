@@ -1,13 +1,15 @@
 // light mode variables
 
-$body-color: #edf2fb;
+$loading-screen-color:#f8f9fa;
+$body-color: rgba(#f8f9fa, 0.95);
 $text-box-color: $body-color;
 $link-color: #e0aaff;
 $text-box-shadow-color: #adb5bd;
 $hover-color: $text-box-shadow-color;
 $editor-text-color:black;
 $pane-color:rgba($body-color, 0.9);
-$editor-background-color:$text-box-color;
+// $editor-background-color:$text-box-color;
+$editor-background-color: rgba(black, 0);
 $title-color: #3d5a80;
 $toolbar-shadow-color: #ced4da;
 

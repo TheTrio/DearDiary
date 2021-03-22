@@ -1,0 +1,56 @@
+*{
+	margin:0;
+}
+
+body{
+	background-image: url('../../images/home.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+
+	.card{
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: rgba(#C4C4C4, 0.75);
+		gap:1rem;
+		border-radius: 25px;
+		height: 300px;
+		width: 500px;
+		.product_name{
+			font-size: 4rem;
+			font-family: 'Dancing Script', cursive;
+			color:#676767;
+			margin-top: 2rem;
+		}
+		.tag_line{
+			font-size: 1.7rem;
+			font-family: 'Roboto', sans-serif;
+		}
+		.login{
+			box-sizing: border-box;
+			width: 75%;
+			font-size: 20px;
+			background-color: #ef476e;
+			color:white;
+			text-decoration: none;
+			border-radius: 50px;
+			text-align: center;
+			padding:1em;
+			font-family: 'Roboto', sans-serif;
+			transition: background-color 250ms ease;
+			&:hover{
+				background-color: #F26989;
+			}
+		}
+		p{
+			margin-top:0.5em;
+			font-family: 'Roboto', sans-serif;
+		}
+	}
+}
+

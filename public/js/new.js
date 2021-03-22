@@ -69,4 +69,5 @@ saveButton.addEventListener('click', () => {
 )
 setTimeout(() => {
     loading_screen.classList.remove('loading')
+    document.getElementsByTagName('body')[0].classList.remove('unscroll')
 }, 500)

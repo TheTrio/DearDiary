@@ -23,11 +23,7 @@ app.use(express.static('public'))
 app.engine('ejs', ejsEngine)
 
 app.get('/', (req, res) => {
-    // const { password } = req.query
-    // if (password !== 'sedness') {
-    //     res.send('ACCESS DENIED')
-    // }
-    res.redirect('/entry/new')
+    res.render('homepage')
 })
 
 app.get('/login', (req, res) => {
