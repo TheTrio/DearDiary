@@ -40,11 +40,12 @@ body {
   margin: 1em;
 }
 .container .form_pair label {
-  width: 130px;
+  width: 150px;
   display: flex;
   align-items: center;
   color: #000;
   font-family: "Roboto", sans-serif;
+  font-size: 16px;
 }
 .container .form_pair input {
   font-size: 16px;
@@ -57,10 +58,11 @@ body {
   justify-content: center;
   margin: 0;
 }
-.container .company_text {
-  font-size: 4rem;
+.container .text {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 3rem;
   color: #676767;
-  font-family: "Dancing Script", cursive;
 }
 
 * {

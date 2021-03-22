@@ -26,11 +26,12 @@ body{
         margin:1em;
         
         label{
-            width: 130px;
+            width: 150px;
             display: flex;
             align-items: center;
             color:#000;
             font-family: 'Roboto', sans-serif;
+            font-size: 16px;
         }
         input{
             font-size: 16px;
@@ -44,11 +45,10 @@ body{
             margin:0;
         }
     }
-    .company{
-        &_text{
-            font-size: 4rem;
-            color:#676767;
-            font-family: 'Dancing Script', cursive;
-        }
+    .text{
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+        font-size: 3rem;
+        color:#676767;
     }
 }
