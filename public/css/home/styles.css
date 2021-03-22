@@ -45,7 +45,7 @@ body .card .login {
   font-family: "Roboto", sans-serif;
   transition: background-color 250ms ease;
 }
-body .card .login:hover {
+body .card .login:hover, body .card .login:focus, body .card .login:active {
   background-color: #F26989;
 }
 body .card p {

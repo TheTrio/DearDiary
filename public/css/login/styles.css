@@ -13,7 +13,9 @@
 }
 
 body {
-  background: #ffffff;
+  background-image: url("../../images/home.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,13 +23,15 @@ body {
 }
 
 .container {
-  background-color: #ffffff;
+  background-color: rgba(196, 196, 196, 0.75);
+  padding: 1em;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid #ced4da;
   flex-direction: column;
   border-radius: 1rem;
+  gap: 1rem;
 }
 .container .form_pair {
   display: flex;
@@ -40,17 +44,22 @@ body {
   display: flex;
   align-items: center;
   color: #000;
+  font-family: "Roboto", sans-serif;
 }
 .container .form_pair input {
   font-size: 16px;
   width: 300px;
+  height: 30px;
+  font-family: "Roboto", sans-serif;
 }
 .container .form_pair.btn_container {
   display: flex;
   justify-content: center;
+  margin: 0;
 }
 .container .company_text {
-  font-size: 3rem;
+  font-size: 4rem;
+  color: #676767;
   font-family: "Dancing Script", cursive;
 }
 
