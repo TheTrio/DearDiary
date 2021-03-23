@@ -43,7 +43,7 @@ body{
 			padding:1em;
 			font-family: 'Roboto', sans-serif;
 			transition: background-color 250ms ease;
-			&:hover{
+			&:hover, &:focus, &:active{
 				background-color: #F26989;
 			}
 		}
