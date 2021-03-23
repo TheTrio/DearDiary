@@ -15,6 +15,7 @@
         <div class="text">
             Log In
         </div>
+        <%- include('partials/flash') %>
         <form action="/login" method="POST">
             <div class="form_pair">
                 <label for="username">Username</label>
@@ -22,7 +23,7 @@
             </div>
             <div class="form_pair">
                 <label for="password">Password</label>
-                <input type="text" name="password" id="password">
+                <input type="password" name="password" id="password">
             </div>
             <div class="form_pair btn_container"><button class="btn">Log In</button></div>
         </form>

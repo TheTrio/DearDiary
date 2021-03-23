@@ -152,7 +152,6 @@ saveButton.addEventListener('click', () => {
         const Delta = quill.getContents().ops
         console.log(title.value)
         const Entry = {
-            username: 'Shashwat',
             Delta: Delta,
             date: chosenDate,
             title: title.value
