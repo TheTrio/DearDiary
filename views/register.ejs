@@ -15,18 +15,19 @@
 		<div class="text">
 			New Account
 		</div>
+		<%- include('partials/flash') %>
 		<form action="/register" method="POST">
 			<div class="form_pair">
 				<label for="username">Username</label>
-				<input type="text" name="username" id="username">
+				<input type="text" name="username" id="username" required>
 			</div>
 			<div class="form_pair">
 				<label for="username">Email</label>
-				<input type="email" name="email" id="email">
+				<input type="email" name="email" id="email" required>
 			</div>
 			<div class="form_pair">
 				<label for="password">Password</label>
-				<input type="password" name="password" id="password">
+				<input type="password" name="password" id="password" required>
 			</div>
 			<!-- <div class="form_pair">
 				<label for="password">Confirm Password</label>

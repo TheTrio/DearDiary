@@ -19,12 +19,11 @@
 			<h2>
 				Status Code - <%= status %>
 			</h2>
-			<p>
-				We were unable to find an entry with this URL. Try checking the URL to see if its valid.
-			</p>
-			<p>
-				Remember visiting this URL? Its possible that the entry was deleted.
-			</p>
+			<% for( let para of paragraphs ) { %>
+				<p>
+					<%= para %> 
+				</p>
+			<% } %>
 			<a href="/entry/new" class="btn">Return Back</a>
 		</div>
 		<div class="gif">
