@@ -39,11 +39,6 @@ $animation_time: 500ms;
         display: flex;
         flex-direction: column;
         gap:1rem;
-        &#current_entry{
-            li{
-                margin-bottom: 0;
-            }
-        }
         li{
             display: flex;
             justify-content: center;

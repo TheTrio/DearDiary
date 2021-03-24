@@ -1,6 +1,6 @@
 current_entry.insertAdjacentHTML(`afterbegin`, `
     <li>
-        <div class="entry_item">
+        <div class="entry_item" id="unsaved_entry">
             <div>
                 <a href="#">Unsaved Entry</a>
             </div>
@@ -10,6 +10,10 @@ current_entry.insertAdjacentHTML(`afterbegin`, `
         </div>
     </li>
 `)
+const c = current_entry.querySelector(`#unsaved_entry`)
+c.addEventListener('click', e => {
+    dustbinClick(c, e)
+})
 
 saveButton.addEventListener('click', () => {
     const chosenDate = new Date(date.value)

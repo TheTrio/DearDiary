@@ -1,0 +1,8 @@
+@media (max-width:750px){
+	.container{
+		flex-direction: column;
+		h2{
+			align-self: center !important;
+		}
+	}
+}

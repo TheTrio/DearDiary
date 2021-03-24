@@ -4,7 +4,7 @@ if (id != -1) {
 } else {
     current_entry.insertAdjacentHTML(`afterbegin`, `
         <li>
-            <div class="entry_item">
+            <div class="entry_item" id="unsaved_entry">
                 <div>
                     <a href="#">Unsaved Entry</a>
                 </div>

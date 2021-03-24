@@ -39,6 +39,7 @@ const hamburger = document.getElementsByClassName('hamburger')[0]
 const leftPane = document.getElementById('left')
 const bar = document.getElementsByClassName('top_bar')[0]
 const content = document.getElementById('content')
+const unsaved_entry = document.getElementById('unsaved_entry')
 
 error_btn.addEventListener('click', (e) => {
     window.location = "/entry/new";
@@ -56,6 +57,7 @@ hamburger.addEventListener('click', (e) => {
 
 const dustbinClick = (entry, e) => {
     if (e.offsetX > entry.offsetWidth) {
+        console.log(entry)
         if (confirm('Are you sure you want to delete this entry?')) {
             const options = {
                 method: 'DELETE',
@@ -92,6 +94,10 @@ const updateCurrentEntry = (id, title, date) => {
                     </div>
                 </div>
         </li> `)
+    const c = current_entry.querySelector(`#${id}`)
+    c.addEventListener(e => {
+        dustbinClick(c, e)
+    })
 
 }
 

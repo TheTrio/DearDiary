@@ -16,16 +16,9 @@ const setEntry = (id) => {
             quill.setContents(contents)
             date.value = data.date.slice(0, 10)
             document.title = `Diary Entry - ${data.title}`
-            if (isIncluded) {
-                const selected = document.getElementById(id)
-                selected.classList.add('selected')
-                selected_li = selected.parentElement
-                selected.parentElement.remove()
-                current_entry.insertAdjacentElement('afterbegin', selected_li)
-            } else {
-                console.log(data.date.slice(0, 10))
-                const selected = document.createElement('li')
-                selected.insertAdjacentHTML('afterbegin', `
+            console.log(data.date.slice(0, 10))
+            const selected = document.createElement('li')
+            selected.insertAdjacentHTML('afterbegin', `
                 <div class="entry_item" id="${id}">
                     <div>
                         <a href="/entry/${id} ">${data.title}</a>
@@ -35,11 +28,12 @@ const setEntry = (id) => {
                     </div>
                 </div>
                 `)
-                const c = selected.querySelector(`div[id="${id}"]`)
-                c.classList.add('selected')
-                c.addEventListener('click', (e) => selectEntry(e, c))
-                current_entry.insertAdjacentElement('afterbegin', selected)
-            }
+            const c = selected.querySelector(`div[id="${id}"]`)
+            c.addEventListener('click', (e) => {
+                dustbinClick(c, e)
+            })
+            c.classList.add('selected')
+            current_entry.insertAdjacentElement('afterbegin', selected)
             setTimeout(() => {
                 loading_screen.classList.remove('loading')
                 document.getElementsByTagName('body')[0].classList.remove('unscroll')
