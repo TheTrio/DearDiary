@@ -19,4 +19,9 @@ body{
     &.unscroll{
         overflow: hidden;
     }
+    overflow-x: hidden;
+}
+
+.stop-transition{
+    transition: none !important;
 }

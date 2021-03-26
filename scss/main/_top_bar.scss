@@ -1,3 +1,8 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
 .top_bar{
     grid-area: top_bar;
     width: 100%;
@@ -19,5 +24,15 @@
             transform: rotate(90deg);
             left:300px;
         }
+    }
+    #userIcon{
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        position: absolute;
+        right: 10px;
+        top:5px;
+        background: url('../../images/userExample.jpg');
+        cursor: pointer;
     }
 }

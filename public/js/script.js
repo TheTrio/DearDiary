@@ -40,9 +40,15 @@ const leftPane = document.getElementById('left')
 const bar = document.getElementsByClassName('top_bar')[0]
 const content = document.getElementById('content')
 const unsaved_entry = document.getElementById('unsaved_entry')
+const userIcon = document.getElementById('userIcon')
+const right_pane = document.getElementById('right_pane')
 
 error_btn.addEventListener('click', (e) => {
     window.location = "/entry/new";
+})
+
+userIcon.addEventListener('click', e => {
+    right_pane.classList.toggle('moveLeft')
 })
 
 hamburger.addEventListener('click', (e) => {

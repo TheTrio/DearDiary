@@ -14,13 +14,13 @@
 </head>
 
 <body class="unscroll">
-    <div class="top_bar">
-        <div class="hamburger">&#9776;</div>
-    </div>
+    <%- include('../partials/top_bar') %>
     <%- include('../partials/error_screen') %>
     <%- include('../partials/loading_screen') %>
     <%- include('../partials/left_bar') %>
     <%- include('../partials/left_pane') %>
+    <%- include('../partials/right_pane') %>
     <%- body %>
+    <script src="/js/stopTransition.js"></script>
 </body>
 </html>

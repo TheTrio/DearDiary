@@ -1,0 +1,12 @@
+#right_pane{
+	position: absolute;
+	width: 350px;
+	transform: translateX(100vw);
+	background-color: white;
+	height: 100%;
+	transition: transform ease 500ms;
+	z-index: 2;
+	&.moveLeft{
+		transform: translateX(calc(100vw - 350px));
+	}
+}
