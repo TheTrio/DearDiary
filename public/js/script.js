@@ -49,12 +49,15 @@ error_btn.addEventListener('click', (e) => {
 
 userIcon.addEventListener('click', e => {
     right_pane.classList.toggle('moveLeft')
+    leftPane.classList.remove('moveRight')
+    bar.classList.remove('moveRight')
 })
 
 hamburger.addEventListener('click', (e) => {
     leftPane.classList.toggle('moveRight')
     bar.classList.toggle('moveRight')
     content.classList.toggle('scrollable')
+    right_pane.classList.remove('moveLeft')
     for (let item of entry_items) {
         item.classList.toggle('showDustbin')
     }
