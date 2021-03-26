@@ -45,6 +45,8 @@ router.route('/:id')
 		console.log('TRYING TO DELETE')
 		const { id } = req.params
 		await Entry.findByIdAndRemove(id)
+		req.user.entryCount = req.user.entryCount - 1
+		await req.user.save()
 		console.log('DELETED')
 		res.send('Deleted')
 	}))
