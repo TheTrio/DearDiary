@@ -63,7 +63,7 @@ saveButton.addEventListener('click', () => {
                 console.log(date)
                 updateCurrentEntry(json.entry._id, json.entry.title, date)
                 const c = current_entry.querySelector(`div[id="${json.entry._id}"]`)
-                c.addEventListener('click', (e) => selectEntry(e, c))
+                c.addEventListener('click', (e) => { selectEntry(e, c) })
                 console.log('SAVED ID')
             }).catch((e) => {
                 console.log(`Caught error ${e}`)

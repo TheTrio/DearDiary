@@ -16,6 +16,7 @@ router.get('/new', isLoggedIn, wrapAsync(async (req, res) => {
 
 router.get('/random', isLoggedIn, wrapAsync(async (req, res) => {
 	const len = req.user.entryCount
+	console.log(len)
 	Entry.findOne({ owner: req.user }).skip(Math.floor(Math.random() * len)).exec((e, d) => {
 		res.redirect(`/entry/${d._id}`)
 	})
@@ -49,9 +50,10 @@ router.route('/:id')
 	}))
 	.patch(isLoggedIn, isEntryAuthor, wrapAsync(async (req, res) => {
 		const { id } = req.params
-		const entry = new Entry(req.body)
-		entry._id = id
-		await Entry.findByIdAndUpdate(id, entry, { overwrite: true })
+		const { Delta, date, title } = req.body
+		const entry = new Entry({ Delta, date, title })
+		entry.owner = req.user._id
+		await Entry.findByIdAndUpdate(id, entry)
 		console.log('DONE')
 		res.send('DONE!')
 	}))

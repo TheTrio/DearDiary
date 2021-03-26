@@ -65,8 +65,7 @@ const dustbinClick = (entry, e) => {
                     'Content-Type': 'application/json'
                 }
             }
-            fetch(`/entry/${entry.id
-                }`, options)
+            fetch(`/entry/${entry.id}`, options)
                 .then((resp) => resp.text())
                 .then((data) => {
                     entry.parentElement.remove()
@@ -94,8 +93,8 @@ const updateCurrentEntry = (id, title, date) => {
                     </div>
                 </div>
         </li> `)
-    const c = current_entry.querySelector(`#${id}`)
-    c.addEventListener(e => {
+    const c = current_entry.querySelector(`div[id="${id}"]`)
+    c.addEventListener('hover', e => {
         dustbinClick(c, e)
     })
 
@@ -197,7 +196,7 @@ saveButton.addEventListener('click', () => {
                 },
                 body: JSON.stringify(Entry)
             }
-            fetch(`/ entry / ${id} `, options).then(resp => resp.text()).then(d => {
+            fetch(`/entry/${id}`, options).then(resp => resp.text()).then(d => {
                 console.log(d)
                 if (d === 'DONE!') {
                     updateCurrentEntry(id, Entry.title, Entry.date)
