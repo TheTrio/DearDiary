@@ -2,17 +2,18 @@
 #right_pane{
 	position: absolute;
 	width: 310px;
-	transform: translateX(100vw);
-	padding-right: 40px;
+	right: -320px;
+	padding-right: 10px;
 	background-color: white;
 	height: 100%;
 	transition: transform ease 500ms;
 	z-index: 2;
 	background-color: $pane-color;
 	&.moveLeft{
-		transform: translateX(calc(100vw - 350px));
+		transform: translateX(-320px);
 	}
 	.right_container{
+		user-select: none;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
