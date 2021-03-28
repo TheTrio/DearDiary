@@ -36,6 +36,12 @@
         top:5px;
         background: url('../../images/userExample.jpg');
         cursor: pointer;
+        opacity: 1;
+        transition: opacity 500ms ease-in-out;
+        &.hide{
+            opacity: 0;
+            z-index: -1;
+        }
     }
 }
 

@@ -14,3 +14,12 @@ body.dark{
         }
     }
 }
+
+body.light{
+    .btn{
+        background-color: $btn-color-light;
+        &:active, &:focus,&:hover{
+            background-color: darken($btn-color-light, 4);
+        }
+    }
+}

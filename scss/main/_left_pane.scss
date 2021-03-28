@@ -120,7 +120,8 @@ body.light{
         color:$entry-date-color-light;
     }
     #left ul li .entry_item::after{
-        color:$entry-date-color-light
+        color:$entry-date-color-light;
+        opacity:1;
     }
 }
 
