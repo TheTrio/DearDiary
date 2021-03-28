@@ -1,13 +1,16 @@
 @use '../variables' as *;
 .btn{
-    background: $editor-background-color-light;
-    padding: 0.5em 1em;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 5px 1px $text-box-shadow-color-light;
-    outline:none;
-    color:black;
-    transition: all 0.1s ease-in-out;
-    &:active, &:focus,&:hover{
-        background-color: darken($editor-background-color-light, 2);
+    padding:0.5em 1em;
+    border-radius: 5px;
+    transition: all 200ms ease-in-out;
+    border:none;
+}
+
+body.dark{
+    .btn{
+        background-color: $btn-color-dark;
+        &:active, &:focus,&:hover{
+            background-color: darken($btn-color-dark, 4);
+        }
     }
 }
