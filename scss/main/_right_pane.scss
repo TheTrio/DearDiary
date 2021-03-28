@@ -62,10 +62,16 @@ input[type="color"]{
 body.light{
 	#right_pane{
 		background-color: $pane-color-light;
-		color:black;
+		color:$settings-color-light;
 	}
 	li{
 		color:black;
+	}
+	.username{
+		color:$username-color-light;
+	}
+	.entryCount{
+		color:$entry-count-color-light;
 	}
 }
 
