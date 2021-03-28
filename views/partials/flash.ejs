@@ -1,9 +1,13 @@
-<% if(success && success.length) {%>
-
-<% } %>
+<div class="flash_card">
+	<% if(success && success.length) {%>
+		<div class="success">
+			<%= success %> 
+		</div>
+	<% } %>
 
 <% if(error && error.length) {%>
 	<div class="error">
 		<%= error %> 
 	</div>
 <% } %>
+</div>

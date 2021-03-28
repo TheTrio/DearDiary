@@ -22,7 +22,7 @@ var quill = new Quill('#editor', {
     scrollingContainer: '#textbox',
     placeholder: 'Your Entry goes here'
 });
-
+const flashDismissButton = document.getElementsByClassName('dismiss')[0]
 const saveButton = document.getElementsByClassName('saveNow')[0]
 const title = document.getElementById('title')
 const entry_list = document.getElementById('entry_list')
@@ -42,6 +42,11 @@ const content = document.getElementById('content')
 const unsaved_entry = document.getElementById('unsaved_entry')
 const userIcon = document.getElementById('userIcon')
 const right_pane = document.getElementById('right_pane')
+const entry_flash = document.getElementById('entry_flash')
+
+flashDismissButton.addEventListener('click', (e) => {
+    entry_flash.classList.add('dismissed')
+})
 
 error_btn.addEventListener('click', (e) => {
     window.location = "/entry/new";
@@ -207,6 +212,9 @@ saveButton.addEventListener('click', () => {
             }
             fetch(`/entry/${id}`, options).then(resp => resp.text()).then(d => {
                 console.log(d)
+                entry_flash.querySelector('.flash_heading').innerHTML = 'Entry Saved'
+                entry_flash.classList.remove('dismissed')
+                entry_flash.classList.add('visible')
                 if (d === 'DONE!') {
                     updateCurrentEntry(id, Entry.title, Entry.date)
                 }

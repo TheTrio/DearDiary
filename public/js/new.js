@@ -65,6 +65,8 @@ saveButton.addEventListener('click', () => {
                 const c = current_entry.querySelector(`div[id="${json.entry._id}"]`)
                 c.addEventListener('click', (e) => { selectEntry(e, c) })
                 console.log('SAVED ID')
+                entry_flash.querySelector('.flash_heading').innerHTML = 'Entry Saved'
+                entry_flash.classList.toggle('visible')
             }).catch((e) => {
                 console.log(`Caught error ${e}`)
             })

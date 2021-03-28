@@ -64,11 +64,11 @@ router.route('/:id')
 router.post('/', isLoggedIn, wrapAsync(async (req, res) => {
 	const { Delta, date, title } = req.body
 	const entry = new Entry({ Delta, date, title })
-	req.user.entryCount = req.user.entryCount + 1
-	await req.user.save()
 	entry.owner = req.user._id
 	entry._id = uuid.v4()
 	await entry.save()
+	req.user.entryCount = req.user.entryCount + 1
+	await req.user.save()
 	res.send({ entry })
 }))
 
