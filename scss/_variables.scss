@@ -1,22 +1,25 @@
 // light mode variables
 
-$loading-screen-color:#f8f9fa;
-$body-color: rgba(#f8f9fa, 0.95);
-$text-box-color: $body-color;
-$link-color: #e0aaff;
-$text-box-shadow-color: #adb5bd;
-$hover-color: $text-box-shadow-color;
-$editor-text-color:black;
-$pane-color:rgba($body-color, 0.9);
-$editor-background-color: rgba(black, 0);
-$title-color: #3d5a80;
-$toolbar-shadow-color: #ced4da;
+$loading-screen-color-light:#f8f9fa;
+$body-color-light: rgba(#f8f9fa, 0.95);
+$text-box-color-light: $body-color-light;
+$link-color-light: #e0aaff;
+$text-box-shadow-color-light: #adb5bd;
+$hover-color-light: $text-box-shadow-color-light;
+$editor-text-color-light:black;
+$pane-color-light:rgba($body-color-light, 0.9);
+$editor-background-color-light: rgba(black, 0);
+$title-color-light: #3d5a80;
+$toolbar-shadow-color-light: #ced4da;
 
 
-$entry-color:#c1d3fe;
-$entry-text-color:#212529;
-$entry-date-color:#495057;
-$entry-selected-color:#ced4da;
-$word-count-color:#495057;
-$input-color:#edf2f4;
-$login-btn-color:#3a86ff;
+$entry-color-light:#c1d3fe;
+$entry-text-color-light:#212529;
+$entry-date-color-light:#495057;
+$entry-selected-color-light:#ced4da;
+$word-count-color-light:#495057;
+$input-color-light:#edf2f4;
+$login-btn-color-light:#3a86ff;
+
+//dark mode variables
+

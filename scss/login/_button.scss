@@ -3,14 +3,14 @@
 .btn{
     padding:1em 2em;
     border-radius: 0.5em;
-    background-color: $login-btn-color;
+    background-color: $login-btn-color-light;
     border:none;
     box-shadow: 0 0 7px 0 black;
     transition: all ease-in-out 200ms;
     color:white;
     &:active, &:focus{
         box-shadow: 0 0 5px black;
-        background-color: darken($login-btn-color, 10);
+        background-color: darken($login-btn-color-light, 10);
     }
     text-decoration: none;
 }

@@ -25,6 +25,7 @@ mongoose.connect('mongodb://localhost:27017/DiaryEntries', { useNewUrlParser: tr
         console.log(e)
     });
 
+
 // Session config file for cookies
 const sessionConfig = {
     secret: 'c7F4ZEVVPN0GuJU',

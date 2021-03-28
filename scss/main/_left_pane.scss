@@ -7,7 +7,7 @@ $animation_time: 500ms;
     display: flex;
     flex-direction: column;
     grid-area: left;
-    background-color: $pane-color;
+    background-color: $pane-color-light;
     font-family: 'Roboto', sans-serif;
     border: 10%;
     align-items: center;
@@ -43,13 +43,13 @@ $animation_time: 500ms;
             display: flex;
             justify-content: center;
             align-items: center;
-            color:$entry-text-color;
+            color:$entry-text-color-light;
             max-width: 300px;
             .entry_item{
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                background-color: $entry-color;
+                background-color: $entry-color-light;
                 width: 95%;
                 align-items: center;
                 padding: 5px 0;
@@ -60,20 +60,20 @@ $animation_time: 500ms;
                 transition: all ease-in-out 200ms;
                 max-width: 270px;
                 a, a:visited{
-                    color:$entry-text-color;
+                    color:$entry-text-color-light;
                 }
 
                 #date_label{
-                    color:$entry-date-color;
+                    color:$entry-date-color-light;
                     font-size: 1.1rem;
                     padding-top: 5px;
                     padding-bottom: 5px;
                 }
                 &:hover{
-                    box-shadow: 0 0 5px 1px $hover-color;
+                    box-shadow: 0 0 5px 1px $hover-color-light;
                 }
                 &.selected{
-                    background-color: $entry-color;
+                    background-color: $entry-color-light;
                 }
                 &::after{
                     position:absolute;
@@ -82,7 +82,7 @@ $animation_time: 500ms;
                     content: "\01F5D1";
                     font-size: 30px;
                     opacity: 0;
-                    color: $entry-date-color;
+                    color: $entry-date-color-light;
                     transition: all ease 500ms;
                 }
                 &.showDustbin::after{
@@ -100,7 +100,7 @@ $animation_time: 500ms;
         &_text{
             text-align: center;
             font-size: 2rem;
-            color:$entry-text-color;
+            color:$entry-text-color-light;
         }
     }
     .entry_control{

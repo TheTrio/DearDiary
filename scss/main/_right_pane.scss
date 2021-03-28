@@ -8,7 +8,7 @@
 	height: 100%;
 	transition: transform ease 500ms;
 	z-index: 2;
-	background-color: $pane-color;
+	background-color: $pane-color-light;
 	&.moveLeft{
 		transform: translateX(-320px);
 	}
