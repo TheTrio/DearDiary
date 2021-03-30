@@ -113,30 +113,6 @@ const updateCurrentEntry = (id, title, date) => {
     })
 
 }
-
-// delete_entry.addEventListener('click', (e) => {
-//     const options = {
-//         method: 'DELETE',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     }
-//     const chosen_items = document.querySelectorAll('.chosen')
-//     for (let chosen_item of chosen_items) {
-//         fetch(`/ entry / ${ chosen_item.id } `, options)
-//             .then((resp) => resp.text())
-//             .then((data) => {
-//                 console.log(data)
-//                 console.log(chosen_item.parentElement)
-//                 chosen_item.parentElement.remove()
-//                 delete_entry.classList.remove('visible')
-//                 delete_entry.classList.add('not_visible')
-//                 selectedItems = 0;
-//                 window.location = "/entry/new";
-//             })
-//     }
-
-// })
 date.value = (new Date()).toISOString().slice(0, 10)
 
 
@@ -166,7 +142,7 @@ saveButton.addEventListener('click', () => {
         setTimeout(() => {
             title.classList.remove('big')
         }, 500)
-    } else {
+    } else if (id !== -1) {
         editor.classList.remove('invalid')
         const Delta = quill.getContents().ops
         console.log(title.value)
@@ -175,51 +151,23 @@ saveButton.addEventListener('click', () => {
             date: chosenDate,
             title: title.value
         }
-        if (id === -1) {
-            const options = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(Entry)
-            }
-            fetch('/entry', options)
-                .then((res) => {
-                    if (!res.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return res.json();
-                })
-                .then((json) => {
-
-                    const date = new Date(json.entry.date)
-                    console.log(date)
-                    updateCurrentEntry(json.entry._id, json.entry.title, date)
-                    const c = current_entry.querySelector(`div[id = "${json.entry._id}"]`)
-                    id = json.entry._id
-                    console.log('SAVED ID')
-                }).catch((e) => {
-                    console.log(`Caught error ${e} `)
-                })
-        } else {
-            console.log('running')
-            const options = {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(Entry)
-            }
-            fetch(`/entry/${id}`, options).then(resp => resp.text()).then(d => {
-                console.log(d)
-                entry_flash.querySelector('.flash_heading').innerHTML = 'Entry Saved'
-                entry_flash.classList.remove('dismissed')
-                entry_flash.classList.add('visible')
-                if (d === 'DONE!') {
-                    updateCurrentEntry(id, Entry.title, Entry.date)
-                }
-            })
+        console.log('running')
+        const options = {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(Entry)
         }
+        fetch(`/entry/${id}`, options).then(resp => resp.text()).then(d => {
+            console.log(d)
+            entry_flash.querySelector('.flash_heading').innerHTML = 'Entry Saved'
+            entry_flash.classList.remove('dismissed')
+            entry_flash.classList.add('visible')
+            if (d === 'DONE!') {
+                updateCurrentEntry(id, Entry.title, Entry.date)
+            }
+        })
     }
 })
 quill.on('text-change', function (delta, oldDelta, source) {
