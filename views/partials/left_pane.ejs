@@ -4,7 +4,7 @@
             <li class="entry_control">
                 <div class="entry_item entry_control">
                     <div>
-                        <a href="/">
+                        <a href="/entry/new">
                             New Entry
                         </a>
                     </div>
@@ -36,14 +36,17 @@
                 <li>
                     <div class="entry_item" id="<%= entry._id %>">
                         <div>
-                            <a href="/entry/<%= entry._id %> "><%= entry.title %></a>
+                            <a href="/entry/<%= entry._id %> ">
+                                <%= entry.title %>
+                            </a>
                         </div>
                         <div id="date_label">
-                            <%= new Intl.DateTimeFormat('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(entry.date) %> 
+                            <%= new Intl.DateTimeFormat('en-US', { weekday: 'long' , year: 'numeric' , month: 'long' ,
+                                day: 'numeric' }).format(entry.date) %>
                         </div>
                     </div>
                 </li>
-            <% } %>
+                <% } %>
         </ul>
     </div>
 </div>

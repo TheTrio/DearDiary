@@ -22,6 +22,11 @@
 		font-family: 'Roboto', sans-serif;
 		text-align: center;
 		gap:15px;
+        #logout{
+            text-decoration: none;
+            position: relative;
+            top:5px;
+        }
 		.entryCount{
 			font-size: 0.75rem;
 		}
@@ -73,6 +78,9 @@ body.light{
 	.entryCount{
 		color:$entry-count-color-light;
 	}
+    #logout{
+        color:black;
+    }
 }
 
 body.dark{
@@ -89,4 +97,7 @@ body.dark{
 	.entryCount{
 		color:white;
 	}
+    #logout{
+        color:white;
+    }
 }

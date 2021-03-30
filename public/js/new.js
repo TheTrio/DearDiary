@@ -32,7 +32,7 @@ saveButton.addEventListener('click', () => {
         setTimeout(() => {
             title.classList.remove('big')
         }, 500)
-    } else {
+    } else if (id === -1) {
         editor.classList.remove('invalid')
         const Delta = quill.getContents().ops
         console.log(title.value)
@@ -66,7 +66,13 @@ saveButton.addEventListener('click', () => {
                 c.addEventListener('click', (e) => { selectEntry(e, c) })
                 console.log('SAVED ID')
                 entry_flash.querySelector('.flash_heading').innerHTML = 'Entry Saved'
-                entry_flash.classList.toggle('visible')
+                entry_flash.classList.remove('dismissed')
+                entry_flash.classList.add('visible')
+                setTimeout(() => {
+                    entry_flash.classList.remove('visible')
+                    entry_flash.classList.add('dismissed')
+                }, 5000)
+                id = json.entry._id
             }).catch((e) => {
                 console.log(`Caught error ${e}`)
             })

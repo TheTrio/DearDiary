@@ -164,6 +164,10 @@ saveButton.addEventListener('click', () => {
             entry_flash.querySelector('.flash_heading').innerHTML = 'Entry Saved'
             entry_flash.classList.remove('dismissed')
             entry_flash.classList.add('visible')
+            setTimeout(() => {
+                entry_flash.classList.remove('visible')
+                entry_flash.classList.add('dismissed')
+            }, 5000)
             if (d === 'DONE!') {
                 updateCurrentEntry(id, Entry.title, Entry.date)
             }
