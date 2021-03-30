@@ -20,14 +20,19 @@ body{
 		gap:1rem;
 		border-radius: 25px;
         padding:1.5rem;
+        @media screen and (min-width:700px){
+            padding:1.5rem 4rem;
+        }
 		.product_name{
 			font-size: 4rem;
 			font-family: 'Dancing Script', cursive;
 			color:#676767;
+            text-align: center;
 		}
 		.tag_line{
 			font-size: 1.7rem;
 			font-family: 'Roboto', sans-serif;
+            text-align: center;
 		}
 		.login{
 			box-sizing: border-box;
