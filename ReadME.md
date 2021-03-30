@@ -28,7 +28,7 @@ $ npm install
 ```
 3. Start the local server by typing the following in your terminal
 ```
-$ node app.js
+$ npm start
 ```
 4. Visit localhost at port 3000. That is, type `127.0.0.1:3000` in the address bar of your browser.
 
