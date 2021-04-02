@@ -71,7 +71,6 @@ hamburger.addEventListener('click', (e) => {
 
 const dustbinClick = (entry, e) => {
     if (e.offsetX > entry.offsetWidth) {
-        console.log(entry)
         if (confirm('Are you sure you want to delete this entry?')) {
             const options = {
                 method: 'DELETE',
@@ -94,7 +93,6 @@ for (let entry of entry_items) {
     })
 }
 const updateCurrentEntry = (id, title, date) => {
-    console.log('runnig again')
     current_entry.innerHTML = ''
 
     current_entry.insertAdjacentHTML('afterbegin', `<li>
@@ -127,7 +125,6 @@ title.addEventListener('keyup', () => {
 
 saveButton.addEventListener('click', () => {
     const chosenDate = new Date(date.value)
-    console.log(chosenDate)
     if (quill.getText().trim().length === 0) {
         editor.classList.remove('valid')
         editor.classList.add('invalid')
@@ -145,13 +142,11 @@ saveButton.addEventListener('click', () => {
     } else if (id !== -1) {
         editor.classList.remove('invalid')
         const Delta = quill.getContents().ops
-        console.log(title.value)
         const Entry = {
             Delta: Delta,
             date: chosenDate,
             title: title.value
         }
-        console.log('running')
         const options = {
             method: 'PATCH',
             headers: {
@@ -160,7 +155,6 @@ saveButton.addEventListener('click', () => {
             body: JSON.stringify(Entry)
         }
         fetch(`/entry/${id}`, options).then(resp => resp.text()).then(d => {
-            console.log(d)
             entry_flash.querySelector('.flash_heading').innerHTML = 'Entry Saved'
             entry_flash.classList.remove('dismissed')
             entry_flash.classList.add('visible')
@@ -175,7 +169,6 @@ saveButton.addEventListener('click', () => {
     }
 })
 quill.on('text-change', function (delta, oldDelta, source) {
-    console.log(delta)
     if (editor.classList.contains('invalid')) {
         editor.classList.remove('invalid')
         editor.classList.add('valid')

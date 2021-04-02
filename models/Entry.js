@@ -7,10 +7,10 @@ const entrySchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    Delta: [{
-        type: Schema.Types.Map,
+    Delta: {
+        type: String,
         required: true
-    }],
+    },
     date: {
         type: Date,
         required: true
@@ -25,8 +25,5 @@ const entrySchema = new Schema({
     }
 })
 
-entrySchema.post('findOneAndRemove', (doc) => {
-    console.log('DELETING', doc)
-})
 const Diary = mongoose.model('Entry', entrySchema)
 module.exports = Diary

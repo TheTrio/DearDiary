@@ -3,7 +3,6 @@ const setEntry = (id) => {
     fetch(`/api/entry/${id}`)
         .then((resp) => {
             if (resp.status === 404) {
-                console.log(resp)
                 throw new Error('No such entry found')
             } else {
                 return resp.json()
@@ -16,7 +15,6 @@ const setEntry = (id) => {
             quill.setContents(contents)
             date.value = data.date.slice(0, 10)
             document.title = `Diary Entry - ${data.title}`
-            console.log(data.date.slice(0, 10))
             const selected = document.createElement('li')
             selected.insertAdjacentHTML('afterbegin', `
                 <div class="entry_item" id="${id}">

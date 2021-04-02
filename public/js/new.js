@@ -17,7 +17,6 @@ c.addEventListener('click', e => {
 
 saveButton.addEventListener('click', () => {
     const chosenDate = new Date(date.value)
-    console.log(chosenDate)
     if (quill.getText().trim().length === 0) {
         editor.classList.remove('valid')
         editor.classList.add('invalid')
@@ -35,7 +34,6 @@ saveButton.addEventListener('click', () => {
     } else if (id === -1) {
         editor.classList.remove('invalid')
         const Delta = quill.getContents().ops
-        console.log(title.value)
         const Entry = {
             username: 'Shashwat',
             Delta: Delta,
@@ -60,11 +58,9 @@ saveButton.addEventListener('click', () => {
             .then((json) => {
 
                 const date = new Date(json.entry.date)
-                console.log(date)
                 updateCurrentEntry(json.entry._id, json.entry.title, date)
                 const c = current_entry.querySelector(`div[id="${json.entry._id}"]`)
                 c.addEventListener('click', (e) => { selectEntry(e, c) })
-                console.log('SAVED ID')
                 entry_flash.querySelector('.flash_heading').innerHTML = 'Entry Saved'
                 entry_flash.classList.remove('dismissed')
                 entry_flash.classList.add('visible')
