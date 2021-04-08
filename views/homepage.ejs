@@ -6,18 +6,107 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>DearDiary</title>
-	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Lora&family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 	<link rel="stylesheet" href="css/home/styles.css">
 </head>
 
 <body>
-	<div class="card">
-		<div class="product_name">Dear Diary</div>
-		<div class="tag_line">Free. Secure. Safe. Forever.</div>
-		<a href="/entry/new" class="login">Start Writing</a>
-		<p class="learn_more">Read more about our project <a href="https://github.com/TheTrio/DearDiary">here</a></p>
+	<div class="container" id="top">
+		<div class="text">
+			<h1>
+				Somewhere to write
+			</h1>
+			<p>
+				DearDiary makes storing your memories easier than ever before
+			</p>
+			<div class="btnContainer">
+				<a href="/entry/new" class='btn'>Start Writing</a>
+				<a class='btn' id="learnMore" href="#card1">Learn More</a>
+			</div>
+		</div>
 	</div>
+	<div class="content" id="content">
+		<div class="card_container" style="background-color: #00f5d4;" id="card1">
+			<div class="card" data-aos='fade-left'>
+				<h1>
+					FREE
+				</h1>
+				<div class="p_container">
+					<p>
+						Free as in speech, not beer
+					</p>
+					<p>
+						DearDiary is completely free, with no features hidden
+						behind a paywall
+					</p>
+					<a href="#card2" class="nextCard">Next</a>
+				</div>
+
+			</div>
+		</div>
+		<div class="card_container" style="background-color: #00bbf9;" id="card2">
+			<div class="card" data-aos='fade-right'>
+				<h1>
+					OPEN SOURCE
+				</h1>
+				<div class="p_container">
+					<p>
+						We value Trust
+					</p>
+
+					<p>
+						DearDiary is completely open source, which means that its code is publically available for
+						anyone to see
+					</p>
+					<a href="#card3" class="nextCard">Next</a>
+				</div>
+
+			</div>
+		</div>
+		<div class="card_container" style="background-color: #f15bb5;" id="card3">
+			<div class="card" data-aos='fade-left'>
+				<h1>
+					SECURE
+				</h1>
+				<div class="p_container">
+					<p>
+						We respect your privacy
+					</p>
+
+					<p>
+						All your entries are encrypted. This means no one, not even us, can read them
+					</p>
+					<a href="#card4" class="nextCard">Next</a>
+				</div>
+
+			</div>
+		</div>
+		<div class="card_container" style="background-color: #fee440;" id="card4">
+			<div class="card" data-aos='fade-right'>
+				<h1>
+					CUSTOMIZABLE
+				</h1>
+				<div class="p_container">
+					<p>
+						DearDiary supports custom styling
+					</p>
+
+					<p>
+						You can either use the basic inbuilt themes, or build your own. DearDiary makes you feel at
+						home when you're writing
+					</p>
+					<a href="#top" class="nextCard">Back To Top</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
 </body>
 
 </html>
