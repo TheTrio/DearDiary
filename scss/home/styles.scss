@@ -6,16 +6,17 @@
     box-sizing: border-box;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     overflow-x: hidden;
 }
 .container {
     height: 100vh;
-    background-image: url("../../images/homepage.jpg");
+    background-image: url('../../images/homepage.jpg');
+    opacity: 1;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -26,61 +27,59 @@ body{
         display: flex;
         flex-direction: column;
         gap: 50px;
-        font-family: "Roboto";
+        font-family: 'Roboto';
         text-align: center;
-        background-color: rgba(black,0.6);
-        padding:1.5rem 3rem;
-        color:white;
+        background-color: rgba(black, 0.6);
+        padding: 1.5rem 3rem;
+        color: white;
         border-radius: 10px;
-        h1{
+        h1 {
             font-size: 4rem;
         }
-        p{
+        p {
             font-size: 1.5rem;
         }
-        .btnContainer{
+        .btnContainer {
             display: flex;
             justify-content: space-around;
-            gap:15px;
-            a{
+            gap: 15px;
+            a {
                 cursor: pointer;
             }
         }
     }
 }
 
-.content{
+.content {
     font-family: 'Roboto';
-    h1{
+    h1 {
         font-size: 5rem;
-        color:#3c096c;
+        color: #3c096c;
     }
-    .card_container{
+    .card_container {
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
-        .card{
-            padding:0 15px;
+        .card {
+            padding: 0 15px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            .p_container{
+            .p_container {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: flex-start;
-                gap:1em;
-                p{
+                gap: 1em;
+                p {
                     font-size: 3rem;
                     font-family: 'Nunito';
                 }
             }
         }
-
     }
 }
 
-.nextCard{
-    
+.nextCard {
 }
