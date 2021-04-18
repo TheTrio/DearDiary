@@ -1,13 +1,16 @@
+if (process.env.ENVIRONMENT !== 'Production') {
+    require('dotenv').config()
+}
 const express = require('express')
 const app = express()
-const mongoose = require('mongoose');
-const path = require('path');
+const mongoose = require('mongoose')
+const path = require('path')
 const ejsEngine = require('ejs-mate')
-const session = require('express-session');
+const session = require('express-session')
 const passport = require('passport')
 const LocalStrategy = require('passport-local')
 const User = require('./models/User')
-const flash = require('connect-flash');
+const flash = require('connect-flash')
 const userRoutes = require('./routes/user')
 const entryRoutes = require('./routes/entry')
 const errorHandler = require('./routes/error')
@@ -17,14 +20,18 @@ const apiRoutes = require('./routes/api')
 */
 
 // Connecting to MongoDB database
-mongoose.connect('mongodb://localhost:27017/DiaryEntries', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose
+    .connect('mongodb://localhost:27017/DiaryEntries', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
     .then(() => {
         console.log('Database connected!')
-    }).catch((e) => {
+    })
+    .catch((e) => {
         console.log('Error')
         console.log(e)
-    });
-
+    })
 
 // Session config file for cookies
 const sessionConfig = {
@@ -34,8 +41,8 @@ const sessionConfig = {
     cookie: {
         httpOnly: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
-        maxAge: 1000 * 60 * 60 * 24 * 7
-    }
+        maxAge: 1000 * 60 * 60 * 24 * 7,
+    },
 }
 
 // making sure req.body is parsed correctly
@@ -58,8 +65,8 @@ app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
 passport.use(new LocalStrategy(User.authenticate()))
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
 
 // Making sure flash varaibles are available globally in all EJS templates
 app.use((req, res, next) => {
@@ -77,9 +84,9 @@ app.get('/', (req, res) => {
 })
 
 //App Routes
+app.use('/api', apiRoutes)
 app.use('/', userRoutes)
 app.use('/entry', entryRoutes)
-app.use('/api', apiRoutes)
 
 // Global fallback error Handler
 app.use(errorHandler)
