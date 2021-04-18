@@ -15,6 +15,7 @@ const userRoutes = require('./routes/user')
 const entryRoutes = require('./routes/entry')
 const errorHandler = require('./routes/error')
 const apiRoutes = require('./routes/api')
+const mongoStore = require('connect-mongo')
 /*
     Setting up everything. Boilerplate code.
 */
@@ -26,8 +27,9 @@ if (process.argv[2] != 'local') {
 } else {
     db = 'DearDiaryLocal'
 }
+const dbUrl = `mongodb://localhost:27017/${db}`
 mongoose
-    .connect(`mongodb://localhost:27017/${db}`, {
+    .connect(dbUrl, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
@@ -49,6 +51,11 @@ const sessionConfig = {
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7,
     },
+    store: mongoStore.create({
+        secret: 'c7F4ZEVVPN0GuJU',
+        mongoUrl: dbUrl,
+        touchAfter: 24 * 3600, // time period in seconds
+    }),
 }
 
 // making sure req.body is parsed correctly
