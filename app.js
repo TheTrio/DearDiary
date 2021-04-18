@@ -16,6 +16,7 @@ const entryRoutes = require('./routes/entry')
 const errorHandler = require('./routes/error')
 const apiRoutes = require('./routes/api')
 const mongoStore = require('connect-mongo')
+
 /*
     Setting up everything. Boilerplate code.
 */
@@ -29,6 +30,7 @@ if (process.argv[2] != 'local') {
 }
 const dbUrl = process.env.DB_URL || `mongodb://localhost:27017/${db}`
 const secret = process.env.SECRET || 'secret'
+const port = process.env.PORT || 3000
 mongoose
     .connect(dbUrl, {
         useNewUrlParser: true,
@@ -106,6 +108,6 @@ app.use('/entry', entryRoutes)
 app.use(errorHandler)
 
 // starting the server
-app.listen(3000, () => {
-    console.log('Listening at port 3000')
+app.listen(port, () => {
+    console.log(`Listening at port ${port}`)
 })
