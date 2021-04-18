@@ -20,8 +20,14 @@ const apiRoutes = require('./routes/api')
 */
 
 // Connecting to MongoDB database
+
+if (process.argv[2] != 'local') {
+    db = 'DiaryEntries'
+} else {
+    db = 'DearDiaryLocal'
+}
 mongoose
-    .connect('mongodb://localhost:27017/DiaryEntries', {
+    .connect(`mongodb://localhost:27017/${db}`, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
@@ -80,7 +86,7 @@ app.use((req, res, next) => {
 
 // Rendering the home page
 app.get('/', (req, res) => {
-    res.render('homepage')
+    res.render('home/landingPage')
 })
 
 //App Routes

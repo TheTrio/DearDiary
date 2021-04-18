@@ -45,8 +45,8 @@ const right_pane = document.getElementById('right_pane')
 const entry_flash = document.getElementById('entry_flash')
 
 flashDismissButton.addEventListener('click', (e) => {
-    entry_flash.classList.add('dismissed')
-})
+    entry_flash.classList.add('dismissed');
+});
 
 error_btn.addEventListener('click', (e) => {
     window.location = '/entry/new'
@@ -59,15 +59,15 @@ userIcon.addEventListener('click', (e) => {
 })
 
 hamburger.addEventListener('click', (e) => {
-    leftPane.classList.toggle('moveRight')
-    bar.classList.toggle('moveRight')
-    content.classList.toggle('scrollable')
-    right_pane.classList.remove('moveLeft')
+    leftPane.classList.toggle('moveRight');
+    bar.classList.toggle('moveRight');
+    content.classList.toggle('scrollable');
+    right_pane.classList.remove('moveLeft');
     for (let item of entry_items) {
-        item.classList.toggle('showDustbin')
+        item.classList.toggle('showDustbin');
     }
-    document.getElementsByTagName('body')[0].classList.toggle('unscroll')
-})
+    document.getElementsByTagName('body')[0].classList.toggle('unscroll');
+});
 
 const dustbinClick = (entry, e) => {
     if (e.offsetX > entry.offsetWidth) {
@@ -86,14 +86,14 @@ const dustbinClick = (entry, e) => {
                 })
         }
     }
-}
+};
 for (let entry of entry_items) {
     entry.addEventListener('click', (e) => {
-        dustbinClick(entry, e)
-    })
+        dustbinClick(entry, e);
+    });
 }
 const updateCurrentEntry = (id, title, date) => {
-    current_entry.innerHTML = ''
+    current_entry.innerHTML = '';
 
     current_entry.insertAdjacentHTML(
         'afterbegin',
@@ -123,31 +123,31 @@ date.value = new Date().toISOString().slice(0, 10)
 title.addEventListener('keyup', () => {
     if (title.value.length > 0) {
         if (title.classList.contains('invalid')) {
-            title.classList.remove('invalid')
-            title.classList.add('valid')
+            title.classList.remove('invalid');
+            title.classList.add('valid');
         }
     }
-})
+});
 
 saveButton.addEventListener('click', () => {
-    const chosenDate = new Date(date.value)
+    const chosenDate = new Date(date.value);
     if (quill.getText().trim().length === 0) {
-        editor.classList.remove('valid')
-        editor.classList.add('invalid')
-        editor.classList.add('big')
+        editor.classList.remove('valid');
+        editor.classList.add('invalid');
+        editor.classList.add('big');
         setTimeout(() => {
-            editor.classList.remove('big')
-        }, 500)
+            editor.classList.remove('big');
+        }, 500);
     } else if (title.value.length === 0) {
-        title.classList.remove('valid')
-        title.classList.add('invalid')
-        title.classList.add('big')
+        title.classList.remove('valid');
+        title.classList.add('invalid');
+        title.classList.add('big');
         setTimeout(() => {
-            title.classList.remove('big')
-        }, 500)
+            title.classList.remove('big');
+        }, 500);
     } else if (id !== -1) {
-        editor.classList.remove('invalid')
-        const Delta = quill.getContents().ops
+        editor.classList.remove('invalid');
+        const Delta = quill.getContents().ops;
         const Entry = {
             Delta: Delta,
             date: chosenDate,
@@ -217,7 +217,7 @@ quill.on('text-change', async function (delta, oldDelta, source) {
     }
 
     if (editor.classList.contains('invalid')) {
-        editor.classList.remove('invalid')
-        editor.classList.add('valid')
+        editor.classList.remove('invalid');
+        editor.classList.add('valid');
     }
 })
