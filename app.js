@@ -27,7 +27,8 @@ if (process.argv[2] != 'local') {
 } else {
     db = 'DearDiaryLocal'
 }
-const dbUrl = `mongodb://localhost:27017/${db}`
+const dbUrl = process.env.DB_URL || `mongodb://localhost:27017/${db}`
+const secret = process.env.SECRET || 'secret'
 mongoose
     .connect(dbUrl, {
         useNewUrlParser: true,
@@ -43,7 +44,7 @@ mongoose
 
 // Session config file for cookies
 const sessionConfig = {
-    secret: 'c7F4ZEVVPN0GuJU',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -52,7 +53,7 @@ const sessionConfig = {
         maxAge: 1000 * 60 * 60 * 24 * 7,
     },
     store: mongoStore.create({
-        secret: 'c7F4ZEVVPN0GuJU',
+        secret,
         mongoUrl: dbUrl,
         touchAfter: 24 * 3600, // time period in seconds
     }),
