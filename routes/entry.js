@@ -81,12 +81,30 @@ router.post(
         const { Delta, date, title } = req.body
         const encryptedDelta = encryptEntry(Delta, req.session.key)
         const entry = new Entry({ Delta: encryptedDelta, date, title })
-        // const result = await Entry.find({ date: { $lte: date } })
-        //     .sort({ date: -1 })
-        //     .limit(1)
-        // console.log(result)
         entry.owner = req.user._id
         entry._id = uuid.v4()
+        if (req.user.entryCount !== 0) {
+            let lastEntry = await Entry.find({ owner: req.user, date: { $lte: date } })
+                .sort({ date: -1 })
+                .limit(1)
+            lastEntry = lastEntry[0]
+            if (lastEntry === null) {
+                const firstEntry = await Entry.find({ owner: req.user }).sort({ date: 1 }).limit(1)
+                entry.next = firstEntry._id
+                firstEntry.prev = entry._id
+            } else {
+                const lastEntryNextId = lastEntry?.next
+                const lastEntryNext = await Entry.findById(lastEntryNextId)
+                if (lastEntryNext !== null) lastEntryNext.prev = entry._id
+                lastEntry.next = entry._id
+                entry.prev = lastEntry._id
+                if (lastEntryNextId !== undefined) {
+                    entry.next = lastEntryNextId
+                }
+                await lastEntry.save()
+                if (lastEntryNext !== null) await lastEntryNext.save()
+            }
+        }
         await entry.save()
         req.user.entryCount = req.user.entryCount + 1
         await req.user.save()
