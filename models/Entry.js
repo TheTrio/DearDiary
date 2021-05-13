@@ -5,24 +5,32 @@ const Schema = mongoose.Schema
 const entrySchema = new Schema({
     owner: {
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        index: true,
     },
     Delta: {
         type: String,
-        required: true
+        required: true,
     },
     date: {
         type: Date,
-        required: true
+        required: true,
+        index: true,
     },
     title: {
         type: String,
-        required: true
+        required: true,
     },
     _id: {
         type: String,
-        required: true
-    }
+        required: true,
+    },
+    next: {
+        type: String,
+    },
+    prev: {
+        type: String,
+    },
 })
 
 const Diary = mongoose.model('Entry', entrySchema)

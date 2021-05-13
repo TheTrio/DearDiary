@@ -1,1 +1,93 @@
-.btn{padding:1em 2em;border-radius:.5em;background-color:#3a86ff;border:none;box-shadow:0 0 7px 0 #000;transition:all ease-in-out 200ms;color:#fff;text-decoration:none}.btn:active,.btn:focus{box-shadow:0 0 5px #000;background-color:#0767ff}body{background-image:url("../../images/home.jpg");background-repeat:no-repeat;background-size:cover;display:flex;flex-direction:column;justify-content:center;align-items:center;height:100vh}.container{background-color:rgba(196,196,196,.75);padding:1.5em;display:flex;justify-content:center;align-items:center;border:1px solid #ced4da;flex-direction:column;border-radius:1rem;gap:1rem}.container form{display:flex;flex-direction:column;gap:1em}.container .form_pair{display:flex;gap:20px;font-size:20px}@media screen and (max-width: 600px){.container .form_pair{flex-direction:column}}.container .form_pair label{width:150px;display:flex;align-items:center;color:#000;font-family:"Roboto",sans-serif;font-size:16px}.container .form_pair input{font-size:16px;width:300px;height:30px;font-family:"Roboto",sans-serif}.container .form_pair.btn_container{display:flex;justify-content:center;margin:0}.container .text{text-align:center;font-family:"Roboto",sans-serif;font-size:3rem;color:#676767}.error{color:red;font-size:1rem}.success{color:green;font-size:1rem}*{margin:0}/*# sourceMappingURL=styles.css.map */
+.btn {
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  background-color: #3a86ff;
+  border: none;
+  box-shadow: 0 0 7px 0 black;
+  transition: all ease-in-out 200ms;
+  color: white;
+  text-decoration: none;
+}
+.btn:active, .btn:focus {
+  box-shadow: 0 0 5px black;
+  background-color: #0767ff;
+}
+
+body {
+  background-image: url("../../images/home.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: rgba(196, 196, 196, 0.75);
+  padding: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ced4da;
+  flex-direction: column;
+  border-radius: 1rem;
+  gap: 1rem;
+}
+.container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.container .form_pair {
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+}
+@media screen and (max-width: 600px) {
+  .container .form_pair {
+    flex-direction: column;
+  }
+}
+.container .form_pair label {
+  width: 150px;
+  display: flex;
+  align-items: center;
+  color: #000;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+.container .form_pair input {
+  font-size: 16px;
+  width: 300px;
+  height: 30px;
+  font-family: "Roboto", sans-serif;
+}
+.container .form_pair.btn_container {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+.container .text {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 3rem;
+  color: #676767;
+}
+
+.error {
+  color: red;
+  font-size: 1rem;
+}
+
+.success {
+  color: green;
+  font-size: 1rem;
+}
+
+* {
+  margin: 0;
+}
+
+/*# sourceMappingURL=styles.css.map */

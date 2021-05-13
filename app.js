@@ -22,13 +22,7 @@ const mongoStore = require('connect-mongo')
 */
 
 // Connecting to MongoDB database
-
-if (process.argv[2] != 'local') {
-    db = 'DiaryEntries'
-} else {
-    db = 'DearDiaryLocal'
-}
-const dbUrl = process.env.DB_URL || `mongodb://localhost:27017/${db}`
+const dbUrl = process.env.DB_URL || `mongodb://localhost:27017/DearDiary`
 const secret = process.env.SECRET || 'secret'
 const port = process.env.PORT || 3000
 mongoose
