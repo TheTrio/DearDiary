@@ -1,14 +1,15 @@
 @use '../variables' as *;
-#content{
-    display:flex;
+#content {
+    display: flex;
     justify-content: center;
     align-items: flex-start;
     margin-bottom: 20px;
     height: 100%;
-    &.scrollable{
+    &.scrollable {
         overflow: clip;
     }
-    .textbox{
+    .textbox {
+        position: relative;
         grid-area: textbox;
         width: 70%;
         display: flex;
@@ -18,142 +19,146 @@
         border-radius: 1em;
         // min-width: 500px;
         margin-top: 15px;
-        #words{
+        #words {
             padding-bottom: 1em;
         }
-        .top{
+        .top {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 1em;
 
-            .title{
+            .title {
                 font-family: 'Roboto', sans-serif;
                 width: 70%;
                 letter-spacing: 1px;
                 outline: none;
                 background: none;
-                border:none;
+                border: none;
                 font-size: 2rem;
                 font-weight: bold;
                 transition: transform 0.5s ease;
             }
-            .saveNow{
+            .saveNow {
                 margin-left: auto;
             }
-            #date{
+            #date {
                 margin-left: 10px;
                 border-radius: 0.3rem;
-                padding:0.5em;
-                border:none;
+                padding: 0.5em;
+                border: none;
             }
         }
-        .ql-toolbar{
+        .ql-toolbar {
             // background-color: $secondary-color;
             // border:2px solid blue;
-            border:none;
+            border: none;
             margin-bottom: 10px;
             border-radius: 5px;
         }
-        #editor{
+        #editor {
             // min-height: 70vh;
             // max-width: 100%;
-            background-color:$editor-background-color-light;
+            background-color: $editor-background-color-light;
             transition: transform 0.5s ease-in-out;
             opacity: 0.8;
-            border:none;
+            border: none;
         }
-        .ql-editor{
-            padding:12px 0;
+        .ql-editor {
+            padding: 12px 0;
         }
-        .ql-editor.ql-blank::before{
-            font-size:17px;
+        .ql-editor.ql-blank::before {
+            font-size: 17px;
         }
     }
 }
 
-body.light{
-    .textbox{
+body.light {
+    .textbox {
         background-color: $text-box-color-light;
         box-shadow: 0 0 5px 0 $text-box-shadow-color-light;
     }
-    #editor,.ql-editor.ql-blank::before{
-        color:$editor-text-color-light;
+    #editor,
+    .ql-editor.ql-blank::before {
+        color: $editor-text-color-light;
     }
-    .title{
-        color:$title-color-light;
+    .title {
+        color: $title-color-light;
     }
-    .ql-toolbar{
+    .ql-toolbar {
         box-shadow: 0 0 5px 0px $toolbar-shadow-color-light;
     }
-    #words{
-        color:$word-count-color-light;
+    #words {
+        color: $word-count-color-light;
     }
-    #date{
+    #date {
         background-color: $btn-color-light;
-        color:black;
+        color: black;
     }
 }
-body.dark{
-    .textbox{
+body.dark {
+    .textbox {
         background-color: $text-box-color-dark;
         box-shadow: 0 0 5px 0 $text-box-shadow-color-dark;
     }
-    #editor,.ql-editor.ql-blank::before{
-        color:$editor-text-color-dark;
+    #editor,
+    .ql-editor.ql-blank::before {
+        color: $editor-text-color-dark;
     }
-    .title{
-        color:$title-color-dark;
+    .title {
+        color: $title-color-dark;
     }
-    .ql-snow .ql-picker.ql-header{
-        filter: invert(97%) sepia(42%) saturate(95%) hue-rotate(173deg) brightness(114%) contrast(100%);
+    .ql-snow .ql-picker.ql-header {
+        filter: invert(97%) sepia(42%) saturate(95%) hue-rotate(173deg) brightness(114%)
+            contrast(100%);
     }
-    .ql-snow.ql-toolbar button svg, .ql-snow .ql-toolbar button svg{
-        filter: invert(97%) sepia(42%) saturate(95%) hue-rotate(173deg) brightness(114%) contrast(100%);
+    .ql-snow.ql-toolbar button svg,
+    .ql-snow .ql-toolbar button svg {
+        filter: invert(97%) sepia(42%) saturate(95%) hue-rotate(173deg) brightness(114%)
+            contrast(100%);
     }
-    .ql-toolbar{
+    .ql-toolbar {
         box-shadow: 0 0 5px 0px $toolbar-shadow-color-dark;
     }
-    #words{
-        color:$word-count-color-dark;
+    #words {
+        color: $word-count-color-dark;
     }
-    #date{
+    #date {
         background-color: $btn-color-dark;
-        color:black;
+        color: black;
     }
 }
 
-#editor{
-    h3{
+#editor {
+    h3 {
         font-weight: normal;
         font-family: 'Roboto';
     }
 
-    h2{
+    h2 {
         font-weight: normal;
         font-family: 'Roboto';
     }
 
-    p{
+    p {
         font-size: 17px;
         font-family: 'Roboto';
     }
-    
 }
 
-.invalid{
+.invalid {
     box-shadow: 0px 0px 3px 1px red;
 }
 
-.valid{
+.valid {
     box-shadow: 0px 0px 3px 1px green;
 }
 
-.invalid.big{
+.invalid.big {
     transform: scale(1.01);
 }
 
 #content .textbox .ql-editor.ql-blank::before {
-	font-size: 17px;
-	font-family: 'Roboto';
+    font-size: 17px;
+    font-family: 'Roboto';
 }

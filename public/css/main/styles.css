@@ -156,6 +156,7 @@ body.dark #left {
   overflow: clip;
 }
 #content .textbox {
+  position: relative;
   grid-area: textbox;
   width: 70%;
   display: flex;
@@ -216,7 +217,8 @@ body.light .textbox {
   background-color: rgba(248, 249, 250, 0.95);
   box-shadow: 0 0 5px 0 #adb5bd;
 }
-body.light #editor, body.light .ql-editor.ql-blank::before {
+body.light #editor,
+body.light .ql-editor.ql-blank::before {
   color: black;
 }
 body.light .title {
@@ -237,7 +239,8 @@ body.dark .textbox {
   background-color: rgba(13, 27, 42, 0.8);
   box-shadow: 0 0 5px 0 #1b263b;
 }
-body.dark #editor, body.dark .ql-editor.ql-blank::before {
+body.dark #editor,
+body.dark .ql-editor.ql-blank::before {
   color: white;
 }
 body.dark .title {
@@ -246,7 +249,8 @@ body.dark .title {
 body.dark .ql-snow .ql-picker.ql-header {
   filter: invert(97%) sepia(42%) saturate(95%) hue-rotate(173deg) brightness(114%) contrast(100%);
 }
-body.dark .ql-snow.ql-toolbar button svg, body.dark .ql-snow .ql-toolbar button svg {
+body.dark .ql-snow.ql-toolbar button svg,
+body.dark .ql-snow .ql-toolbar button svg {
   filter: invert(97%) sepia(42%) saturate(95%) hue-rotate(173deg) brightness(114%) contrast(100%);
 }
 body.dark .ql-toolbar {
@@ -703,11 +707,10 @@ body.dark #logout {
 #leftNavBtn,
 #rightNavBtn {
   position: absolute;
-  top: 45vh;
-  width: 50px;
-  height: 50px;
-  z-index: 3;
-  transition: transform 300ms ease-in-out;
+  height: 30px;
+  width: 30px;
+  top: 20px;
+  transition: transform 300ms cubic-bezier(1, -0.59, 1, 1);
 }
 #leftNavBtn:hover,
 #rightNavBtn:hover {
@@ -715,17 +718,11 @@ body.dark #logout {
 }
 
 #leftNavBtn {
-  left: -50px;
-}
-#leftNavBtn.hover {
-  transform: translateX(55px);
+  left: -35px;
 }
 
 #rightNavBtn {
-  right: -50px;
-}
-#rightNavBtn.hover {
-  transform: translateX(-55px);
+  right: -35px;
 }
 
 * {
