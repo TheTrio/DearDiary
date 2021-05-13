@@ -1,15 +1,15 @@
+if (process.env.ENVIRONMENT !== 'Production') {
+    require('dotenv').config()
+}
 const mongoose = require('mongoose')
 const Entry = require('./../models/Entry')
 
 mongoose
-    .connect(
-        'mongodb+srv://shashwat:6ESV7VkGlwBzzvDs@cluster0.tw9xi.mongodb.net/DearDiary?retryWrites=true&w=majority',
-        {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useCreateIndex: true,
-        }
-    )
+    .connect(process.DB_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+    })
     .then(() => {
         console.log('Database connected!')
     })
