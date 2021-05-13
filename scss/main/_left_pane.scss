@@ -1,7 +1,7 @@
 @use '../variables' as *;
 $animation_time: 500ms;
 
-#left{
+#left {
     box-sizing: border-box;
     padding-top: 5px;
     display: flex;
@@ -14,36 +14,41 @@ $animation_time: 500ms;
     left: -350px;
     width: 350px;
     z-index: 3;
-    top:0;
+    top: 0;
     padding-top: 50px;
     height: 100vh;
     overflow-y: auto;
     overflow-x: visible;
     transition: left ease $animation_time;
-    li:last-of-type{
+    li:last-of-type {
         margin-bottom: 1em;
     }
-    .left_container{
+    .left_container {
         display: flex;
         width: 100%;
         flex-direction: column;
-        gap:1rem;
+        gap: 1rem;
         margin-right: 0.5rem;
+        #navBtnContainer {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 10px;
+        }
     }
-    ul{
+    ul {
         list-style: none;
         margin: 0;
         width: 100%;
         padding: 0;
         display: flex;
         flex-direction: column;
-        gap:1rem;
-        li{
+        gap: 1rem;
+        li {
             display: flex;
             justify-content: center;
             align-items: center;
             max-width: 300px;
-            .entry_item{
+            .entry_item {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -57,107 +62,109 @@ $animation_time: 500ms;
                 transition: all ease-in-out 200ms;
                 max-width: 270px;
 
-                #date_label{
+                #date_label {
                     font-size: 1.1rem;
                     padding-top: 5px;
                     padding-bottom: 5px;
                 }
-                &:hover{
+                &:hover {
                     box-shadow: 0 0 5px 1px $hover-color-light;
                 }
-                &::after{
-                    position:absolute;
-                    top:15px;
+                &::after {
+                    position: absolute;
+                    top: 15px;
                     right: -40px;
-                    content: "\01F5D1";
+                    content: '\01F5D1';
                     font-size: 30px;
                     opacity: 0;
                     transition: all ease 500ms;
                 }
-                &.showDustbin::after{
+                &.showDustbin::after {
                     opacity: 1;
                     cursor: pointer;
                 }
-            
             }
         }
     }
-    .top_left{
+    .top_left {
         display: flex;
         justify-content: center;
         align-items: center;
-        &_text{
+        &_text {
             text-align: center;
             font-size: 2rem;
         }
     }
-    .entry_control{
-        &::after{
+    .entry_control {
+        &::after {
             display: none;
         }
     }
 
-    &.moveRight{
-        left:0;
+    &.moveRight {
+        left: 0;
     }
-
 }
 
-body.light{
-    .top_left_text{
-        color:$entry-text-color-light;
+body.light {
+    .top_left_text {
+        color: $entry-text-color-light;
     }
-    .entry_item{
+    .entry_item {
         background-color: $entry-color-light;
-        &.selected{
+        &.selected {
             background-color: $entry-color-light;
         }
     }
-    li,a, a:visited{
-        color:$entry-text-color-light;
+    li,
+    a,
+    a:visited {
+        color: $entry-text-color-light;
     }
-    #date_label{
-        color:$entry-date-color-light;
+    #date_label {
+        color: $entry-date-color-light;
     }
-    #left ul li .entry_item::after{
-        color:$entry-date-color-light;
-        opacity:1;
+    #left ul li .entry_item::after {
+        color: $entry-date-color-light;
+        opacity: 1;
     }
 }
 
-body.dark{
-    .top_left_text{
-        color:$left-pane-heading-color-dark;
+body.dark {
+    .top_left_text {
+        color: $left-pane-heading-color-dark;
     }
-    .entry_item{
+    .entry_item {
         background-color: $entry-color-dark;
-        &.selected{
+        &.selected {
             background-color: $entry-color-dark;
         }
     }
-    li,a, a:visited{
-        color:$entry-text-color-dark;
+    li,
+    a,
+    a:visited {
+        color: $entry-text-color-dark;
     }
-    #date_label{
-        color:$entry-date-color-dark;
+    #date_label {
+        color: $entry-date-color-dark;
     }
-    #left ul li .entry_item::after{
-        color:$dustbin-color-dark;
+    #left ul li .entry_item::after {
+        color: $dustbin-color-dark;
     }
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-body.light{
-    #left{
+body.light {
+    #left {
         background-color: $pane-color-light;
     }
 }
 
-body.dark{
-    #left{
+body.dark {
+    #left {
         background-color: $pane-color-dark;
     }
 }
