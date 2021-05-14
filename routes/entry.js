@@ -39,7 +39,6 @@ router
         isLoggedIn,
         isEntryAuthor,
         wrapAsync(async (req, res) => {
-            const entry = req.entry
             const { id } = req.params
             Entry.find({ owner: req.user })
                 .sort({ date: -1 })
@@ -64,12 +63,14 @@ router
         isLoggedIn,
         isEntryAuthor,
         wrapAsync(async (req, res) => {
-            const { id } = req.params
-            const { Delta, date, title } = req.body
+            const { Delta, title } = req.body
             const encryptedDelta = encryptEntry(Delta, req.session.key)
-            const entry = new Entry({ Delta: encryptedDelta, date, title })
-            entry.owner = req.user._id
-            await Entry.findByIdAndUpdate(id, entry)
+            const entry = req.entry
+            if (encryptedDelta !== entry.Delta) {
+                entry.Delta = encryptedDelta
+            }
+            if (entry.title !== title) entry.title = title
+            await entry.save()
             res.send('DONE!')
         })
     )

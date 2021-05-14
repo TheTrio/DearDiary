@@ -1,25 +1,29 @@
 <% layout('layouts/boilerplate') %>
-    <div id="content">
-
-        <div class="textbox">
-
-            <div class="top">
-                <input type="text" name="title" id="title" class="title" form="form" placeholder="Title goes here"
-                    autocomplete="off">
-                <input type="submit" value="Save Now" form="form" class="saveNow btn">
-                <input type="date" name="date" id="date">
-            </div>
-            <div id="words"></div>
-            <div id="editor">
-            </div>
+<div id="content">
+    <div class="textbox">
+        <div class="top">
+            <input
+                type="text"
+                name="title"
+                id="title"
+                class="title"
+                form="form"
+                placeholder="Title goes here"
+                autocomplete="off"
+            />
+            <input type="submit" value="Save Now" form="form" class="saveNow btn" />
+            <input type="date" name="date" id="date" disabled />
         </div>
+        <div id="words"></div>
+        <div id="editor"></div>
     </div>
-    <script>
-        let id = '<%= id %>'
-        if (id.length == 0) {
-            id = -1
-        }
-    </script>
-    <script src="/js/script.js"></script>
-    <script src="/js/setEntry.js"></script>
-    <script src="/js/edit.js"></script>
+</div>
+<script>
+    let id = '<%= id %>'
+    if (id.length == 0) {
+        id = -1
+    }
+</script>
+<script src="/js/script.js"></script>
+<script src="/js/setEntry.js"></script>
+<script src="/js/edit.js"></script>
