@@ -35,6 +35,15 @@ $animation_time: 500ms;
             gap: 10px;
         }
     }
+    #iconsAttribution {
+        color: gray;
+        display: flex;
+        justify-content: center;
+        margin-top: auto;
+        a {
+            color: lightblue;
+        }
+    }
     ul {
         list-style: none;
         margin: 0;
