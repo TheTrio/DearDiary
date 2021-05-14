@@ -40,9 +40,9 @@ const setEntry = (id) => {
             })
             c.classList.add('selected')
             current_entry.insertAdjacentElement('afterbegin', selected)
-            if (data.prev !== null)
+            if (data.prev !== null && data.prev !== undefined)
                 leftNavBtn.querySelector('a').setAttribute('href', `/entry/${data.prev}`)
-            if (data.next !== null)
+            if (data.next !== null && data.next !== undefined)
                 rightNavBtn.querySelector('a').setAttribute('href', `/entry/${data.next}`)
             setTimeout(() => {
                 loading_screen.classList.remove('loading')

@@ -53,7 +53,22 @@ router
         isEntryAuthor,
         wrapAsync(async (req, res) => {
             const { id } = req.params
-            await Entry.findByIdAndRemove(id)
+            const entry = req.entry
+            const prevEntry = await Entry.findById(entry.prev)
+            const nextEntry = await Entry.findById(entry.next)
+            if (prevEntry !== null && nextEntry !== null) {
+                prevEntry.next = nextEntry._id
+                nextEntry.prev = prevEntry._id
+                await prevEntry.save()
+                await nextEntry.save()
+            } else if (nextEntry === null) {
+                prevEntry.next = undefined
+                await prevEntry.save()
+            } else {
+                nextEntry.prev = undefined
+                await nextEntry.save()
+            }
+            await entry.delete()
             req.user.entryCount = req.user.entryCount - 1
             await req.user.save()
             res.send('Deleted')
