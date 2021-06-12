@@ -10,7 +10,8 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
+body,
+html {
     overflow-x: hidden;
 }
 .container {
@@ -24,6 +25,7 @@ body {
     align-items: center;
     .text {
         width: 700px;
+        max-width: 90vw;
         display: flex;
         flex-direction: column;
         gap: 50px;
@@ -81,5 +83,25 @@ body {
     }
 }
 
-.nextCard {
+@media (max-width: 900px) {
+    .content {
+        .card_container {
+            .card {
+                grid-template-columns: 1fr;
+                grid-template-rows: 0.5fr 1fr;
+                justify-items: center;
+                gap: 1em;
+                .p_container {
+                    align-items: center;
+                    p {
+                        text-align: center;
+                        font-size: 2rem;
+                    }
+                }
+                h1 {
+                    text-align: center;
+                }
+            }
+        }
+    }
 }

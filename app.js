@@ -48,11 +48,15 @@ const sessionConfig = {
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7,
     },
-    store: mongoStore.create({
+}
+
+/* use memory store for development. */
+if (process.env.ENVIRONMENT === 'PRODUCTION') {
+    sessionConfig.store = mongoStore.create({
         secret,
         mongoUrl: dbUrl,
-        touchAfter: 24 * 3600, // time period in seconds
-    }),
+        touchAfter: 24 * 3600,
+    })
 }
 
 // making sure req.body is parsed correctly
