@@ -2,49 +2,50 @@
 
 $entry-image-light: 'light_entry.jpg';
 
-$loading-screen-color-light:#f8f9fa;
+$loading-screen-color-light: #f8f9fa;
 $body-color-light: rgba(#f8f9fa, 0.95);
 $text-box-color-light: $body-color-light;
 $link-color-light: #e0aaff;
 $text-box-shadow-color-light: #adb5bd;
 $hover-color-light: $text-box-shadow-color-light;
-$editor-text-color-light:black;
-$pane-color-light:rgba($body-color-light, 0.9);
+$editor-text-color-light: black;
+$pane-color-light: rgba($body-color-light, 0.9);
 $editor-background-color-light: rgba(black, 0);
 $title-color-light: #3d5a80;
 $toolbar-shadow-color-light: #ced4da;
 
-$hamburger-color-light:black;
+$hamburger-color-light: black;
 $hamburger-color-dark: white;
 
-$entry-color-light:#c1d3fe;
-$entry-text-color-light:#212529;
-$entry-date-color-light:#495057;
-$entry-selected-color-light:#ced4da;
-$word-count-color-light:#495057;
-$input-color-light:#edf2f4;
-$login-btn-color-light:#3a86ff;
-$btn-color-light:$entry-color-light;
-$username-color-light:#2b2d42;
-$entry-count-color-light:#8d99ae;
-$settings-color-light:#3a0ca3;
+$entry-color-light: #c1d3fe;
+$entry-text-color-light: #212529;
+$entry-date-color-light: #495057;
+$entry-selected-color-light: #ced4da;
+$word-count-color-light: #495057;
+$input-color-light: #edf2f4;
+$login-btn-color-light: #3a86ff;
+$btn-color-light: $entry-color-light;
+$username-color-light: #2b2d42;
+$entry-count-color-light: #8d99ae;
+$settings-color-light: #3a0ca3;
 //dark mode variables
 
 $entry-image-dark: 'dark_entry.jpg';
 $text-box-color-dark: rgba(#0d1b2a, 0.8);
-$body-color-dark:$text-box-color-dark;
+$body-color-dark: $text-box-color-dark;
 $text-box-shadow-color-dark: #1b263b;
-$editor-text-color-dark:white;
+$editor-text-color-dark: white;
 $title-color-dark: #9381ff;
 $toolbar-shadow-color-dark: #4361ee;
-$word-count-color-dark:#f0ebe7;
-$pane-color-dark:rgba($body-color-dark, 0.9);
-$entry-color-dark:#9d4edd;
-$entry-text-color-dark:black;
-$entry-date-color-dark:#020203;
-$entry-selected-color-dark:#7b2cbf;
-$left-pane-heading-color-dark:white;
+$word-count-color-dark: #f0ebe7;
+$pane-color-dark: rgba($body-color-dark, 0.9);
+$entry-color-dark: #9d4edd;
+$entry-text-color-dark: black;
+$entry-date-color-dark: #020203;
+$entry-selected-color-dark: #7b2cbf;
+$left-pane-heading-color-dark: white;
 $dustbin-color-dark: white;
-$btn-color-dark:$entry-color-dark;
-$username-color-dark:#f72585;
-$settings-color-dark:#4cc9f0;
+$btn-color-dark: $entry-color-dark;
+$username-color-dark: #f72585;
+$settings-color-dark: #4cc9f0;
+$loading-screen-color-dark: #212529;
