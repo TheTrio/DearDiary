@@ -1,5 +1,7 @@
 # DearDiary
 
+![A screenshot of Dear Diary](https://i.imgur.com/ncOF8RR.png)
+
 A free and open source website to manage your Diary Entries. 
 
 ## Why
