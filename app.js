@@ -16,6 +16,7 @@ const entryRoutes = require('./routes/entry')
 const errorHandler = require('./routes/error')
 const apiRoutes = require('./routes/api')
 const mongoStore = require('connect-mongo')
+const mongoSanitize = require('express-mongo-sanitize')
 
 /*
     Setting up everything. Boilerplate code.
@@ -81,6 +82,10 @@ app.use(passport.session())
 passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
+
+// sanitizing Mongo
+
+app.use(mongoSanitize())
 
 // Making sure flash varaibles are available globally in all EJS templates
 app.use((req, res, next) => {
