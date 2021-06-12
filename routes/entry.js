@@ -25,6 +25,10 @@ router.get(
     isLoggedIn,
     wrapAsync(async (req, res) => {
         const len = req.user.entryCount
+        if (len <= 0) {
+            res.redirect('/entry/new')
+            return
+        }
         Entry.findOne({ owner: req.user })
             .skip(Math.floor(Math.random() * len))
             .exec((e, d) => {
@@ -100,12 +104,17 @@ router.post(
         entry.owner = req.user._id
         entry._id = uuid.v4()
         if (req.user.entryCount !== 0) {
-            let lastEntry = await Entry.find({ owner: req.user, date: { $lte: date } })
+            let lastEntry = await Entry.find({
+                owner: req.user,
+                date: { $lte: date },
+            })
                 .sort({ date: -1 })
                 .limit(1)
             lastEntry = lastEntry[0]
             if (lastEntry === null) {
-                const firstEntry = await Entry.find({ owner: req.user }).sort({ date: 1 }).limit(1)
+                const firstEntry = await Entry.find({ owner: req.user })
+                    .sort({ date: 1 })
+                    .limit(1)
                 entry.next = firstEntry._id
                 firstEntry.prev = entry._id
             } else {
