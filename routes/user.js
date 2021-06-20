@@ -4,6 +4,7 @@ const { wrapAsync } = require('../utils/wrapAsync')
 const User = require('../models/User')
 const makeHash = require('../utils/EncryptionKey')
 const rateLimit = require('express-rate-limit')
+const MongoStore = require('rate-limit-mongo')
 
 const router = express.Router()
 
@@ -13,12 +14,22 @@ const createAccountLimiter = rateLimit({
     windowMs: 60 * 60 * 1000, // 1 hour window
     max: 2,
     message: 'Too many accounts created from this IP, please try again later',
+    store: new MongoStore({
+        uri: 'mongodb://localhost:27017/DearDiary',
+        windowMs: 60 * 60 * 1000,
+        errorHandler: console.error.bind(null, 'rate-limit-mongo'),
+    }),
 })
 
 const loginAttempsLimit = rateLimit({
     windowMs: 60 * 1000 * 1000,
     max: 10,
     message: 'Too many attempts at sign in. Try again later',
+    store: new MongoStore({
+        uri: 'mongodb://localhost:27017/DearDiary',
+        windowMs: 60 * 1000 * 1000,
+        errorHandler: console.error.bind(null, 'rate-limit-mongo'),
+    }),
 })
 
 // Login routes

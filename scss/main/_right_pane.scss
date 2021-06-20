@@ -1,103 +1,79 @@
 @use '../variables' as *;
 
-#right_pane{
-	position: absolute;
-	width: 310px;
-	left:100%;
-	padding-right: 10px;
-	height: 100vh;
-	transition: all ease 500ms;
-	z-index: 2;
-	visibility: hidden;
-	&.moveLeft{
-		transform: translateX(-320px);
-		visibility: visible;
-	}
-	.right_container{
-		user-select: none;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding-top: 10px;
-		font-family: 'Roboto', sans-serif;
-		text-align: center;
-		gap:15px;
-        #logout{
+#right_pane {
+    position: absolute;
+    width: 310px;
+    left: 100%;
+    padding-right: 10px;
+    height: 100vh;
+    transition: all ease 500ms;
+    z-index: 2;
+    visibility: hidden;
+    &.moveLeft {
+        transform: translateX(-320px);
+        visibility: visible;
+    }
+    .right_container {
+        user-select: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10px;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        gap: 15px;
+        #logout {
             text-decoration: none;
             position: relative;
-            top:5px;
+            top: 5px;
         }
-		.entryCount{
-			font-size: 0.75rem;
-		}
-		.username{
-			font-size: 0.8rem;
-		}
-		.settings{
-			width: 100%;
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			grid-template-areas: 
-			"settingsLabel settingsItems";
-
-			ul{
-				list-style: none;
-				display: flex;
-				flex-direction: column;
-				gap:1rem;
-				li{
-					height: 19.2px;
-				}
-			}
-
-			.settingsLabel{
-				grid-area: settingsLabel;
-			}
-			.settingsItems{
-				grid-area: settingsItems;
-			}
-		}
-	}
-}
-
-input[type="color"]{
-	height: 19.2px;
-}
-
-body.light{
-	#right_pane{
-		background-color: $pane-color-light;
-		color:$settings-color-light;
-	}
-	li{
-		color:black;
-	}
-	.username{
-		color:$username-color-light;
-	}
-	.entryCount{
-		color:$entry-count-color-light;
-	}
-    #logout{
-        color:black;
+        .entryCount {
+            font-size: 0.75rem;
+        }
+        .username {
+            font-size: 0.8rem;
+        }
     }
 }
 
-body.dark{
-	#right_pane{
-		background-color: $pane-color-dark;
-		color:$entry-color-dark;
-		li{
-			color:$settings-color-dark;
-		}
-	}
-	.username{
-		color:$username-color-dark;
-	}
-	.entryCount{
-		color:white;
-	}
-    #logout{
-        color:white;
+input[type='color'] {
+    height: 19.2px;
+}
+
+body.light {
+    #right_pane {
+        background-color: $pane-color-light;
+        color: $settings-color-light;
+    }
+    li {
+        color: black;
+    }
+    .username {
+        color: $username-color-light;
+    }
+    .entryCount {
+        color: $entry-count-color-light;
+    }
+    #logout {
+        color: black;
+    }
+}
+
+body.dark {
+    #right_pane {
+        background-color: $pane-color-dark;
+        color: $entry-color-dark;
+        li {
+            color: $settings-color-dark;
+        }
+    }
+    .username {
+        color: $username-color-dark;
+    }
+    .entryCount {
+        color: white;
+    }
+    #logout {
+        color: white;
     }
 }

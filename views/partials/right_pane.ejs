@@ -1,67 +1,14 @@
 <div id="right_pane">
     <div class="right_container">
         <div class="username">
-            <h1>
-                <%= user.username %>
-            </h1>
+            <h1><%= user.username %></h1>
             <a href="/logout" id="logout">Log out</a>
         </div>
         <div class="entryCount">
             <h2>
-                <%= user.entryCount %>
-                    <%= user.entryCount===1?'Entry':'Entries' %> written so far
+                <%= user.entryCount %> <%= user.entryCount===1?'Entry':'Entries'
+                %> written so far
             </h2>
-        </div>
-        <h2>Website Settings</h2>
-        <div class="settings">
-            <div class="settingsLabel">
-                <ul>
-                    <li>Theme</li>
-                    <!-- <li>Background Image</li> -->
-                    <!-- <li>Heading Font</li>
-					<li>Text Font</li> -->
-                    <li>Heading color</li>
-                    <li>Text color</li>
-                    <li>Settings Pane color</li>
-                    <li>Entry Pane color</li>
-                </ul>
-            </div>
-            <div class="settingsItems">
-                <ul>
-                    <li>
-                        <input type="radio" name="theme" id="lightRadio">
-                        <label for="lightRadio">Light</label>
-                        <input type="radio" name="theme" id="darkRadio" checked>
-                        <label for="darkRadio">Dark</label>
-                    </li>
-                    <!-- <li>
-						<input type="file" name="bgimage" id="bgimage" style="max-width: 90px;">
-					</li> -->
-                    <!-- <li>
-						<div id="font-picker"></div>
-					</li> -->
-                    <!-- <li>
-						<select name="" id="">
-							<option value="">Font 1</option>
-							<option value="">Font 2</option>
-							<option value="">Font 3</option>
-							<option value="">Font 4</option>
-						</select>
-					</li> -->
-                    <li>
-                        <input type="color" name="" id="">
-                    </li>
-                    <li>
-                        <input type="color" name="" id="">
-                    </li>
-                    <li>
-                        <input type="color" name="" id="">
-                    </li>
-                    <li>
-                        <input type="color" name="" id="">
-                    </li>
-                </ul>
-            </div>
         </div>
     </div>
 </div>

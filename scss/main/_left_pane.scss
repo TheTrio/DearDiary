@@ -18,7 +18,7 @@ $animation_time: 500ms;
     padding-top: 50px;
     height: 100vh;
     overflow-y: auto;
-    overflow-x: visible;
+    overflow-x: hidden;
     transition: left ease $animation_time;
     li:last-of-type {
         margin-bottom: 1em;
