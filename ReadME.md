@@ -2,7 +2,7 @@
 
 ![A screenshot of Dear Diary](https://i.imgur.com/ncOF8RR.png)
 
-A free and open source website to manage your Diary Entries. Can be accessed from [here](https://warm-cliffs-50746.herokuapp.com/)
+A free and open source website to manage your Diary Entries. Can be found [here](https://warm-cliffs-50746.herokuapp.com/)
 
 ## Why
 
