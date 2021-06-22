@@ -6,13 +6,14 @@ A free and open source website to manage your Diary Entries.
 
 ## Why
 
-While several Diary Writing services exist, they're either paid, or have a rather limited free tier. Since they're all close sourced, users also worry about the privacy of their entries. DearDiary aims to solve both of those problems by adopting a free and open source model. 
+1. We're completely free and open source
+2. All your diary entries are encrypted. Do note that the strength of the encryption depends on your password, so its advised to choose it wisely.
+3. Apart from your diary entries, we store no other information. None whatsoever 
+4. To further ensure privacy, none of the images you upload in your entries are stored on our servers. They're uploaded privately to [IMGUR](imgur.com/) and we merely store the links of those images. And yes, even those links are encrypted 
 
-## When
+Still not convinced? You can learn about hosting Dear Diary  [here](#host-locally)
 
-Currently, DearDiary is not available for public use and is still under production. Users can however clone this repository to create their own version of DearDiary locally, with nobody but them having access to their entries.
-
-## How to run locally
+## Host locally
 
 1. Clone this repository by either downloading the zip file from Github or by entering the following in your terminal
 ```
