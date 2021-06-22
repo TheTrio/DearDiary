@@ -15,7 +15,7 @@ const createAccountLimiter = rateLimit({
     max: 2,
     message: 'Too many accounts created from this IP, please try again later',
     store: new MongoStore({
-        uri: 'mongodb://localhost:27017/DearDiary',
+        uri: process.env.DB_URL || `mongodb://localhost:27017/DearDiary`,
         windowMs: 60 * 60 * 1000,
         errorHandler: console.error.bind(null, 'rate-limit-mongo'),
     }),
@@ -26,7 +26,7 @@ const loginAttempsLimit = rateLimit({
     max: 10,
     message: 'Too many attempts at sign in. Try again later',
     store: new MongoStore({
-        uri: 'mongodb://localhost:27017/DearDiary',
+        uri: process.env.DB_URL || `mongodb://localhost:27017/DearDiary`,
         windowMs: 60 * 1000 * 1000,
         errorHandler: console.error.bind(null, 'rate-limit-mongo'),
     }),
