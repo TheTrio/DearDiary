@@ -15,7 +15,10 @@ router.get(
             .sort({ date: -1 })
             .limit(4)
             .exec((err, docs) => {
-                res.render('entries/new', { entries: docs })
+                res.render('entries/new', {
+                    entries: docs,
+                    theme: req.user.theme,
+                })
             })
     })
 )
@@ -48,7 +51,11 @@ router
                 .sort({ date: -1 })
                 .limit(4)
                 .exec((err, docs) => {
-                    res.render('entries/home', { entries: docs, id })
+                    res.render('entries/home', {
+                        entries: docs,
+                        id,
+                        theme: req.user.theme,
+                    })
                 })
         })
     )
@@ -155,7 +162,11 @@ router.get(
             .sort({ date: -1 })
             .limit(4)
             .exec((err, docs) => {
-                res.render('entries/edit', { entries: docs, id })
+                res.render('entries/edit', {
+                    entries: docs,
+                    id,
+                    theme: req.user.theme,
+                })
             })
     })
 )

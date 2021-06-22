@@ -10,5 +10,15 @@
                 %> written so far
             </h2>
         </div>
+        <ul>
+            <li>
+                <input type="radio" name="theme" id="lightRadio" <%=
+                theme==='light'?'checked':'' %> />
+                <label for="lightRadio">Light</label>
+                <input type="radio" name="theme" id="darkRadio" <%=
+                theme==='dark'?'checked':'' %>/>
+                <label for="darkRadio">Dark</label>
+            </li>
+        </ul>
     </div>
 </div>

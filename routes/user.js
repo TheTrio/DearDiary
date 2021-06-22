@@ -5,6 +5,7 @@ const User = require('../models/User')
 const makeHash = require('../utils/EncryptionKey')
 const rateLimit = require('express-rate-limit')
 const MongoStore = require('rate-limit-mongo')
+const { isLoggedIn } = require('../utils/Middleware')
 
 const router = express.Router()
 
@@ -80,4 +81,13 @@ router.get('/logout', (req, res) => {
     res.redirect('/login')
 })
 
+router.get(
+    '/flipTheme',
+    loginAttempsLimit,
+    isLoggedIn,
+    wrapAsync(async (req, res) => {
+        req.user.theme = req.user.theme == 'light' ? 'dark' : 'light'
+        await req.user.save()
+    })
+)
 module.exports = router

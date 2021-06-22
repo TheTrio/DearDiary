@@ -8,7 +8,10 @@
             href="https://fonts.googleapis.com/css2?family=Lora&family=Roboto:wght@300&display=swap"
             rel="stylesheet"
         />
-        <link href="https://cdn.quilljs.com/1.2.6/quill.snow.css" rel="stylesheet" />
+        <link
+            href="https://cdn.quilljs.com/1.2.6/quill.snow.css"
+            rel="stylesheet"
+        />
         <script src="https://cdn.quilljs.com/1.2.6/quill.min.js"></script>
         <link
             href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap"
@@ -19,11 +22,12 @@
         <title>Website</title>
     </head>
 
-    <body class="unscroll dark">
-        <%- include('../partials/top_bar') %> 
-        <%- include('../partials/error_screen') %> <%-
-        include('../partials/loading_screen') %> <%- include('../partials/left_bar') %> <%-
-        include('../partials/left_pane') %>
+    <body class="unscroll <%= theme %>">
+        <%- include('../partials/top_bar') %> <%-
+        include('../partials/error_screen') %> <%-
+        include('../partials/loading_screen') %> <%-
+        include('../partials/left_bar') %> <%- include('../partials/left_pane')
+        %>
         <!-- <div id="right"> -->
         <%- include('../partials/right_pane') %>
         <!-- </div> -->
