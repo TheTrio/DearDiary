@@ -3,7 +3,7 @@ const { isLoggedIn, isEntryAuthor } = require('../utils/Middleware')
 const { wrapAsync } = require('../utils/wrapAsync')
 const Entry = require('../models/Entry')
 const uuid = require('uuid')
-const { encryptEntry } = require('../utils/crypto')
+const { encryptEntry, decryptEntry } = require('../utils/crypto')
 
 const router = express.Router()
 
@@ -37,6 +37,45 @@ router.get(
             .exec((e, d) => {
                 res.redirect(`/entry/${d._id}`)
             })
+    })
+)
+router.get(
+    '/all',
+    isLoggedIn,
+    wrapAsync(async (req, res) => {
+        const entries = await Entry.find({ owner: req.user }).sort({ date: -1 })
+        res.render('entries/all', {
+            entries,
+        })
+    })
+)
+router.get(
+    '/export.json',
+    isLoggedIn,
+    wrapAsync(async (req, res) => {
+        const entries = await Entry.find({ owner: req.user }).sort({ date: -1 })
+        const d_entries = entries.map((entry) => {
+            const {
+                _id,
+                Delta,
+                date,
+                title,
+                owner,
+                prev = null,
+                next = null,
+            } = entry
+            const decryptedEntry = decryptEntry(Delta, req.session.key)
+            return {
+                _id,
+                Delta: decryptedEntry,
+                date,
+                title,
+                owner,
+                prev,
+                next,
+            }
+        })
+        res.send(d_entries)
     })
 )
 
