@@ -4,22 +4,11 @@
 
 A free and open source website to manage your Diary Entries. Can be found [here](https://warm-cliffs-50746.herokuapp.com/)
 
-## Why
-
-1. We're completely free and open source
-2. All your diary entries are encrypted. Do note that the strength of the encryption depends on your password, so its advised to choose it wisely.
-3. Apart from your diary entries, we store no other information. None whatsoever
-4. To further ensure privacy, none of the images you upload in your entries are stored on our servers. They're uploaded privately to [IMGUR](imgur.com/) and we merely store the links of those images. And yes, even those links are encrypted
-
 ## Host locally
 
 There might be several reasons you want to host Dear Diary locally. Most importantly, it means that your data is yours. It stays on your device, and therefore, the chances of someone getting access to it are pretty low. Here we look at how you can host Dear Diary locally.
 
-There are two ways to host Dear Diary locally - either through docker or directly.
-
-Do note that presently you can't host your database locally through docker. The reason we didn't allow this was simple - setting up 2 containers, one for the server, and another for the database would be a nightmare for most people. It would be much easier to just get a Mongo DB URL [through Atlas for free](https://www.mongodb.com/cloud/atlas) than going through all this hassle.
-
-If you still want to set up the database locally, try the second(and more manual) method
+There are two ways to host Dear Diary locally - either through docker or without it.
 
 ### Host using Docker
 
