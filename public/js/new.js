@@ -68,6 +68,7 @@ saveButton.addEventListener('click', () => {
                     entry_flash.classList.remove('visible')
                     entry_flash.classList.add('dismissed')
                 }, 5000)
+                window.onbeforeunload = null
                 id = json.entry._id
             }).catch((e) => {
                 console.log(`Caught error ${e}`)

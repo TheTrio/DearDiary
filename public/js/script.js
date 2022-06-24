@@ -1,3 +1,4 @@
+window.onbeforeunload = () => true
 Quill.register('modules/counter', function (quill, options) {
     var container = document.querySelector(options.container)
     quill.on('text-change', function () {
@@ -166,13 +167,15 @@ saveButton.addEventListener('click', () => {
             .then((resp) => resp.text())
             .then((d) => {
                 console.log(d)
-                entry_flash.querySelector('.flash_heading').innerHTML = 'Entry Saved'
+                entry_flash.querySelector('.flash_heading').innerHTML =
+                    'Entry Saved'
                 entry_flash.classList.remove('dismissed')
                 entry_flash.classList.add('visible')
                 setTimeout(() => {
                     entry_flash.classList.remove('visible')
                     entry_flash.classList.add('dismissed')
                 }, 5000)
+                window.onbeforeunload = null
                 if (d === 'DONE!') {
                     updateCurrentEntry(id, Entry.title, Entry.date)
                 }
@@ -201,18 +204,20 @@ const uploadBase64Img = async (image) => {
 }
 quill.on('text-change', async function (delta, oldDelta, source) {
     // checking if image was added
-
-    const imgs = Array.from(editor.querySelectorAll('img[src^="data:"]:not(.loading)'))
+    window.onbeforeunload = () => true
+    const imgs = Array.from(
+        editor.querySelectorAll('img[src^="data:"]:not(.loading)')
+    )
     for (const img of imgs) {
         console.log('Hello')
         img.classList.add('loading')
-        uploadBase64Img(img.getAttribute('src').replace('data:image/png;base64,', '')).then(
-            (resp) => {
-                console.log('Editing')
-                img.setAttribute('src', resp)
-                img.classList.remove('loading')
-            }
-        )
+        uploadBase64Img(
+            img.getAttribute('src').replace('data:image/png;base64,', '')
+        ).then((resp) => {
+            console.log('Editing')
+            img.setAttribute('src', resp)
+            img.classList.remove('loading')
+        })
     }
 
     if (editor.classList.contains('invalid')) {
