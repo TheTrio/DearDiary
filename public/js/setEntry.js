@@ -15,6 +15,13 @@ const setEntry = (id) => {
             quill.setContents(contents)
             date.value = data.date.slice(0, 10)
             document.title = `Diary Entry - ${data.title}`
+            const date_label = document.querySelector('#dateText')
+            date_label.innerHTML = new Intl.DateTimeFormat('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+            }).format(new Date(data.date))
             const selected = document.createElement('li')
             selected.insertAdjacentHTML(
                 'afterbegin',
@@ -41,12 +48,18 @@ const setEntry = (id) => {
             c.classList.add('selected')
             current_entry.insertAdjacentElement('afterbegin', selected)
             if (data.prev !== null && data.prev !== undefined)
-                leftNavBtn.querySelector('a').setAttribute('href', `/entry/${data.prev}`)
+                leftNavBtn
+                    .querySelector('a')
+                    .setAttribute('href', `/entry/${data.prev}`)
             if (data.next !== null && data.next !== undefined)
-                rightNavBtn.querySelector('a').setAttribute('href', `/entry/${data.next}`)
+                rightNavBtn
+                    .querySelector('a')
+                    .setAttribute('href', `/entry/${data.next}`)
             setTimeout(() => {
                 loading_screen.classList.remove('loading')
-                document.getElementsByTagName('body')[0].classList.remove('unscroll')
+                document
+                    .getElementsByTagName('body')[0]
+                    .classList.remove('unscroll')
             }, 1000)
         })
         .catch((e) => {

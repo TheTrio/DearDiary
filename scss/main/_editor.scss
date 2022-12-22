@@ -88,8 +88,10 @@ body.light {
     .ql-toolbar {
         box-shadow: 0 0 5px 0px $toolbar-shadow-color-light;
     }
-    #words {
+    #words,
+    #dateText {
         color: $word-count-color-light;
+        text-align: right;
     }
     #date {
         background-color: $btn-color-light;
@@ -109,19 +111,21 @@ body.dark {
         color: $title-color-dark;
     }
     .ql-snow .ql-picker.ql-header {
-        filter: invert(97%) sepia(42%) saturate(95%) hue-rotate(173deg) brightness(114%)
-            contrast(100%);
+        filter: invert(97%) sepia(42%) saturate(95%) hue-rotate(173deg)
+            brightness(114%) contrast(100%);
     }
     .ql-snow.ql-toolbar button svg,
     .ql-snow .ql-toolbar button svg {
-        filter: invert(97%) sepia(42%) saturate(95%) hue-rotate(173deg) brightness(114%)
-            contrast(100%);
+        filter: invert(97%) sepia(42%) saturate(95%) hue-rotate(173deg)
+            brightness(114%) contrast(100%);
     }
     .ql-toolbar {
         box-shadow: 0 0 5px 0px $toolbar-shadow-color-dark;
     }
-    #words {
+    #words,
+    #dateText {
         color: $word-count-color-dark;
+        text-align: right;
     }
     #date {
         background-color: $btn-color-dark;
