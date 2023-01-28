@@ -19,6 +19,11 @@
         border-radius: 1em;
         // min-width: 500px;
         margin-top: 15px;
+        #wordsWrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
         #words {
             padding-bottom: 1em;
         }
@@ -89,7 +94,8 @@ body.light {
         box-shadow: 0 0 5px 0px $toolbar-shadow-color-light;
     }
     #words,
-    #dateText {
+    #dateText,
+    #readTime {
         color: $word-count-color-light;
         text-align: right;
     }
@@ -123,7 +129,8 @@ body.dark {
         box-shadow: 0 0 5px 0px $toolbar-shadow-color-dark;
     }
     #words,
-    #dateText {
+    #dateText,
+    #readTime {
         color: $word-count-color-dark;
         text-align: right;
     }

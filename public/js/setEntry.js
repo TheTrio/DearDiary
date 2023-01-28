@@ -8,7 +8,7 @@ const setEntry = (id) => {
                 return resp.json()
             }
         })
-        .then((data) => {
+        .then(async (data) => {
             currentEntry = data
             title.value = data.title
             contents = data.Delta
@@ -61,6 +61,12 @@ const setEntry = (id) => {
                     .getElementsByTagName('body')[0]
                     .classList.remove('unscroll')
             }, 1000)
+            const { readingTime } = await import(
+                'https://cdn.jsdelivr.net/npm/reading-time-estimator@1.7.2/+esm'
+            )
+            const { text } = readingTime(quill.getText())
+            const readTime = document.querySelector('#readTime')
+            readTime.textContent = text
         })
         .catch((e) => {
             error_message.innerHTML = e.message
