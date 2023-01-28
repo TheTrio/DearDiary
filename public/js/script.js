@@ -1,4 +1,3 @@
-window.onbeforeunload = () => true
 Quill.register('modules/counter', function (quill, options) {
     var container = document.querySelector(options.container)
     quill.on('text-change', function () {
@@ -175,7 +174,6 @@ saveButton.addEventListener('click', () => {
                     entry_flash.classList.remove('visible')
                     entry_flash.classList.add('dismissed')
                 }, 5000)
-                window.onbeforeunload = null
                 if (d === 'DONE!') {
                     updateCurrentEntry(id, Entry.title, Entry.date)
                 }
@@ -203,8 +201,6 @@ const uploadBase64Img = async (image) => {
         .catch((error) => console.log('error', error))
 }
 quill.on('text-change', async function (delta, oldDelta, source) {
-    // checking if image was added
-    window.onbeforeunload = () => true
     const imgs = Array.from(
         editor.querySelectorAll('img[src^="data:"]:not(.loading)')
     )
