@@ -53,21 +53,16 @@ router.get(
     '/export.json',
     isLoggedIn,
     wrapAsync(async (req, res) => {
+        const decrypt = req.query.decrypt
+
         const entries = await Entry.find({ owner: req.user }).sort({ date: -1 })
-        const d_entries = entries.map((entry) => {
-            const {
-                _id,
-                markdown,
-                date,
-                title,
-                owner,
-                prev = null,
-                next = null,
-            } = entry
-            const decryptedMarkdown = decryptEntry(
-                entry.markdown,
-                req.session.key
-            )
+
+        const result_entries = entries.map((entry) => {
+            const { _id, date, title, owner, prev = null, next = null } = entry
+            let markdown = entry.markdown
+            if (decrypt) {
+                markdown = decryptEntry(entry.markdown, req.session.key)
+            }
             return {
                 _id,
                 date,
@@ -75,10 +70,10 @@ router.get(
                 owner,
                 prev,
                 next,
-                markdown: decryptedMarkdown,
+                markdown,
             }
         })
-        res.send(d_entries)
+        res.send(result_entries)
     })
 )
 
