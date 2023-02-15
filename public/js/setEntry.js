@@ -11,9 +11,8 @@ const setEntry = (id) => {
         .then(async (data) => {
             currentEntry = data
             title.value = data.title
-            contents = data.Delta
-            quill.setContents(contents)
             date.value = data.date.slice(0, 10)
+            simplemde.value(data.markdown)
             document.title = `Diary Entry - ${data.title}`
             const date_label = document.querySelector('#dateText')
             date_label.innerHTML = new Intl.DateTimeFormat('en-US', {
@@ -22,6 +21,9 @@ const setEntry = (id) => {
                 month: 'long',
                 day: 'numeric',
             }).format(new Date(data.date))
+            if (!isEditablePage()) {
+                simplemde.togglePreview()
+            }
             const selected = document.createElement('li')
             selected.insertAdjacentHTML(
                 'afterbegin',
@@ -64,11 +66,12 @@ const setEntry = (id) => {
             const { readingTime } = await import(
                 'https://cdn.jsdelivr.net/npm/reading-time-estimator@1.7.2/+esm'
             )
-            const { text } = readingTime(quill.getText())
+            const { text } = readingTime(simplemde.value())
             const readTime = document.querySelector('#readTime')
             readTime.textContent = text
         })
         .catch((e) => {
+            console.log(e)
             error_message.innerHTML = e.message
             error_screen.classList.add('visible')
             loading_screen.classList.remove('loading')

@@ -1,6 +1,10 @@
 @use '../variables' as *;
 
 #right_pane {
+    * {
+        margin: 0;
+        padding: 0;
+    }
     position: absolute;
     width: 310px;
     left: 100%;

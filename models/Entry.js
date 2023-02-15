@@ -8,10 +8,6 @@ const entrySchema = new Schema({
         ref: 'User',
         index: true,
     },
-    Delta: {
-        type: String,
-        required: true,
-    },
     date: {
         type: Date,
         required: true,
@@ -30,6 +26,10 @@ const entrySchema = new Schema({
     },
     prev: {
         type: String,
+    },
+    markdown: {
+        type: String,
+        required: true,
     },
 })
 

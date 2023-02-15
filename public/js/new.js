@@ -1,3 +1,4 @@
+simplemde.codemirror.options.readOnly = false
 current_entry.insertAdjacentHTML(
     `afterbegin`,
     `
@@ -25,7 +26,7 @@ c.addEventListener('click', (e) => {
 
 saveButton.addEventListener('click', () => {
     const chosenDate = new Date(date.value)
-    if (quill.getText().trim().length === 0) {
+    if (simplemde.value().trim().length === 0) {
         editor.classList.remove('valid')
         editor.classList.add('invalid')
         editor.classList.add('big')
@@ -41,12 +42,11 @@ saveButton.addEventListener('click', () => {
         }, 500)
     } else if (id === -1) {
         editor.classList.remove('invalid')
-        const Delta = quill.getContents().ops
         const Entry = {
             username: 'Shashwat',
-            Delta: Delta,
             date: chosenDate,
             title: title.value,
+            markdown: simplemde.value(),
         }
 
         const options = {

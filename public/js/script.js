@@ -1,33 +1,45 @@
-Quill.register('modules/counter', function (quill, options) {
-    var container = document.querySelector(options.container)
-    quill.on('text-change', function () {
-        var text = quill.getText()
-        if (options.unit === 'word') {
-            container.innerText = text.split(/\s+/).length - 1 + ' words'
-        } else {
-            container.innerText = text.length + ' characters'
-        }
-    })
+function isEditablePage() {
+    if (location.href.includes('edit') || location.href.includes('new')) {
+        return [
+            'bold',
+            'italic',
+            'heading',
+            '|',
+            'quote',
+            'unordered-list',
+            'ordered-list',
+            '|',
+            'link',
+            'image',
+            'table',
+            'horizontal-rule',
+            '|',
+            'side-by-side',
+            'fullscreen',
+            '|',
+            'guide',
+        ]
+    }
+    return false
+}
+
+const simplemde = new SimpleMDE({
+    element: document.getElementById('markdownEditor'),
+    spellChecker: false,
+    toolbar: isEditablePage(),
 })
 
-var quill = new Quill('#editor', {
-    modules: {
-        counter: {
-            container: '#words',
-            unit: 'word',
-        },
-        toolbar: true,
-    },
-    theme: 'snow',
-    scrollingContainer: '#textbox',
-    placeholder: 'Your Entry goes here',
-})
+if (isEditablePage()) {
+    document.querySelector('html').classList.add('edit')
+}
+simplemde.codemirror.options.readOnly = true
+simplemde.codemirror.options.nocursor = true
 const flashDismissButton = document.getElementsByClassName('dismiss')[0]
 const saveButton = document.getElementsByClassName('saveNow')[0]
 const title = document.getElementById('title')
 const entry_list = document.getElementById('entry_list')
 const current_entry = document.getElementById('current_entry')
-const editor = document.getElementById('editor')
+const editor = document.getElementById('markdownEditor')
 const date = document.getElementById('date')
 const entry_items = document.getElementsByClassName('entry_item')
 const a_tags = document.getElementsByTagName('a')
@@ -133,7 +145,7 @@ title.addEventListener('keyup', () => {
 
 saveButton.addEventListener('click', () => {
     const chosenDate = new Date(date.value)
-    if (quill.getText().trim().length === 0) {
+    if (simplemde.value().trim().length === 0) {
         editor.classList.remove('valid')
         editor.classList.add('invalid')
         editor.classList.add('big')
@@ -149,11 +161,10 @@ saveButton.addEventListener('click', () => {
         }, 500)
     } else if (id !== -1) {
         editor.classList.remove('invalid')
-        const Delta = quill.getContents().ops
         const Entry = {
-            Delta: Delta,
             date: chosenDate,
             title: title.value,
+            markdown: simplemde.value(),
         }
         const options = {
             method: 'PATCH',
@@ -200,24 +211,3 @@ const uploadBase64Img = async (image) => {
         })
         .catch((error) => console.log('error', error))
 }
-quill.on('text-change', async function (delta, oldDelta, source) {
-    const imgs = Array.from(
-        editor.querySelectorAll('img[src^="data:"]:not(.loading)')
-    )
-    for (const img of imgs) {
-        console.log('Hello')
-        img.classList.add('loading')
-        uploadBase64Img(
-            img.getAttribute('src').replace('data:image/png;base64,', '')
-        ).then((resp) => {
-            console.log('Editing')
-            img.setAttribute('src', resp)
-            img.classList.remove('loading')
-        })
-    }
-
-    if (editor.classList.contains('invalid')) {
-        editor.classList.remove('invalid')
-        editor.classList.add('valid')
-    }
-})

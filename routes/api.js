@@ -12,9 +12,28 @@ router.get(
     isEntryAuthor,
     wrapAsync(async (req, res) => {
         const { id } = req.params
-        const { _id, Delta, date, title, owner, prev = null, next = null } = req.entry
-        const decryptedEntry = decryptEntry(Delta, req.session.key)
-        const entry = { _id, Delta: decryptedEntry, date, title, owner, prev, next }
+        const {
+            _id,
+            markdown,
+            date,
+            title,
+            owner,
+            prev = null,
+            next = null,
+        } = req.entry
+        const decryptedMarkdown = decryptEntry(
+            req.entry.markdown,
+            req.session.key
+        )
+        const entry = {
+            _id,
+            date,
+            title,
+            owner,
+            prev,
+            next,
+            markdown: decryptedMarkdown,
+        }
         if (entry === null) {
             throw new AppError('No such Entry found', 404)
         }
@@ -29,7 +48,9 @@ router.post(
             // converts base64 string to Buffer
             // For some reason, couldn't use the imgur API manually. Had to use this package which made things a lot simpler
             const imageBase64 = Buffer.from(req.body.image, 'base64')
-            const uploader = new ImgurAnonymousUploader(process.env.imgurClientID)
+            const uploader = new ImgurAnonymousUploader(
+                process.env.imgurClientID
+            )
             const response = await uploader.uploadBuffer(imageBase64)
             console.log(response)
             res.send(response)

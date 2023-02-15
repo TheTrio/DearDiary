@@ -22,7 +22,8 @@
         #wordsWrapper {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: end;
+            margin-bottom: 1em;
         }
         #words {
             padding-bottom: 1em;
@@ -172,4 +173,28 @@ body.dark {
 #content .textbox .ql-editor.ql-blank::before {
     font-size: 17px;
     font-family: 'Roboto';
+}
+
+html:not(.edit) {
+    .CodeMirror-scroll {
+        display: none;
+    }
+    .CodeMirror.cm-s-paper.CodeMirror-wrap,
+    .CodeMirror-scroll {
+        background: transparent;
+    }
+    .editor-preview-active,
+    .editor-preview-active-side {
+        background: transparent;
+        position: relative;
+        height: max-content;
+    }
+}
+
+body.light {
+    .editor-preview,
+    .editor-preview-side,
+    .CodeMirror-scroll {
+        color: $editor-text-color-light;
+    }
 }

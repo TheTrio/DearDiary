@@ -57,22 +57,25 @@ router.get(
         const d_entries = entries.map((entry) => {
             const {
                 _id,
-                Delta,
+                markdown,
                 date,
                 title,
                 owner,
                 prev = null,
                 next = null,
             } = entry
-            const decryptedEntry = decryptEntry(Delta, req.session.key)
+            const decryptedMarkdown = decryptEntry(
+                entry.markdown,
+                req.session.key
+            )
             return {
                 _id,
-                Delta: decryptedEntry,
                 date,
                 title,
                 owner,
                 prev,
                 next,
+                markdown: decryptedMarkdown,
             }
         })
         res.send(d_entries)
@@ -128,11 +131,11 @@ router
         isLoggedIn,
         isEntryAuthor,
         wrapAsync(async (req, res) => {
-            const { Delta, title } = req.body
-            const encryptedDelta = encryptEntry(Delta, req.session.key)
+            const { markdown, title } = req.body
+            const encryptedMarkdown = encryptEntry(markdown, req.session.key)
             const entry = req.entry
-            if (encryptedDelta !== entry.Delta) {
-                entry.Delta = encryptedDelta
+            if (encryptedMarkdown !== entry.markdown) {
+                entry.markdown = encryptedMarkdown
             }
             if (entry.title !== title) entry.title = title
             await entry.save()
@@ -144,9 +147,9 @@ router.post(
     '/',
     isLoggedIn,
     wrapAsync(async (req, res) => {
-        const { Delta, date, title } = req.body
-        const encryptedDelta = encryptEntry(Delta, req.session.key)
-        const entry = new Entry({ Delta: encryptedDelta, date, title })
+        const { date, title, markdown } = req.body
+        const encryptedMarkdown = encryptEntry(markdown, req.session.key)
+        const entry = new Entry({ markdown: encryptedMarkdown, date, title })
         entry.owner = req.user._id
         entry._id = uuid.v4()
         if (req.user.entryCount !== 0) {

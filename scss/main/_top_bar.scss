@@ -1,9 +1,5 @@
 @use '../variables' as *;
 @use '../utils/entry_flash';
-* {
-    margin: 0;
-    padding: 0;
-}
 
 .top_bar {
     grid-area: top_bar;
