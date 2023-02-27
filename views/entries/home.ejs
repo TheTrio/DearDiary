@@ -1,32 +1,34 @@
 <% layout('layouts/boilerplate') %>
 <div id="content">
-    <div class="textbox">
-        <div class="top">
-            <input
-                type="text"
-                name="title"
-                id="title"
-                class="title"
-                form="form"
-                placeholder="Title goes here"
-                autocomplete="off"
-                disabled
-            />
-            <% if (id.length!==0) { %>
-            <!-- <input type="submit" value="Edit" form="form" class="saveNow btn" disabled> -->
-            <a href="/entry/<%= id %>/edit" class="saveNow btn">Edit</a>
-            <% } %>
-            <input type="date" name="date" id="date" disabled />
-        </div>
-        <div id="dateText"></div>
-        <div id="wordsWrapper">
-            <div id="readTime"></div>
-        </div>
-        <textarea id="markdownEditor"></textarea>
+  <div class="textbox">
+    <div class="top">
+      <input
+        type="text"
+        name="title"
+        id="title"
+        class="title"
+        form="form"
+        placeholder="Title goes here"
+        autocomplete="off"
+        disabled
+      />
+      <% if (id.length!==0) { %>
+      <!-- <input type="submit" value="Edit" form="form" class="saveNow btn" disabled> -->
+      <a href="/entry/<%= id %>/edit" class="saveNow btn">Edit</a>
+      <% } %>
+      <input type="date" name="date" id="date" disabled style="display: none" />
     </div>
+    <div id="entry-metadata">
+      <div id="dateText"></div>
+      <div id="wordsWrapper">
+        <div id="readTime"></div>
+      </div>
+    </div>
+    <textarea id="markdownEditor"></textarea>
+  </div>
 </div>
 <script>
-    let id = '<%= id %>'
+  let id = '<%= id %>'
 </script>
 <script src="/js/script.js"></script>
 <script src="/js/setEntry.js"></script>
