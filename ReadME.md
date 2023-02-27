@@ -11,7 +11,7 @@ Running is as simple as creating an `.env` file with the following variables:
 ```text
 DB_URL=mongodb_url for storing your entries. If you're not sure, check out MongoDB atlas.
 imgurClientID=token for uploading your images to imgur
-ENVIRONMENT=Production
+ENVIRONMENT=PRODUCTION
 ```
 
 And then, simply use docker to run the application.
