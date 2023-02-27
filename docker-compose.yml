@@ -1,0 +1,8 @@
+services:
+  web:
+    build: .
+    ports:
+      - '80:3000'
+    image: 'thetrio51/deardiary'
+    env_file:
+      - .env
