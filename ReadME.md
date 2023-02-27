@@ -10,7 +10,6 @@ Running is as simple as creating an `.env` file with the following variables:
 
 ```text
 DB_URL=mongodb_url for storing your entries. If you're not sure, check out MongoDB atlas.
-imgurClientID=token for uploading your images to imgur
 ENVIRONMENT=PRODUCTION
 ```
 
@@ -34,8 +33,8 @@ You should have a development server running on `localhost:3000`.
 
 ## Features
 
--   AES-256 encryption for diary entries
--   A way to view random entries
--   A WYSIWYG editor for writing entries
--   A (rather complicated) way to export entries
--   A functional dark mode
+- AES-256 encryption for diary entries
+- A way to view random entries
+- A WYSIWYG editor for writing entries
+- A (rather complicated) way to export entries
+- A functional dark mode
