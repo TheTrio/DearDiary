@@ -1,39 +1,41 @@
 {
-    "name": "DearDiary",
-    "version": "1.0.0",
-    "description": "",
-    "main": "app.js",
-    "scripts": {
-        "start:dev": "nodemon app.js --ignore public/",
-        "start:css": "sass scss:public/css/ --watch",
-        "start": "concurrently -n w: npm:start:*"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "axios": "^0.21.1",
-        "connect-flash": "^0.1.1",
-        "connect-mongo": "^4.4.1",
-        "crypto-js": "^4.0.0",
-        "dotenv": "^8.2.0",
-        "ejs": "^3.1.6",
-        "ejs-mate": "^3.0.0",
-        "express": "^4.17.1",
-        "express-mongo-sanitize": "^2.1.0",
-        "express-rate-limit": "^5.2.6",
-        "express-session": "^1.17.1",
-        "imgur-anonymous-uploader": "^1.1.0",
-        "mongoose": "^5.11.18",
-        "passport": "^0.4.1",
-        "passport-local": "^1.0.0",
-        "passport-local-mongoose": "^6.1.0",
-        "rate-limit-mongo": "^2.3.1",
-        "uuid": "^8.3.2"
-    },
-    "devDependencies": {
-        "concurrently": "^7.6.0",
-        "nodemon": "^2.0.20",
-        "sass": "^1.57.1"
-    }
+  "name": "DearDiary",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev:js": "nodemon app.js --ignore public/",
+    "dev:css": "sass scss:public/css/ --watch",
+    "dev": "concurrently -n w: npm:dev:*",
+    "build": "sass scss:public/css/ --style compressed",
+    "start": "npm run build && node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.4.1",
+    "crypto-js": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "ejs-mate": "^3.0.0",
+    "express": "^4.17.1",
+    "express-mongo-sanitize": "^2.1.0",
+    "express-rate-limit": "^5.2.6",
+    "express-session": "^1.17.1",
+    "imgur-anonymous-uploader": "^1.1.0",
+    "mongoose": "^5.11.18",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "rate-limit-mongo": "^2.3.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.20",
+    "sass": "^1.57.1"
+  }
 }
