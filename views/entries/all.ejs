@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>All Entries</title>
-    </head>
-    <body>
-        <ul id="entry_list">
-            <% for( let entry of entries) { %>
-            <li>
-                <div class="entry_item" id="<%= entry._id %>">
-                    <div>
-                        <a href="/entry/<%= entry._id %> ">
-                            <%= entry.title %>
-                        </a>
-                    </div>
-                    <div id="date_label">
-                        <%= new Intl.DateTimeFormat('en-US', { weekday: 'long' ,
-                        year: 'numeric' , month: 'long' , day: 'numeric'
-                        }).format(entry.date) %>
-                    </div>
-                </div>
-            </li>
-            <% } %>
-        </ul>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Entries</title>
+  </head>
+  <body>
+    <ul id="entry_list">
+      <% for( let entry of entries) { %>
+      <li>
+        <div class="entry_item" id="<%= entry._id %>">
+          <a href="/entry/<%= entry._id %> "> <%= entry.title %> </a>
+          - <%= new Intl.DateTimeFormat('en-US', { weekday: 'long' , year:
+          'numeric' , month: 'long' , day: 'numeric' }).format(entry.date) %>
+        </div>
+      </li>
+      <% } %>
+    </ul>
+  </body>
 </html>

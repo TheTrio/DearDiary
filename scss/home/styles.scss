@@ -1,105 +1,110 @@
 @use '../login/button' as btn;
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body,
 html {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 .container {
-    height: 100vh;
-    background-image: url('../../images/homepage.jpg');
-    opacity: 1;
-    background-repeat: no-repeat;
-    background-size: cover;
+  height: 100vh;
+  background-image: url('../../images/homepage.jpg');
+  opacity: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .text {
+    width: 700px;
+    max-width: 90vw;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    .text {
-        width: 700px;
-        max-width: 90vw;
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
-        font-family: 'Roboto';
-        text-align: center;
-        background-color: rgba(black, 0.6);
-        padding: 1.5rem 3rem;
-        color: white;
-        border-radius: 10px;
-        h1 {
-            font-size: 4rem;
-        }
-        p {
-            font-size: 1.5rem;
-        }
-        .btnContainer {
-            display: flex;
-            justify-content: space-around;
-            gap: 15px;
-            a {
-                cursor: pointer;
-            }
-        }
+    flex-direction: column;
+    gap: 50px;
+    font-family: 'Roboto';
+    text-align: center;
+    background-color: rgba(black, 0.6);
+    padding: 1.5rem 3rem;
+    color: white;
+    border-radius: 10px;
+    h1 {
+      font-size: 4rem;
     }
+    p {
+      font-size: 1.5rem;
+    }
+    .btnContainer {
+      display: flex;
+      justify-content: space-around;
+      gap: 15px;
+      a {
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .content {
-    font-family: 'Roboto';
-    h1 {
-        font-size: 5rem;
-        color: #3c096c;
-    }
-    .card_container {
-        position: relative;
+  font-family: 'Roboto';
+  h1 {
+    font-size: 5rem;
+    color: #3c096c;
+  }
+  .card_container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    .card {
+      padding: 0 15px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      .p_container {
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        height: 100vh;
-        .card {
-            padding: 0 15px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            .p_container {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-                gap: 1em;
-                p {
-                    font-size: 3rem;
-                    font-family: 'Nunito';
-                }
-            }
+        align-items: flex-start;
+        gap: 1em;
+        p {
+          font-size: 3rem;
+          font-family: 'Nunito';
         }
+      }
     }
+  }
 }
 
 @media (max-width: 900px) {
-    .content {
-        .card_container {
-            .card {
-                grid-template-columns: 1fr;
-                grid-template-rows: 0.5fr 1fr;
-                justify-items: center;
-                gap: 1em;
-                .p_container {
-                    align-items: center;
-                    p {
-                        text-align: center;
-                        font-size: 2rem;
-                    }
-                }
-                h1 {
-                    text-align: center;
-                }
-            }
+  .content {
+    .card_container {
+      .card {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 1fr;
+        justify-items: center;
+        gap: 1em;
+        .p_container {
+          align-items: center;
+          p {
+            text-align: center;
+            font-size: 2rem;
+          }
         }
+        h1 {
+          text-align: center;
+        }
+      }
     }
+  }
+}
+
+body {
+  padding: 0;
+  margin: 0;
 }
