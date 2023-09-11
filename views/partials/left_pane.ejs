@@ -227,7 +227,10 @@
       <% } %>
     </ul>
     <div class="top_left">
-      <span class="top_left_text"> Related Entries </span>
+      <span class="top_left_text"
+        ><%= (nextEntries.length || prevEntries.length || false) ? `Related
+        Entries` : '' %></span
+      >
     </div>
     <ul id="entry_list">
       <% for( let entry of nextEntries) { %>

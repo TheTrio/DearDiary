@@ -20,6 +20,11 @@ router.get(
           theme: req.user.theme,
           nextEntries: [],
           prevEntries: [],
+          currentEntry: {
+            title: 'Unsaved Entry',
+            date: new Date(),
+            _id: 'unsaved_entry',
+          },
         })
       })
   })

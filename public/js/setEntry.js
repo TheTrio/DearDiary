@@ -18,7 +18,6 @@ const setEntry = async (id) => {
     simplemde.togglePreview()
   }
   const c = document.querySelector(`div[id="${id}"]`)
-  console.log({ c })
   c.addEventListener('click', (e) => {
     dustbinClick(c, e)
   })
