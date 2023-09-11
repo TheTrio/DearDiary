@@ -41,7 +41,9 @@ const entry_list = document.getElementById('entry_list')
 const current_entry = document.getElementById('current_entry')
 const editor = document.getElementById('markdownEditor')
 const date = document.getElementById('date')
-const entry_items = document.getElementsByClassName('entry_item')
+const entry_items = document.getElementsByClassName(
+  '#current_entry .entry_item'
+)
 const a_tags = document.getElementsByTagName('a')
 const error_screen = document.getElementById('error_screen')
 const error_btn = document.getElementsByClassName('error_btn')[0]

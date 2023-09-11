@@ -29,6 +29,9 @@
 </div>
 <script>
   let id = '<%= id %>'
+  let entry = JSON.parse(
+    decodeURIComponent(escape(window.atob('<%= entry %>')))
+  )
 </script>
 <script src="/js/script.js"></script>
 <script src="/js/setEntry.js"></script>

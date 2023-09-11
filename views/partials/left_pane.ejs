@@ -192,12 +192,57 @@
     <div class="top_left">
       <span class="top_left_text"> Current Entry </span>
     </div>
-    <ul id="current_entry"></ul>
+    <ul id="current_entry">
+      <li>
+        <div class="entry_item showDustbin" id="<%= currentEntry._id %>">
+          <div>
+            <a href="/entry/<%= currentEntry._id %> ">
+              <%= currentEntry.title %>
+            </a>
+          </div>
+          <div id="date_label">
+            <%= new Intl.DateTimeFormat('en-US', { weekday: 'long' , year:
+            'numeric' , month: 'long' , day: 'numeric'
+            }).format(currentEntry.date) %>
+          </div>
+        </div>
+      </li>
+    </ul>
     <div class="top_left">
-      <span class="top_left_text"> Recent Entries </span>
+      <span class="top_left_text"> Latest Entries </span>
     </div>
     <ul id="entry_list">
       <% for( let entry of entries) { %>
+      <li>
+        <div class="entry_item" id="<%= entry._id %>">
+          <div>
+            <a href="/entry/<%= entry._id %> "> <%= entry.title %> </a>
+          </div>
+          <div id="date_label">
+            <%= new Intl.DateTimeFormat('en-US', { weekday: 'long' , year:
+            'numeric' , month: 'long' , day: 'numeric' }).format(entry.date) %>
+          </div>
+        </div>
+      </li>
+      <% } %>
+    </ul>
+    <div class="top_left">
+      <span class="top_left_text"> Related Entries </span>
+    </div>
+    <ul id="entry_list">
+      <% for( let entry of nextEntries) { %>
+      <li>
+        <div class="entry_item" id="<%= entry._id %>">
+          <div>
+            <a href="/entry/<%= entry._id %> "> <%= entry.title %> </a>
+          </div>
+          <div id="date_label">
+            <%= new Intl.DateTimeFormat('en-US', { weekday: 'long' , year:
+            'numeric' , month: 'long' , day: 'numeric' }).format(entry.date) %>
+          </div>
+        </div>
+      </li>
+      <% } %> <% for( let entry of prevEntries) { %>
       <li>
         <div class="entry_item" id="<%= entry._id %>">
           <div>
@@ -216,8 +261,5 @@
         </div>
       </li>
     </ul>
-  </div>
-  <div id="iconsAttribution">
-    Icons from <a href="https://www.flaticon.com/"> FlatIcon</a>
   </div>
 </div>
