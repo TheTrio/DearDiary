@@ -19,9 +19,9 @@
 </div>
 <script>
   let id = '<%= id %>'
-  if (id.length == 0) {
-    id = -1
-  }
+  let entry = JSON.parse(
+    decodeURIComponent(escape(window.atob('<%= entry %>')))
+  )
 </script>
 <script src="/js/script.js"></script>
 <script src="/js/setEntry.js"></script>

@@ -229,25 +229,54 @@ router.get(
   isLoggedIn,
   isEntryAuthor,
   wrapAsync(async (req, res) => {
-    console.log('EDITING')
     const { id } = req.params
-    let entry = -1
-    if (id != undefined) {
-      entry = await Entry.findById(id)
-      if (entry == null) {
-        throw new routerError('No such Entry found', 404)
-      }
-    }
-    Entry.find({ owner: req.user })
-      .sort({ date: -1 })
-      .limit(4)
-      .exec((err, docs) => {
-        res.render('entries/edit', {
-          entries: docs,
-          id,
-          theme: req.user.theme,
-        })
+    const promises = []
+    promises.push(
+      Entry.find({
+        owner: req.user,
+        date: { $lt: req.entry.date },
       })
+        .sort({ date: -1 })
+        .limit(2)
+        .exec()
+    )
+    promises.push(
+      Entry.find({
+        owner: req.user,
+        date: { $gt: req.entry.date },
+      })
+        .sort({ date: 1 })
+        .limit(2)
+        .exec()
+    )
+    promises.push(
+      Entry.find({ owner: req.user })
+        .sort({
+          date: -1,
+        })
+        .limit(2)
+        .exec()
+    )
+    const [prevEntries, nextEntries, recentEntries] = await Promise.all(
+      promises
+    )
+    const decryptedMarkdown = decryptEntry(req.entry.markdown, req.session.key)
+    const entry = {
+      ...(await req.entry.toJSON()),
+      markdown: decryptedMarkdown,
+    }
+    function utf8_to_b64(str) {
+      return btoa(unescape(encodeURIComponent(str)))
+    }
+    res.render('entries/edit', {
+      entries: recentEntries,
+      id,
+      entry: utf8_to_b64(JSON.stringify(entry)),
+      currentEntry: entry,
+      theme: req.user.theme,
+      prevEntries,
+      nextEntries,
+    })
   })
 )
 
