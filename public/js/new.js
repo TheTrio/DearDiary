@@ -1,24 +1,4 @@
 simplemde.codemirror.options.readOnly = false
-// current_entry.insertAdjacentHTML(
-//     `afterbegin`,
-//     `
-//     <li>
-//         <div class="entry_item" id="unsaved_entry">
-//             <div>
-//                 <a href="#">Unsaved Entry</a>
-//             </div>
-//         <div id="date_label">
-//             ${new Intl.DateTimeFormat('en-US', {
-//                 weekday: 'long',
-//                 year: 'numeric',
-//                 month: 'long',
-//                 day: 'numeric',
-//             }).format(new Date())}
-//         </div>
-//         </div>
-//     </li>
-// `
-// )
 const c = current_entry.querySelector(`#unsaved_entry`)
 
 saveButton.addEventListener('click', () => {
