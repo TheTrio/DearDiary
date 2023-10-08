@@ -2,18 +2,8 @@
 <div id="content">
   <div class="textbox">
     <div class="top">
-      <input
-        type="text"
-        name="title"
-        id="title"
-        class="title"
-        form="form"
-        placeholder="Title goes here"
-        autocomplete="off"
-        disabled
-      />
+      <h1 id="title" class="title"></h1>
       <% if (id.length!==0) { %>
-      <!-- <input type="submit" value="Edit" form="form" class="saveNow btn" disabled> -->
       <a href="/entry/<%= id %>/edit" class="saveNow btn">Edit</a>
       <% } %>
       <input type="date" name="date" id="date" disabled style="display: none" />
@@ -25,6 +15,20 @@
       </div>
     </div>
     <textarea id="markdownEditor"></textarea>
+    <div class="entry-footer" style="margin-top: 1em">
+      <div>
+        <% if(prevEntries.length){ %> Forgot the context? Read the previous
+        entry
+        <a href="/entry/<%= entry._id %>"> <%= prevEntries?.[0].title %> </a>
+        <% } %>
+      </div>
+      <div>
+        <% if(nextEntries.length){ %> Want to know what happens next? Read the
+        next entry
+        <a href="/entry/<%= entry._id %>"> <%= nextEntries?.[0].title %> </a>
+        <% } %>
+      </div>
+    </div>
   </div>
 </div>
 <script>

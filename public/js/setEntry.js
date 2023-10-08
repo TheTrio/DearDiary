@@ -3,6 +3,7 @@ const setEntry = async (id) => {
   data = entry
   currentEntry = data
   title.value = data.title
+  title.innerText = data.title
   date.value = data.date.slice(0, 10)
   simplemde.value(data.markdown)
   document.title = `Diary Entry - ${data.title}`
