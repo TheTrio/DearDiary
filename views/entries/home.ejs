@@ -19,13 +19,13 @@
       <div>
         <% if(prevEntries.length){ %> Forgot the context? Read the previous
         entry
-        <a href="/entry/<%= entry._id %>"> <%= prevEntries?.[0].title %> </a>
+        <a href="/entry/<%= prevEntries?.[0]._id %>"> <%= prevEntries?.[0].title %> </a>
         <% } %>
       </div>
       <div>
         <% if(nextEntries.length){ %> Want to know what happens next? Read the
         next entry
-        <a href="/entry/<%= entry._id %>"> <%= nextEntries?.[0].title %> </a>
+        <a href="/entry/<%= nextEntries?.[0]._id %>"> <%= nextEntries?.[0].title %> </a>
         <% } %>
       </div>
     </div>
