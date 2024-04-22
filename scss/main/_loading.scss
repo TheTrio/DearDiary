@@ -71,14 +71,3 @@
         animation-duration: 0.5s;
     }
 }
-
-body.light {
-    #loading_screen {
-        background-color: $loading-screen-color-light;
-    }
-}
-body.dark {
-    #loading_screen {
-        background-color: $loading-screen-color-dark;
-    }
-}

@@ -20,10 +20,6 @@ const setEntry = async (id) => {
     leftNavBtn.querySelector('a').setAttribute('href', `/entry/${data.prev}`)
   if (data.next !== null && data.next !== undefined)
     rightNavBtn.querySelector('a').setAttribute('href', `/entry/${data.next}`)
-  setTimeout(() => {
-    loading_screen.classList.remove('loading')
-    document.getElementsByTagName('body')[0].classList.remove('unscroll')
-  }, 1000)
   const { readingTime } = await import(
     'https://cdn.jsdelivr.net/npm/reading-time-estimator@1.7.2/+esm'
   )
@@ -311,15 +307,13 @@ const setEntry = async (id) => {
   })
   const relativeTime = new TimeAgo('en-US').format(new Date(data.date))
   if (date_label) {
-    date_label.innerHTML = `${relativeTime} on ${new Intl.DateTimeFormat(
-      'en-US',
-      {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      }
-    ).format(new Date(data.date))}`
+    date_label.innerHTML = new Intl.DateTimeFormat('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(new Date(data.date))
+    document.querySelector('#relativeTime').textContent = relativeTime
   }
   const { text } = readingTime(simplemde.value())
   const readTime = document.querySelector('#readTime')

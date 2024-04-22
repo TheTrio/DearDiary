@@ -1,4 +1,4 @@
-FROM node:gallium-alpine
+FROM --platform=linux/amd64 node:gallium-alpine
 
 WORKDIR /app
 

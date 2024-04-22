@@ -21,10 +21,10 @@
     <title>Website</title>
   </head>
 
-  <body class="unscroll <%= theme %>">
+  <body class="<%= theme %>">
     <%- include('../partials/top_bar') %> <%-
-    include('../partials/error_screen') %> <%-
-    include('../partials/loading_screen') %> <%- include('../partials/left_bar')
+    include('../partials/error_screen') %>
+    <%- include('../partials/left_bar')
     %> <%- include('../partials/left_pane') %>
     <!-- <div id="right"> -->
     <%- include('../partials/right_pane') %>

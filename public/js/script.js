@@ -48,7 +48,6 @@ const a_tags = document.getElementsByTagName('a')
 const error_screen = document.getElementById('error_screen')
 const error_btn = document.getElementsByClassName('error_btn')[0]
 const error_message = document.getElementById('error_screen_text')
-const loading_screen = document.getElementById('loading_screen')
 const hamburger = document.getElementsByClassName('hamburger')[0]
 const leftPane = document.getElementById('left')
 const bar = document.getElementsByClassName('top_bar')[0]
@@ -72,6 +71,7 @@ userIcon.addEventListener('click', (e) => {
   right_pane.classList.toggle('moveLeft')
   leftPane.classList.remove('moveRight')
   bar.classList.remove('moveRight')
+  document.getElementsByTagName('body')[0].classList.toggle('unscroll')
 })
 
 hamburger.addEventListener('click', (e) => {

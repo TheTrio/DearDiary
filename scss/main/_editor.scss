@@ -79,6 +79,15 @@
   }
 }
 
+#timeInfo{
+  display: flex;
+  flex-direction: column;
+}
+
+#relativeTime{
+  padding: 0.5em 0;
+}
+
 #entry-metadata {
   display: flex;
   justify-content: space-between;
@@ -109,8 +118,13 @@ body.light {
   }
   #words,
   #dateText,
+  #relativeTime,
   #readTime {
     color: $word-count-color-light;
+  }
+  #words,
+  #dateText,
+  #readTime {
     text-align: right;
   }
   #date {
@@ -151,8 +165,13 @@ body.dark {
   }
   #words,
   #dateText,
+  #relativeTime,
   #readTime {
     color: $word-count-color-dark;
+  }
+  #words,
+  #dateText,
+  #readTime {
     text-align: right;
   }
   #date {
