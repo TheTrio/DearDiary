@@ -12,8 +12,10 @@
       <li>
         <div class="entry_item" id="<%= entry._id %>">
           <a href="/entry/<%= entry._id %> "> <%= entry.title %> </a>
-          - <%= new Intl.DateTimeFormat('en-US', { weekday: 'long' , year:
-          'numeric' , month: 'long' , day: 'numeric' }).format(entry.date) %>
+          — <%= new Intl.DateTimeFormat('en-US', { weekday: 'long' , year:
+          'numeric' , month: 'long' , day: 'numeric' }).format(entry.date) %> <%
+          if(entry.markdown.split(' ').length >= 2){ %> — <%=
+          entry.markdown.split(' ').length %> words <% } %>
         </div>
       </li>
       <% } %>
