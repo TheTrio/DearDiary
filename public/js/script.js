@@ -23,17 +23,20 @@ function isEditablePage() {
   return false
 }
 
-const simplemde = new SimpleMDE({
-  element: document.getElementById('markdownEditor'),
-  spellChecker: false,
-  toolbar: isEditablePage(),
-})
+if (isEditablePage()) {
+  window.simplemde = new SimpleMDE({
+    element: document.getElementById('markdownEditor'),
+    spellChecker: false,
+    toolbar: isEditablePage(),
+  })
+  simplemde.codemirror.options.readOnly = true
+  simplemde.codemirror.options.nocursor = true
+}
 
 if (isEditablePage()) {
   document.querySelector('html').classList.add('edit')
 }
-simplemde.codemirror.options.readOnly = true
-simplemde.codemirror.options.nocursor = true
+
 const flashDismissButton = document.getElementsByClassName('dismiss')[0]
 const saveButton = document.getElementsByClassName('saveNow')[0]
 const title = document.getElementById('title')

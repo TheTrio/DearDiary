@@ -62,6 +62,10 @@ $animation_time: 500ms;
       align-items: center;
       // max-width: 300px;
       .entry_item {
+        div:first-child{
+          font-family: "Delicious Handrawn";
+          font-size: 1.7rem;
+        }
         display: flex;
         flex-direction: column;
         justify-content: center;

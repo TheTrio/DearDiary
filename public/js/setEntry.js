@@ -5,12 +5,14 @@ const setEntry = async (id) => {
   title.value = data.title
   title.innerText = data.title
   date.value = data.date.slice(0, 10)
-  simplemde.value(data.markdown)
+  if (isEditablePage()) {
+    simplemde.value(data.markdown)
+  } else {
+    const markdown = document.querySelector('#entry-content')
+    markdown.innerHTML = marked.parse(data.markdown)
+  }
   document.title = `Diary Entry - ${data.title}`
   const date_label = document.querySelector('#dateText')
-  if (!isEditablePage()) {
-    simplemde.togglePreview()
-  }
   const c = document.querySelector(`div[id="${id}"]`)
   c.addEventListener('click', (e) => {
     dustbinClick(c, e)
@@ -315,7 +317,7 @@ const setEntry = async (id) => {
     }).format(new Date(data.date))
     document.querySelector('#relativeTime').textContent = relativeTime
   }
-  const { text } = readingTime(simplemde.value())
+  const { text } = readingTime(data.markdown)
   const readTime = document.querySelector('#readTime')
   if (readTime) readTime.textContent = text
 }

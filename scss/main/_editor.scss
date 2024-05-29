@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: flex-start;
   margin-bottom: 20px;
-  height: 100%;
   &.scrollable {
     overflow: clip;
   }
@@ -33,14 +32,14 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 1em;
-
       .title {
-        font-family: 'Roboto', sans-serif;
+        width: 75%;
+        font-family: "Delicious Handrawn", sans-serif;
         letter-spacing: 1px;
         outline: none;
         background: none;
         border: none;
-        font-size: 2rem;
+        font-size: 6rem;
         margin: 0;
         font-weight: bold;
         transition: transform 0.5s ease;
@@ -138,6 +137,12 @@ body.light {
       color: $login-btn-color-light;
     }
   }
+  #entry-content{
+    * {
+      color: $editor-text-color-light !important;
+    }
+    color: $editor-text-color-light !important;
+  }
 }
 body.dark {
   .textbox {
@@ -185,24 +190,42 @@ body.dark {
       color: $entry-color-dark;
     }
   }
+  #entry-content{
+    * {
+      color: $editor-text-color-dark !important;
+    }
+    color: $editor-text-color-dark !important;
+  }
 }
 
 #editor,
-.editor-preview {
+.editor-preview,
+#entry-content {
   h3 {
     font-weight: normal;
-    font-family: 'Roboto';
+    font-family: "Spectral";
   }
 
   h2 {
     font-weight: normal;
-    font-family: 'Roboto';
+    font-family: "Spectral";
   }
 
   p {
     font-size: 17px;
-    font-family: 'Roboto';
+    font-family: "Spectral";
   }
+}
+
+#entry-content{
+  * {
+    color: $editor-text-color-dark !important;
+  }
+  color: $editor-text-color-dark !important;
+  opacity: 0.7;
+  letter-spacing: normal;
+  font-family: "Spectral";
+  line-height: 1.7em;
 }
 
 .invalid {

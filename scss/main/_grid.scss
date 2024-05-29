@@ -14,7 +14,7 @@ body{
     "top_bar"
     "textbox";
     row-gap: 20px;
-    height: 100vh;
+    min-height: 100vh;
     &.unscroll{
         overflow: hidden;
     }

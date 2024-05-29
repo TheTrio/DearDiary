@@ -17,7 +17,7 @@
         <div id="readTime"></div>
       </div>
     </div>
-    <textarea id="markdownEditor"></textarea>
+    <div id="entry-content"></div>
     <div class="entry-footer" style="margin-top: 1em">
       <div>
         <% if(prevEntries.length){ %> Forgot the context? Read the previous
@@ -44,6 +44,7 @@
     decodeURIComponent(escape(window.atob('<%= entry %>')))
   )
 </script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="/js/script.js"></script>
 <script src="/js/setEntry.js"></script>
 <script src="/js/home.js"></script>
