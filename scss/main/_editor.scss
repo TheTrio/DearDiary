@@ -34,7 +34,7 @@
       margin-bottom: 1em;
       .title {
         width: 75%;
-        font-family: "Delicious Handrawn", sans-serif;
+        font-family: 'Delicious Handrawn', sans-serif;
         letter-spacing: 1px;
         outline: none;
         background: none;
@@ -78,12 +78,12 @@
   }
 }
 
-#timeInfo{
+#timeInfo {
   display: flex;
   flex-direction: column;
 }
 
-#relativeTime{
+#relativeTime {
   padding: 0.5em 0;
 }
 
@@ -137,11 +137,11 @@ body.light {
       color: $login-btn-color-light;
     }
   }
-  #entry-content{
+  #entry-content {
     * {
-      color: $editor-text-color-light !important;
+      color: $editor-text-color-light;
     }
-    color: $editor-text-color-light !important;
+    color: $editor-text-color-light;
   }
 }
 body.dark {
@@ -190,11 +190,11 @@ body.dark {
       color: $btn-color-dark;
     }
   }
-  #entry-content{
+  #entry-content {
     * {
-      color: $editor-text-color-dark !important;
+      color: $editor-text-color-dark;
     }
-    color: $editor-text-color-dark !important;
+    color: $editor-text-color-dark;
   }
 }
 
@@ -203,28 +203,28 @@ body.dark {
 #entry-content {
   h3 {
     font-weight: normal;
-    font-family: "Spectral";
+    font-family: 'Spectral';
   }
 
   h2 {
     font-weight: normal;
-    font-family: "Spectral";
+    font-family: 'Spectral';
   }
 
   p {
     font-size: 17px;
-    font-family: "Spectral";
+    font-family: 'Spectral';
   }
 }
 
-#entry-content{
+#entry-content {
   * {
-    color: $editor-text-color-dark !important;
+    color: $editor-text-color-dark;
   }
-  color: $editor-text-color-dark !important;
+  color: $editor-text-color-dark;
   opacity: 0.7;
   letter-spacing: normal;
-  font-family: "Spectral";
+  font-family: 'Spectral';
   line-height: 1.7em;
 }
 
@@ -243,28 +243,4 @@ body.dark {
 #content .textbox .ql-editor.ql-blank::before {
   font-size: 17px;
   font-family: 'Roboto';
-}
-
-html:not(.edit) {
-  .CodeMirror-scroll {
-    display: none;
-  }
-  .CodeMirror.cm-s-paper.CodeMirror-wrap,
-  .CodeMirror-scroll {
-    background: transparent;
-  }
-  .editor-preview-active,
-  .editor-preview-active-side {
-    background: transparent;
-    position: relative;
-    height: max-content;
-  }
-}
-
-body.light {
-  .editor-preview,
-  .editor-preview-side,
-  .CodeMirror-scroll {
-    color: $editor-text-color-light;
-  }
 }

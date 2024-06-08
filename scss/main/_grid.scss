@@ -1,38 +1,39 @@
 @use 'error_screen';
 @use '../variables' as *;
 
-body{
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    width: 100vw;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 50px 1fr;
-    grid-template-areas: 
-    "top_bar"
-    "textbox";
-    row-gap: 20px;
-    min-height: 100vh;
-    &.unscroll{
-        overflow: hidden;
-    }
-    position: relative;
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100vw;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas:
+    'top_bar'
+    'textbox';
+  row-gap: 20px;
+  min-height: 100vh;
+  &.unscroll {
+    overflow: hidden;
+  }
+  position: relative;
 }
 
-html,body{
-    overflow-x: hidden;
+html,
+body {
+  overflow-x: hidden;
 }
 
-body.light{
-    background-image: url('../../images/#{$entry-image-light}');
+body.light {
+  background-image: url('../../images/#{$entry-image-light}');
 }
 
-body.dark{
-    background-image: url('../../images/#{$entry-image-dark}');
+body.dark {
+  background-image: url('../../images/#{$entry-image-dark}');
 }
 
-.stop-transition{
-    transition: none !important;
+.stop-transition {
+  transition: none !important;
 }
