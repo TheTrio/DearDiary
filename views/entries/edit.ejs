@@ -16,7 +16,17 @@
         autocomplete="off"
       />
       <input type="submit" value="Save Now" form="form" class="saveNow btn" />
-      <input type="date" name="date" id="date" disabled />
+      <input type="submit" value="Exit Now" form="form" class="exitNow btn" />
+      <input type="date" name="date" id="date" disabled style="display: none"/>
+    </div>
+    <div id="entry-metadata">
+      <div id="timeInfo">
+        <div id="dateText"></div>
+        <div id="relativeTime"></div>
+      </div>
+      <div id="wordsWrapper">
+        <div id="readTime"></div>
+      </div>
     </div>
     <textarea id="markdownEditor"></textarea>
   </div>
