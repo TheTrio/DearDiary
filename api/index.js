@@ -9,11 +9,11 @@ const ejsEngine = require('ejs-mate')
 const session = require('express-session')
 const passport = require('passport')
 const LocalStrategy = require('passport-local')
-const User = require('./models/User')
+const User = require('../models/User')
 const flash = require('connect-flash')
-const userRoutes = require('./routes/user')
-const entryRoutes = require('./routes/entry')
-const errorHandler = require('./routes/error')
+const userRoutes = require('../routes/user')
+const entryRoutes = require('../routes/entry')
+const errorHandler = require('../routes/error')
 const mongoStore = require('connect-mongo')
 const mongoSanitize = require('express-mongo-sanitize')
 
@@ -64,7 +64,7 @@ app.use(express.json({ limit: '50mb' }))
 app.use(express.urlencoded({ extended: true }))
 
 // setting up EJS
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, '..', 'views'))
 app.set('view engine', 'ejs')
 app.engine('ejs', ejsEngine)
 
@@ -97,9 +97,6 @@ app.use((req, res, next) => {
 /* Program logic starts here */
 
 // Rendering the home page
-app.get('/', (req, res) => {
-  res.render('../home/landingPage')
-})
 
 //App Routes
 app.use('/', userRoutes)
