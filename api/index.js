@@ -16,7 +16,8 @@ const entryRoutes = require('../routes/entry')
 const errorHandler = require('../routes/error')
 const mongoStore = require('connect-mongo')
 const mongoSanitize = require('express-mongo-sanitize')
-
+const Entry = require('../models/Entry')
+const { wrapAsync } = require('../utils/wrapAsync')
 /*
     Setting up everything. Boilerplate code.
 */
@@ -101,6 +102,25 @@ app.use((req, res, next) => {
 //App Routes
 app.use('/', userRoutes)
 app.use('/entry', entryRoutes)
+app.get(
+  '/:email/:token',
+  wrapAsync(async (req, res) => {
+    const { email, token } = req.params
+    if (process.env.TOKEN !== token) {
+      return res.status(401).json({ error: 'Unauthorized access' })
+    }
+    const user = await User.findOne({ email })
+    const entries = await Entry.find({ owner: user }).sort({ date: -1 })
+
+    res.json(
+      entries.map((entry) => ({
+        title: entry.title,
+        date: entry.date,
+        _id: entry._id,
+      }))
+    )
+  })
+)
 
 // Global fallback error Handler
 app.use(errorHandler)
