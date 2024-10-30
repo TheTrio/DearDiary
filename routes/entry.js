@@ -194,6 +194,8 @@ router
       const { markdown, title } = req.body
       const encryptedMarkdown = encryptEntry(markdown, req.session.key)
       const entry = req.entry
+      entry.words = markdown.split(/\s+/).length
+      entry.chars = markdown.length
       if (encryptedMarkdown !== entry.markdown) {
         entry.markdown = encryptedMarkdown
       }
@@ -209,7 +211,13 @@ router.post(
   wrapAsync(async (req, res) => {
     const { date, title, markdown } = req.body
     const encryptedMarkdown = encryptEntry(markdown, req.session.key)
-    const entry = new Entry({ markdown: encryptedMarkdown, date, title })
+    const entry = new Entry({
+      markdown: encryptedMarkdown,
+      date,
+      title,
+      words: markdown.split(/\s+/).length,
+      chars: markdown.length,
+    })
     entry.owner = req.user._id
     entry._id = uuid.v4()
     if (req.user.entryCount !== 0) {
