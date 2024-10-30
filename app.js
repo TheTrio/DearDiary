@@ -126,6 +126,8 @@ app.get(
         title: entry.title,
         date: entry.date,
         _id: entry._id,
+        words: entry.words,
+        chars: entry.chars,
       }))
     )
   })
