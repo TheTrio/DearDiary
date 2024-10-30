@@ -18,6 +18,7 @@ const mongoStore = require('connect-mongo')
 const mongoSanitize = require('express-mongo-sanitize')
 const Entry = require('../models/Entry')
 const { wrapAsync } = require('../utils/wrapAsync')
+const cors = require('cors')
 /*
     Setting up everything. Boilerplate code.
 */
@@ -102,8 +103,14 @@ app.use((req, res, next) => {
 //App Routes
 app.use('/', userRoutes)
 app.use('/entry', entryRoutes)
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 app.get(
   '/:email/:token',
+  cors(corsOptions),
   wrapAsync(async (req, res) => {
     const { email, token } = req.params
     if (process.env.TOKEN !== token) {
