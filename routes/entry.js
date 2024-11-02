@@ -52,25 +52,9 @@ router.get(
   wrapAsync(async (req, res) => {
     const sortBy = req.query.sort || 'date'
     const entries = await Entry.find({ owner: req.user }).sort({ [sortBy]: -1 })
-    if (sortBy === 'length') {
-      const decryptedEntries = entries.map((entry) => ({
-        title: entry.title,
-        date: entry.date,
-        _id: entry._id,
-        markdown: decryptEntry(entry.markdown, req.session.key),
-      }))
-      decryptedEntries.sort(
-        (a, b) =>
-          b.markdown.split(/\s+/).length - a.markdown.split(/\s+/).length
-      )
-      res.render('entries/all', {
-        entries: decryptedEntries,
-      })
-    } else {
-      res.render('entries/all', {
-        entries,
-      })
-    }
+    res.render('entries/all', {
+      entries: entries,
+    })
   })
 )
 router.get(
